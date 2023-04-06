@@ -1,7 +1,7 @@
 /*
 PingOne Platform API - Credentials
 
-The PingOne Platform API covering the PingONe Credentials service
+The PingOne Platform API covering the PingOne Credentials service
 
 API version: 2023-03-30
 */
@@ -26,14 +26,8 @@ type PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService servi
 type ApiCreateDigitalWalletAppRequest struct {
 	ctx context.Context
 	ApiService *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService
-	envID string
-	authorization *string
+	environmentID string
 	body *map[string]interface{}
-}
-
-func (r ApiCreateDigitalWalletAppRequest) Authorization(authorization string) ApiCreateDigitalWalletAppRequest {
-	r.authorization = &authorization
-	return r
 }
 
 func (r ApiCreateDigitalWalletAppRequest) Body(body map[string]interface{}) ApiCreateDigitalWalletAppRequest {
@@ -51,14 +45,14 @@ CreateDigitalWalletApp Create Digital Wallet App
 This PingOne collection contains only the REST API request examples without documentation. For complete documentation, go to <a href="https://apidocs.pingidentity.com/pingone/platform/v1/api/">apidocs.pingidentity.com</a>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param envID
+ @param environmentID
  @return ApiCreateDigitalWalletAppRequest
 */
-func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) CreateDigitalWalletApp(ctx context.Context, envID string) ApiCreateDigitalWalletAppRequest {
+func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) CreateDigitalWalletApp(ctx context.Context, environmentID string) ApiCreateDigitalWalletAppRequest {
 	return ApiCreateDigitalWalletAppRequest{
 		ApiService: a,
 		ctx: ctx,
-		envID: envID,
+		environmentID: environmentID,
 	}
 }
 
@@ -75,8 +69,8 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) 
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{envID}/digitalWalletApplications"
-	localVarPath = strings.Replace(localVarPath, "{"+"envID"+"}", url.PathEscape(parameterValueToString(r.envID, "envID")), -1)
+	localVarPath := localBasePath + "/environments/{environmentID}/digitalWalletApplications"
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -98,9 +92,6 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) 
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
 	}
 	// body params
 	localVarPostBody = r.body
@@ -135,14 +126,8 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) 
 type ApiDeleteDigitalWalletAppRequest struct {
 	ctx context.Context
 	ApiService *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService
-	envID string
+	environmentID string
 	digitalWalletApplicationID string
-	authorization *string
-}
-
-func (r ApiDeleteDigitalWalletAppRequest) Authorization(authorization string) ApiDeleteDigitalWalletAppRequest {
-	r.authorization = &authorization
-	return r
 }
 
 func (r ApiDeleteDigitalWalletAppRequest) Execute() (*http.Response, error) {
@@ -155,15 +140,15 @@ DeleteDigitalWalletApp Delete Digital Wallet App
 This PingOne collection contains only the REST API request examples without documentation. For complete documentation, go to <a href="https://apidocs.pingidentity.com/pingone/platform/v1/api/">apidocs.pingidentity.com</a>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param envID
+ @param environmentID
  @param digitalWalletApplicationID
  @return ApiDeleteDigitalWalletAppRequest
 */
-func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) DeleteDigitalWalletApp(ctx context.Context, envID string, digitalWalletApplicationID string) ApiDeleteDigitalWalletAppRequest {
+func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) DeleteDigitalWalletApp(ctx context.Context, environmentID string, digitalWalletApplicationID string) ApiDeleteDigitalWalletAppRequest {
 	return ApiDeleteDigitalWalletAppRequest{
 		ApiService: a,
 		ctx: ctx,
-		envID: envID,
+		environmentID: environmentID,
 		digitalWalletApplicationID: digitalWalletApplicationID,
 	}
 }
@@ -181,8 +166,8 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) 
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{envID}/digitalWalletApplications/{digitalWalletApplicationID}"
-	localVarPath = strings.Replace(localVarPath, "{"+"envID"+"}", url.PathEscape(parameterValueToString(r.envID, "envID")), -1)
+	localVarPath := localBasePath + "/environments/{environmentID}/digitalWalletApplications/{digitalWalletApplicationID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"digitalWalletApplicationID"+"}", url.PathEscape(parameterValueToString(r.digitalWalletApplicationID, "digitalWalletApplicationID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -205,9 +190,6 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) 
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -240,13 +222,7 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) 
 type ApiReadAllDigitalWalletAppsRequest struct {
 	ctx context.Context
 	ApiService *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService
-	envID string
-	authorization *string
-}
-
-func (r ApiReadAllDigitalWalletAppsRequest) Authorization(authorization string) ApiReadAllDigitalWalletAppsRequest {
-	r.authorization = &authorization
-	return r
+	environmentID string
 }
 
 func (r ApiReadAllDigitalWalletAppsRequest) Execute() (*http.Response, error) {
@@ -259,14 +235,14 @@ ReadAllDigitalWalletApps Read All Digital Wallet Apps
 This PingOne collection contains only the REST API request examples without documentation. For complete documentation, go to <a href="https://apidocs.pingidentity.com/pingone/platform/v1/api/">apidocs.pingidentity.com</a>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param envID
+ @param environmentID
  @return ApiReadAllDigitalWalletAppsRequest
 */
-func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) ReadAllDigitalWalletApps(ctx context.Context, envID string) ApiReadAllDigitalWalletAppsRequest {
+func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) ReadAllDigitalWalletApps(ctx context.Context, environmentID string) ApiReadAllDigitalWalletAppsRequest {
 	return ApiReadAllDigitalWalletAppsRequest{
 		ApiService: a,
 		ctx: ctx,
-		envID: envID,
+		environmentID: environmentID,
 	}
 }
 
@@ -283,8 +259,8 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) 
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{envID}/digitalWalletApplications"
-	localVarPath = strings.Replace(localVarPath, "{"+"envID"+"}", url.PathEscape(parameterValueToString(r.envID, "envID")), -1)
+	localVarPath := localBasePath + "/environments/{environmentID}/digitalWalletApplications"
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -306,9 +282,6 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) 
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -341,14 +314,8 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) 
 type ApiReadOneDigitalWalletAppRequest struct {
 	ctx context.Context
 	ApiService *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService
-	envID string
+	environmentID string
 	digitalWalletApplicationID string
-	authorization *string
-}
-
-func (r ApiReadOneDigitalWalletAppRequest) Authorization(authorization string) ApiReadOneDigitalWalletAppRequest {
-	r.authorization = &authorization
-	return r
 }
 
 func (r ApiReadOneDigitalWalletAppRequest) Execute() (*http.Response, error) {
@@ -361,15 +328,15 @@ ReadOneDigitalWalletApp Read One Digital Wallet App
 This PingOne collection contains only the REST API request examples without documentation. For complete documentation, go to <a href="https://apidocs.pingidentity.com/pingone/platform/v1/api/">apidocs.pingidentity.com</a>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param envID
+ @param environmentID
  @param digitalWalletApplicationID
  @return ApiReadOneDigitalWalletAppRequest
 */
-func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) ReadOneDigitalWalletApp(ctx context.Context, envID string, digitalWalletApplicationID string) ApiReadOneDigitalWalletAppRequest {
+func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) ReadOneDigitalWalletApp(ctx context.Context, environmentID string, digitalWalletApplicationID string) ApiReadOneDigitalWalletAppRequest {
 	return ApiReadOneDigitalWalletAppRequest{
 		ApiService: a,
 		ctx: ctx,
-		envID: envID,
+		environmentID: environmentID,
 		digitalWalletApplicationID: digitalWalletApplicationID,
 	}
 }
@@ -387,8 +354,8 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) 
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{envID}/digitalWalletApplications/{digitalWalletApplicationID}"
-	localVarPath = strings.Replace(localVarPath, "{"+"envID"+"}", url.PathEscape(parameterValueToString(r.envID, "envID")), -1)
+	localVarPath := localBasePath + "/environments/{environmentID}/digitalWalletApplications/{digitalWalletApplicationID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"digitalWalletApplicationID"+"}", url.PathEscape(parameterValueToString(r.digitalWalletApplicationID, "digitalWalletApplicationID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -411,9 +378,6 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) 
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -446,15 +410,9 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) 
 type ApiUpdateDigitalWalletAppRequest struct {
 	ctx context.Context
 	ApiService *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService
-	envID string
+	environmentID string
 	digitalWalletApplicationID string
-	authorization *string
 	body *map[string]interface{}
-}
-
-func (r ApiUpdateDigitalWalletAppRequest) Authorization(authorization string) ApiUpdateDigitalWalletAppRequest {
-	r.authorization = &authorization
-	return r
 }
 
 func (r ApiUpdateDigitalWalletAppRequest) Body(body map[string]interface{}) ApiUpdateDigitalWalletAppRequest {
@@ -472,15 +430,15 @@ UpdateDigitalWalletApp Update Digital Wallet App
 This PingOne collection contains only the REST API request examples without documentation. For complete documentation, go to <a href="https://apidocs.pingidentity.com/pingone/platform/v1/api/">apidocs.pingidentity.com</a>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param envID
+ @param environmentID
  @param digitalWalletApplicationID
  @return ApiUpdateDigitalWalletAppRequest
 */
-func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) UpdateDigitalWalletApp(ctx context.Context, envID string, digitalWalletApplicationID string) ApiUpdateDigitalWalletAppRequest {
+func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) UpdateDigitalWalletApp(ctx context.Context, environmentID string, digitalWalletApplicationID string) ApiUpdateDigitalWalletAppRequest {
 	return ApiUpdateDigitalWalletAppRequest{
 		ApiService: a,
 		ctx: ctx,
-		envID: envID,
+		environmentID: environmentID,
 		digitalWalletApplicationID: digitalWalletApplicationID,
 	}
 }
@@ -498,8 +456,8 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) 
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{envID}/digitalWalletApplications/{digitalWalletApplicationID}"
-	localVarPath = strings.Replace(localVarPath, "{"+"envID"+"}", url.PathEscape(parameterValueToString(r.envID, "envID")), -1)
+	localVarPath := localBasePath + "/environments/{environmentID}/digitalWalletApplications/{digitalWalletApplicationID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"digitalWalletApplicationID"+"}", url.PathEscape(parameterValueToString(r.digitalWalletApplicationID, "digitalWalletApplicationID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -522,9 +480,6 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService) 
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
 	}
 	// body params
 	localVarPostBody = r.body

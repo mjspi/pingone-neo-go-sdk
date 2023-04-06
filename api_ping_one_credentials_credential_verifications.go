@@ -1,7 +1,7 @@
 /*
 PingOne Platform API - Credentials
 
-The PingOne Platform API covering the PingONe Credentials service
+The PingOne Platform API covering the PingOne Credentials service
 
 API version: 2023-03-30
 */
@@ -26,14 +26,8 @@ type PingOneCredentialsCredentialVerificationsApiService service
 type ApiCreateCredentialVerificationPresentationSessionNativeRequest struct {
 	ctx context.Context
 	ApiService *PingOneCredentialsCredentialVerificationsApiService
-	envID string
-	authorization *string
+	environmentID string
 	body *map[string]interface{}
-}
-
-func (r ApiCreateCredentialVerificationPresentationSessionNativeRequest) Authorization(authorization string) ApiCreateCredentialVerificationPresentationSessionNativeRequest {
-	r.authorization = &authorization
-	return r
 }
 
 func (r ApiCreateCredentialVerificationPresentationSessionNativeRequest) Body(body map[string]interface{}) ApiCreateCredentialVerificationPresentationSessionNativeRequest {
@@ -51,14 +45,14 @@ CreateCredentialVerificationPresentationSessionNative Create Credential Verifica
 This PingOne collection contains only the REST API request examples without documentation. For complete documentation, go to <a href="https://apidocs.pingidentity.com/pingone/platform/v1/api/">apidocs.pingidentity.com</a>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param envID
+ @param environmentID
  @return ApiCreateCredentialVerificationPresentationSessionNativeRequest
 */
-func (a *PingOneCredentialsCredentialVerificationsApiService) CreateCredentialVerificationPresentationSessionNative(ctx context.Context, envID string) ApiCreateCredentialVerificationPresentationSessionNativeRequest {
+func (a *PingOneCredentialsCredentialVerificationsApiService) CreateCredentialVerificationPresentationSessionNative(ctx context.Context, environmentID string) ApiCreateCredentialVerificationPresentationSessionNativeRequest {
 	return ApiCreateCredentialVerificationPresentationSessionNativeRequest{
 		ApiService: a,
 		ctx: ctx,
-		envID: envID,
+		environmentID: environmentID,
 	}
 }
 
@@ -75,8 +69,8 @@ func (a *PingOneCredentialsCredentialVerificationsApiService) CreateCredentialVe
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{envID}/presentationSessions"
-	localVarPath = strings.Replace(localVarPath, "{"+"envID"+"}", url.PathEscape(parameterValueToString(r.envID, "envID")), -1)
+	localVarPath := localBasePath + "/environments/{environmentID}/presentationSessions"
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -98,9 +92,6 @@ func (a *PingOneCredentialsCredentialVerificationsApiService) CreateCredentialVe
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
 	}
 	// body params
 	localVarPostBody = r.body
@@ -135,14 +126,8 @@ func (a *PingOneCredentialsCredentialVerificationsApiService) CreateCredentialVe
 type ApiReadCredentialVerificationCredentialDataRequest struct {
 	ctx context.Context
 	ApiService *PingOneCredentialsCredentialVerificationsApiService
-	envID string
+	environmentID string
 	credentialsVerificationID string
-	authorization *string
-}
-
-func (r ApiReadCredentialVerificationCredentialDataRequest) Authorization(authorization string) ApiReadCredentialVerificationCredentialDataRequest {
-	r.authorization = &authorization
-	return r
 }
 
 func (r ApiReadCredentialVerificationCredentialDataRequest) Execute() (*http.Response, error) {
@@ -155,15 +140,15 @@ ReadCredentialVerificationCredentialData Read Credential Verification Credential
 This PingOne collection contains only the REST API request examples without documentation. For complete documentation, go to <a href="https://apidocs.pingidentity.com/pingone/platform/v1/api/">apidocs.pingidentity.com</a>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param envID
+ @param environmentID
  @param credentialsVerificationID
  @return ApiReadCredentialVerificationCredentialDataRequest
 */
-func (a *PingOneCredentialsCredentialVerificationsApiService) ReadCredentialVerificationCredentialData(ctx context.Context, envID string, credentialsVerificationID string) ApiReadCredentialVerificationCredentialDataRequest {
+func (a *PingOneCredentialsCredentialVerificationsApiService) ReadCredentialVerificationCredentialData(ctx context.Context, environmentID string, credentialsVerificationID string) ApiReadCredentialVerificationCredentialDataRequest {
 	return ApiReadCredentialVerificationCredentialDataRequest{
 		ApiService: a,
 		ctx: ctx,
-		envID: envID,
+		environmentID: environmentID,
 		credentialsVerificationID: credentialsVerificationID,
 	}
 }
@@ -181,8 +166,8 @@ func (a *PingOneCredentialsCredentialVerificationsApiService) ReadCredentialVeri
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{envID}/presentationSessions/{credentialsVerificationID}/credentialData"
-	localVarPath = strings.Replace(localVarPath, "{"+"envID"+"}", url.PathEscape(parameterValueToString(r.envID, "envID")), -1)
+	localVarPath := localBasePath + "/environments/{environmentID}/presentationSessions/{credentialsVerificationID}/credentialData"
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"credentialsVerificationID"+"}", url.PathEscape(parameterValueToString(r.credentialsVerificationID, "credentialsVerificationID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -205,9 +190,6 @@ func (a *PingOneCredentialsCredentialVerificationsApiService) ReadCredentialVeri
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -240,14 +222,8 @@ func (a *PingOneCredentialsCredentialVerificationsApiService) ReadCredentialVeri
 type ApiReadOneCredentialVerificationStatusRequest struct {
 	ctx context.Context
 	ApiService *PingOneCredentialsCredentialVerificationsApiService
-	envID string
+	environmentID string
 	credentialsVerificationID string
-	authorization *string
-}
-
-func (r ApiReadOneCredentialVerificationStatusRequest) Authorization(authorization string) ApiReadOneCredentialVerificationStatusRequest {
-	r.authorization = &authorization
-	return r
 }
 
 func (r ApiReadOneCredentialVerificationStatusRequest) Execute() (*http.Response, error) {
@@ -260,15 +236,15 @@ ReadOneCredentialVerificationStatus Read One Credential Verification Status
 This PingOne collection contains only the REST API request examples without documentation. For complete documentation, go to <a href="https://apidocs.pingidentity.com/pingone/platform/v1/api/">apidocs.pingidentity.com</a>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param envID
+ @param environmentID
  @param credentialsVerificationID
  @return ApiReadOneCredentialVerificationStatusRequest
 */
-func (a *PingOneCredentialsCredentialVerificationsApiService) ReadOneCredentialVerificationStatus(ctx context.Context, envID string, credentialsVerificationID string) ApiReadOneCredentialVerificationStatusRequest {
+func (a *PingOneCredentialsCredentialVerificationsApiService) ReadOneCredentialVerificationStatus(ctx context.Context, environmentID string, credentialsVerificationID string) ApiReadOneCredentialVerificationStatusRequest {
 	return ApiReadOneCredentialVerificationStatusRequest{
 		ApiService: a,
 		ctx: ctx,
-		envID: envID,
+		environmentID: environmentID,
 		credentialsVerificationID: credentialsVerificationID,
 	}
 }
@@ -286,8 +262,8 @@ func (a *PingOneCredentialsCredentialVerificationsApiService) ReadOneCredentialV
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{envID}/presentationSessions/{credentialsVerificationID}"
-	localVarPath = strings.Replace(localVarPath, "{"+"envID"+"}", url.PathEscape(parameterValueToString(r.envID, "envID")), -1)
+	localVarPath := localBasePath + "/environments/{environmentID}/presentationSessions/{credentialsVerificationID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"credentialsVerificationID"+"}", url.PathEscape(parameterValueToString(r.credentialsVerificationID, "credentialsVerificationID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -310,9 +286,6 @@ func (a *PingOneCredentialsCredentialVerificationsApiService) ReadOneCredentialV
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {

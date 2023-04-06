@@ -1,18 +1,18 @@
 # \PingOneCredentialsCredentialVerificationsApi
 
-All URIs are relative to *https://api.pingone.*
+All URIs are relative to *https://api.pingone.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateCredentialVerificationPresentationSessionNative**](PingOneCredentialsCredentialVerificationsApi.md#CreateCredentialVerificationPresentationSessionNative) | **Post** /environments/{envID}/presentationSessions | Create Credential Verification Presentation Session (NATIVE)
-[**ReadCredentialVerificationCredentialData**](PingOneCredentialsCredentialVerificationsApi.md#ReadCredentialVerificationCredentialData) | **Get** /environments/{envID}/presentationSessions/{credentialsVerificationID}/credentialData | Read Credential Verification Credential Data
-[**ReadOneCredentialVerificationStatus**](PingOneCredentialsCredentialVerificationsApi.md#ReadOneCredentialVerificationStatus) | **Get** /environments/{envID}/presentationSessions/{credentialsVerificationID} | Read One Credential Verification Status
+[**CreateCredentialVerificationPresentationSessionNative**](PingOneCredentialsCredentialVerificationsApi.md#CreateCredentialVerificationPresentationSessionNative) | **Post** /environments/{environmentID}/presentationSessions | Create Credential Verification Presentation Session (NATIVE)
+[**ReadCredentialVerificationCredentialData**](PingOneCredentialsCredentialVerificationsApi.md#ReadCredentialVerificationCredentialData) | **Get** /environments/{environmentID}/presentationSessions/{credentialsVerificationID}/credentialData | Read Credential Verification Credential Data
+[**ReadOneCredentialVerificationStatus**](PingOneCredentialsCredentialVerificationsApi.md#ReadOneCredentialVerificationStatus) | **Get** /environments/{environmentID}/presentationSessions/{credentialsVerificationID} | Read One Credential Verification Status
 
 
 
 ## CreateCredentialVerificationPresentationSessionNative
 
-> CreateCredentialVerificationPresentationSessionNative(ctx, envID).Authorization(authorization).Body(body).Execute()
+> CreateCredentialVerificationPresentationSessionNative(ctx, environmentID).Body(body).Execute()
 
 Create Credential Verification Presentation Session (NATIVE)
 
@@ -31,13 +31,12 @@ import (
 )
 
 func main() {
-    envID := "envID_example" // string | 
-    authorization := "Bearer {{jwtToken}}" // string |  (optional)
+    environmentID := "environmentID_example" // string | 
     body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialVerificationsApi.CreateCredentialVerificationPresentationSessionNative(context.Background(), envID).Authorization(authorization).Body(body).Execute()
+    r, err := apiClient.PingOneCredentialsCredentialVerificationsApi.CreateCredentialVerificationPresentationSessionNative(context.Background(), environmentID).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialVerificationsApi.CreateCredentialVerificationPresentationSessionNative``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -51,7 +50,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**envID** | **string** |  | 
+**environmentID** | **string** |  | 
 
 ### Other Parameters
 
@@ -61,7 +60,6 @@ Other parameters are passed through a pointer to a apiCreateCredentialVerificati
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **authorization** | **string** |  | 
  **body** | **map[string]interface{}** |  | 
 
 ### Return type
@@ -84,7 +82,7 @@ Name | Type | Description  | Notes
 
 ## ReadCredentialVerificationCredentialData
 
-> ReadCredentialVerificationCredentialData(ctx, envID, credentialsVerificationID).Authorization(authorization).Execute()
+> ReadCredentialVerificationCredentialData(ctx, environmentID, credentialsVerificationID).Execute()
 
 Read Credential Verification Credential Data
 
@@ -103,13 +101,12 @@ import (
 )
 
 func main() {
-    envID := "envID_example" // string | 
+    environmentID := "environmentID_example" // string | 
     credentialsVerificationID := "credentialsVerificationID_example" // string | 
-    authorization := "Bearer {{jwtToken}}" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialVerificationsApi.ReadCredentialVerificationCredentialData(context.Background(), envID, credentialsVerificationID).Authorization(authorization).Execute()
+    r, err := apiClient.PingOneCredentialsCredentialVerificationsApi.ReadCredentialVerificationCredentialData(context.Background(), environmentID, credentialsVerificationID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialVerificationsApi.ReadCredentialVerificationCredentialData``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -123,7 +120,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**envID** | **string** |  | 
+**environmentID** | **string** |  | 
 **credentialsVerificationID** | **string** |  | 
 
 ### Other Parameters
@@ -135,7 +132,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **authorization** | **string** |  | 
 
 ### Return type
 
@@ -157,7 +153,7 @@ Name | Type | Description  | Notes
 
 ## ReadOneCredentialVerificationStatus
 
-> ReadOneCredentialVerificationStatus(ctx, envID, credentialsVerificationID).Authorization(authorization).Execute()
+> ReadOneCredentialVerificationStatus(ctx, environmentID, credentialsVerificationID).Execute()
 
 Read One Credential Verification Status
 
@@ -176,13 +172,12 @@ import (
 )
 
 func main() {
-    envID := "envID_example" // string | 
+    environmentID := "environmentID_example" // string | 
     credentialsVerificationID := "credentialsVerificationID_example" // string | 
-    authorization := "Bearer {{jwtToken}}" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialVerificationsApi.ReadOneCredentialVerificationStatus(context.Background(), envID, credentialsVerificationID).Authorization(authorization).Execute()
+    r, err := apiClient.PingOneCredentialsCredentialVerificationsApi.ReadOneCredentialVerificationStatus(context.Background(), environmentID, credentialsVerificationID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialVerificationsApi.ReadOneCredentialVerificationStatus``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -196,7 +191,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**envID** | **string** |  | 
+**environmentID** | **string** |  | 
 **credentialsVerificationID** | **string** |  | 
 
 ### Other Parameters
@@ -208,7 +203,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **authorization** | **string** |  | 
 
 ### Return type
 

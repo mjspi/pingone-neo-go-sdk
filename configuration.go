@@ -1,7 +1,7 @@
 /*
 PingOne Platform API - Credentials
 
-The PingOne Platform API covering the PingONe Credentials service
+The PingOne Platform API covering the PingOne Credentials service
 
 API version: 2023-03-30
 */
@@ -95,6 +95,18 @@ func NewConfiguration() *Configuration {
 			{
 				URL: "https://api.pingone.{suffix}",
 				Description: "PingOne Platform API Endpoint",
+				Variables: map[string]ServerVariable{
+					"suffix": ServerVariable{
+						Description: "No description provided",
+						DefaultValue: "com",
+						EnumValues: []string{
+							"eu",
+							"com",
+							"asia",
+							"ca",
+						},
+					},
+				},
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{

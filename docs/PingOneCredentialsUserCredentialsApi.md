@@ -1,20 +1,20 @@
 # \PingOneCredentialsUserCredentialsApi
 
-All URIs are relative to *https://api.pingone.*
+All URIs are relative to *https://api.pingone.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateAUserCredential**](PingOneCredentialsUserCredentialsApi.md#CreateAUserCredential) | **Post** /environments/{envID}/users/{userID}/credentials | Create a User Credential
-[**ReadAllUserCredentials**](PingOneCredentialsUserCredentialsApi.md#ReadAllUserCredentials) | **Get** /environments/{envID}/users/{userID}/credentials | Read All User Credentials
-[**ReadOneUserCredential**](PingOneCredentialsUserCredentialsApi.md#ReadOneUserCredential) | **Get** /environments/{envID}/users/{userID}/credentials/{credentialID} | Read One User Credential
-[**ReadOneUserCredentialWallets**](PingOneCredentialsUserCredentialsApi.md#ReadOneUserCredentialWallets) | **Get** /environments/{envID}/users/{userID}/credentials/{credentialID}/provisionedCredentials | Read One User Credential Wallets
-[**UpdateAUserCredential**](PingOneCredentialsUserCredentialsApi.md#UpdateAUserCredential) | **Put** /environments/{envID}/users/{userID}/credentials/{credentialID} | Update a User Credential
+[**CreateAUserCredential**](PingOneCredentialsUserCredentialsApi.md#CreateAUserCredential) | **Post** /environments/{environmentID}/users/{userID}/credentials | Create a User Credential
+[**ReadAllUserCredentials**](PingOneCredentialsUserCredentialsApi.md#ReadAllUserCredentials) | **Get** /environments/{environmentID}/users/{userID}/credentials | Read All User Credentials
+[**ReadOneUserCredential**](PingOneCredentialsUserCredentialsApi.md#ReadOneUserCredential) | **Get** /environments/{environmentID}/users/{userID}/credentials/{credentialID} | Read One User Credential
+[**ReadOneUserCredentialWallets**](PingOneCredentialsUserCredentialsApi.md#ReadOneUserCredentialWallets) | **Get** /environments/{environmentID}/users/{userID}/credentials/{credentialID}/provisionedCredentials | Read One User Credential Wallets
+[**UpdateAUserCredential**](PingOneCredentialsUserCredentialsApi.md#UpdateAUserCredential) | **Put** /environments/{environmentID}/users/{userID}/credentials/{credentialID} | Update a User Credential
 
 
 
 ## CreateAUserCredential
 
-> CreateAUserCredential(ctx, envID, userID).Authorization(authorization).Body(body).Execute()
+> CreateAUserCredential(ctx, environmentID, userID).Body(body).Execute()
 
 Create a User Credential
 
@@ -33,14 +33,13 @@ import (
 )
 
 func main() {
-    envID := "envID_example" // string | 
+    environmentID := "environmentID_example" // string | 
     userID := "userID_example" // string | 
-    authorization := "Bearer {{jwtToken}}" // string |  (optional)
     body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsUserCredentialsApi.CreateAUserCredential(context.Background(), envID, userID).Authorization(authorization).Body(body).Execute()
+    r, err := apiClient.PingOneCredentialsUserCredentialsApi.CreateAUserCredential(context.Background(), environmentID, userID).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsUserCredentialsApi.CreateAUserCredential``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -54,7 +53,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**envID** | **string** |  | 
+**environmentID** | **string** |  | 
 **userID** | **string** |  | 
 
 ### Other Parameters
@@ -66,7 +65,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **authorization** | **string** |  | 
  **body** | **map[string]interface{}** |  | 
 
 ### Return type
@@ -89,7 +87,7 @@ Name | Type | Description  | Notes
 
 ## ReadAllUserCredentials
 
-> ReadAllUserCredentials(ctx, envID, userID).Authorization(authorization).Execute()
+> ReadAllUserCredentials(ctx, environmentID, userID).Execute()
 
 Read All User Credentials
 
@@ -108,13 +106,12 @@ import (
 )
 
 func main() {
-    envID := "envID_example" // string | 
+    environmentID := "environmentID_example" // string | 
     userID := "userID_example" // string | 
-    authorization := "Bearer {{jwtToken}}" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadAllUserCredentials(context.Background(), envID, userID).Authorization(authorization).Execute()
+    r, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadAllUserCredentials(context.Background(), environmentID, userID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsUserCredentialsApi.ReadAllUserCredentials``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -128,7 +125,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**envID** | **string** |  | 
+**environmentID** | **string** |  | 
 **userID** | **string** |  | 
 
 ### Other Parameters
@@ -140,7 +137,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **authorization** | **string** |  | 
 
 ### Return type
 
@@ -162,7 +158,7 @@ Name | Type | Description  | Notes
 
 ## ReadOneUserCredential
 
-> ReadOneUserCredential(ctx, envID, userID, credentialID).Authorization(authorization).Execute()
+> ReadOneUserCredential(ctx, environmentID, userID, credentialID).Execute()
 
 Read One User Credential
 
@@ -181,14 +177,13 @@ import (
 )
 
 func main() {
-    envID := "envID_example" // string | 
+    environmentID := "environmentID_example" // string | 
     userID := "userID_example" // string | 
     credentialID := "credentialID_example" // string | 
-    authorization := "Bearer {{jwtToken}}" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadOneUserCredential(context.Background(), envID, userID, credentialID).Authorization(authorization).Execute()
+    r, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadOneUserCredential(context.Background(), environmentID, userID, credentialID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsUserCredentialsApi.ReadOneUserCredential``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -202,7 +197,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**envID** | **string** |  | 
+**environmentID** | **string** |  | 
 **userID** | **string** |  | 
 **credentialID** | **string** |  | 
 
@@ -216,7 +211,6 @@ Name | Type | Description  | Notes
 
 
 
- **authorization** | **string** |  | 
 
 ### Return type
 
@@ -238,7 +232,7 @@ Name | Type | Description  | Notes
 
 ## ReadOneUserCredentialWallets
 
-> ReadOneUserCredentialWallets(ctx, envID, userID, credentialID).Authorization(authorization).Execute()
+> ReadOneUserCredentialWallets(ctx, environmentID, userID, credentialID).Execute()
 
 Read One User Credential Wallets
 
@@ -257,14 +251,13 @@ import (
 )
 
 func main() {
-    envID := "envID_example" // string | 
+    environmentID := "environmentID_example" // string | 
     userID := "userID_example" // string | 
     credentialID := "credentialID_example" // string | 
-    authorization := "Bearer {{jwtToken}}" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadOneUserCredentialWallets(context.Background(), envID, userID, credentialID).Authorization(authorization).Execute()
+    r, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadOneUserCredentialWallets(context.Background(), environmentID, userID, credentialID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsUserCredentialsApi.ReadOneUserCredentialWallets``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -278,7 +271,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**envID** | **string** |  | 
+**environmentID** | **string** |  | 
 **userID** | **string** |  | 
 **credentialID** | **string** |  | 
 
@@ -292,7 +285,6 @@ Name | Type | Description  | Notes
 
 
 
- **authorization** | **string** |  | 
 
 ### Return type
 
@@ -314,7 +306,7 @@ Name | Type | Description  | Notes
 
 ## UpdateAUserCredential
 
-> UpdateAUserCredential(ctx, envID, userID, credentialID).Authorization(authorization).Body(body).Execute()
+> UpdateAUserCredential(ctx, environmentID, userID, credentialID).Body(body).Execute()
 
 Update a User Credential
 
@@ -333,15 +325,14 @@ import (
 )
 
 func main() {
-    envID := "envID_example" // string | 
+    environmentID := "environmentID_example" // string | 
     userID := "userID_example" // string | 
     credentialID := "credentialID_example" // string | 
-    authorization := "Bearer {{jwtToken}}" // string |  (optional)
     body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsUserCredentialsApi.UpdateAUserCredential(context.Background(), envID, userID, credentialID).Authorization(authorization).Body(body).Execute()
+    r, err := apiClient.PingOneCredentialsUserCredentialsApi.UpdateAUserCredential(context.Background(), environmentID, userID, credentialID).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsUserCredentialsApi.UpdateAUserCredential``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -355,7 +346,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**envID** | **string** |  | 
+**environmentID** | **string** |  | 
 **userID** | **string** |  | 
 **credentialID** | **string** |  | 
 
@@ -369,7 +360,6 @@ Name | Type | Description  | Notes
 
 
 
- **authorization** | **string** |  | 
  **body** | **map[string]interface{}** |  | 
 
 ### Return type

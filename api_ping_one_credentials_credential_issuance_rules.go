@@ -1,7 +1,7 @@
 /*
 PingOne Platform API - Credentials
 
-The PingOne Platform API covering the PingONe Credentials service
+The PingOne Platform API covering the PingOne Credentials service
 
 API version: 2023-03-30
 */
@@ -26,17 +26,11 @@ type PingOneCredentialsCredentialIssuanceRulesApiService service
 type ApiApplyCredentialIssuanceRuleStagedChangesRequest struct {
 	ctx context.Context
 	ApiService *PingOneCredentialsCredentialIssuanceRulesApiService
-	envID string
+	environmentID string
 	credentialTypeID string
 	credentialIssuanceRuleID string
-	authorization *string
 	contentType *string
 	body *map[string]interface{}
-}
-
-func (r ApiApplyCredentialIssuanceRuleStagedChangesRequest) Authorization(authorization string) ApiApplyCredentialIssuanceRuleStagedChangesRequest {
-	r.authorization = &authorization
-	return r
 }
 
 func (r ApiApplyCredentialIssuanceRuleStagedChangesRequest) ContentType(contentType string) ApiApplyCredentialIssuanceRuleStagedChangesRequest {
@@ -59,16 +53,16 @@ ApplyCredentialIssuanceRuleStagedChanges Apply Credential Issuance Rule Staged C
 This PingOne collection contains only the REST API request examples without documentation. For complete documentation, go to <a href="https://apidocs.pingidentity.com/pingone/platform/v1/api/">apidocs.pingidentity.com</a>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param envID
+ @param environmentID
  @param credentialTypeID
  @param credentialIssuanceRuleID
  @return ApiApplyCredentialIssuanceRuleStagedChangesRequest
 */
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ApplyCredentialIssuanceRuleStagedChanges(ctx context.Context, envID string, credentialTypeID string, credentialIssuanceRuleID string) ApiApplyCredentialIssuanceRuleStagedChangesRequest {
+func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ApplyCredentialIssuanceRuleStagedChanges(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiApplyCredentialIssuanceRuleStagedChangesRequest {
 	return ApiApplyCredentialIssuanceRuleStagedChangesRequest{
 		ApiService: a,
 		ctx: ctx,
-		envID: envID,
+		environmentID: environmentID,
 		credentialTypeID: credentialTypeID,
 		credentialIssuanceRuleID: credentialIssuanceRuleID,
 	}
@@ -87,8 +81,8 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ApplyCredentialIss
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{envID}/credentialTypes/{credentialTypeID}/issuanceRules/{credentialIssuanceRuleID}/stagedChanges"
-	localVarPath = strings.Replace(localVarPath, "{"+"envID"+"}", url.PathEscape(parameterValueToString(r.envID, "envID")), -1)
+	localVarPath := localBasePath + "/environments/{environmentID}/credentialTypes/{credentialTypeID}/issuanceRules/{credentialIssuanceRuleID}/stagedChanges"
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"credentialTypeID"+"}", url.PathEscape(parameterValueToString(r.credentialTypeID, "credentialTypeID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"credentialIssuanceRuleID"+"}", url.PathEscape(parameterValueToString(r.credentialIssuanceRuleID, "credentialIssuanceRuleID")), -1)
 
@@ -112,9 +106,6 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ApplyCredentialIss
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
 	}
 	if r.contentType != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Content-Type", r.contentType, "")
@@ -152,15 +143,9 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ApplyCredentialIss
 type ApiCreateCredentialIssuanceRuleRequest struct {
 	ctx context.Context
 	ApiService *PingOneCredentialsCredentialIssuanceRulesApiService
-	envID string
+	environmentID string
 	credentialTypeID string
-	authorization *string
 	body *map[string]interface{}
-}
-
-func (r ApiCreateCredentialIssuanceRuleRequest) Authorization(authorization string) ApiCreateCredentialIssuanceRuleRequest {
-	r.authorization = &authorization
-	return r
 }
 
 func (r ApiCreateCredentialIssuanceRuleRequest) Body(body map[string]interface{}) ApiCreateCredentialIssuanceRuleRequest {
@@ -178,15 +163,15 @@ CreateCredentialIssuanceRule Create Credential Issuance Rule
 This PingOne collection contains only the REST API request examples without documentation. For complete documentation, go to <a href="https://apidocs.pingidentity.com/pingone/platform/v1/api/">apidocs.pingidentity.com</a>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param envID
+ @param environmentID
  @param credentialTypeID
  @return ApiCreateCredentialIssuanceRuleRequest
 */
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) CreateCredentialIssuanceRule(ctx context.Context, envID string, credentialTypeID string) ApiCreateCredentialIssuanceRuleRequest {
+func (a *PingOneCredentialsCredentialIssuanceRulesApiService) CreateCredentialIssuanceRule(ctx context.Context, environmentID string, credentialTypeID string) ApiCreateCredentialIssuanceRuleRequest {
 	return ApiCreateCredentialIssuanceRuleRequest{
 		ApiService: a,
 		ctx: ctx,
-		envID: envID,
+		environmentID: environmentID,
 		credentialTypeID: credentialTypeID,
 	}
 }
@@ -204,8 +189,8 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) CreateCredentialIs
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{envID}/credentialTypes/{credentialTypeID}/issuanceRules"
-	localVarPath = strings.Replace(localVarPath, "{"+"envID"+"}", url.PathEscape(parameterValueToString(r.envID, "envID")), -1)
+	localVarPath := localBasePath + "/environments/{environmentID}/credentialTypes/{credentialTypeID}/issuanceRules"
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"credentialTypeID"+"}", url.PathEscape(parameterValueToString(r.credentialTypeID, "credentialTypeID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -228,9 +213,6 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) CreateCredentialIs
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
 	}
 	// body params
 	localVarPostBody = r.body
@@ -265,15 +247,9 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) CreateCredentialIs
 type ApiDeleteCredentialIssuanceRuleRequest struct {
 	ctx context.Context
 	ApiService *PingOneCredentialsCredentialIssuanceRulesApiService
-	envID string
+	environmentID string
 	credentialTypeID string
 	credentialIssuanceRuleID string
-	authorization *string
-}
-
-func (r ApiDeleteCredentialIssuanceRuleRequest) Authorization(authorization string) ApiDeleteCredentialIssuanceRuleRequest {
-	r.authorization = &authorization
-	return r
 }
 
 func (r ApiDeleteCredentialIssuanceRuleRequest) Execute() (*http.Response, error) {
@@ -286,16 +262,16 @@ DeleteCredentialIssuanceRule Delete Credential Issuance Rule
 This PingOne collection contains only the REST API request examples without documentation. For complete documentation, go to <a href="https://apidocs.pingidentity.com/pingone/platform/v1/api/">apidocs.pingidentity.com</a>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param envID
+ @param environmentID
  @param credentialTypeID
  @param credentialIssuanceRuleID
  @return ApiDeleteCredentialIssuanceRuleRequest
 */
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) DeleteCredentialIssuanceRule(ctx context.Context, envID string, credentialTypeID string, credentialIssuanceRuleID string) ApiDeleteCredentialIssuanceRuleRequest {
+func (a *PingOneCredentialsCredentialIssuanceRulesApiService) DeleteCredentialIssuanceRule(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiDeleteCredentialIssuanceRuleRequest {
 	return ApiDeleteCredentialIssuanceRuleRequest{
 		ApiService: a,
 		ctx: ctx,
-		envID: envID,
+		environmentID: environmentID,
 		credentialTypeID: credentialTypeID,
 		credentialIssuanceRuleID: credentialIssuanceRuleID,
 	}
@@ -314,8 +290,8 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) DeleteCredentialIs
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{envID}/credentialTypes/{credentialTypeID}/issuanceRules/{credentialIssuanceRuleID}"
-	localVarPath = strings.Replace(localVarPath, "{"+"envID"+"}", url.PathEscape(parameterValueToString(r.envID, "envID")), -1)
+	localVarPath := localBasePath + "/environments/{environmentID}/credentialTypes/{credentialTypeID}/issuanceRules/{credentialIssuanceRuleID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"credentialTypeID"+"}", url.PathEscape(parameterValueToString(r.credentialTypeID, "credentialTypeID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"credentialIssuanceRuleID"+"}", url.PathEscape(parameterValueToString(r.credentialIssuanceRuleID, "credentialIssuanceRuleID")), -1)
 
@@ -339,9 +315,6 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) DeleteCredentialIs
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -374,14 +347,8 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) DeleteCredentialIs
 type ApiReadAllCredentialIssuanceRulesRequest struct {
 	ctx context.Context
 	ApiService *PingOneCredentialsCredentialIssuanceRulesApiService
-	envID string
+	environmentID string
 	credentialTypeID string
-	authorization *string
-}
-
-func (r ApiReadAllCredentialIssuanceRulesRequest) Authorization(authorization string) ApiReadAllCredentialIssuanceRulesRequest {
-	r.authorization = &authorization
-	return r
 }
 
 func (r ApiReadAllCredentialIssuanceRulesRequest) Execute() (*http.Response, error) {
@@ -394,15 +361,15 @@ ReadAllCredentialIssuanceRules Read All Credential Issuance Rules
 This PingOne collection contains only the REST API request examples without documentation. For complete documentation, go to <a href="https://apidocs.pingidentity.com/pingone/platform/v1/api/">apidocs.pingidentity.com</a>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param envID
+ @param environmentID
  @param credentialTypeID
  @return ApiReadAllCredentialIssuanceRulesRequest
 */
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadAllCredentialIssuanceRules(ctx context.Context, envID string, credentialTypeID string) ApiReadAllCredentialIssuanceRulesRequest {
+func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadAllCredentialIssuanceRules(ctx context.Context, environmentID string, credentialTypeID string) ApiReadAllCredentialIssuanceRulesRequest {
 	return ApiReadAllCredentialIssuanceRulesRequest{
 		ApiService: a,
 		ctx: ctx,
-		envID: envID,
+		environmentID: environmentID,
 		credentialTypeID: credentialTypeID,
 	}
 }
@@ -420,8 +387,8 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadAllCredentialI
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{envID}/credentialTypes/{credentialTypeID}/issuanceRules"
-	localVarPath = strings.Replace(localVarPath, "{"+"envID"+"}", url.PathEscape(parameterValueToString(r.envID, "envID")), -1)
+	localVarPath := localBasePath + "/environments/{environmentID}/credentialTypes/{credentialTypeID}/issuanceRules"
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"credentialTypeID"+"}", url.PathEscape(parameterValueToString(r.credentialTypeID, "credentialTypeID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -444,9 +411,6 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadAllCredentialI
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -479,15 +443,9 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadAllCredentialI
 type ApiReadCredentialIssuanceRuleStagedChangesRequest struct {
 	ctx context.Context
 	ApiService *PingOneCredentialsCredentialIssuanceRulesApiService
-	envID string
+	environmentID string
 	credentialTypeID string
 	credentialIssuanceRuleID string
-	authorization *string
-}
-
-func (r ApiReadCredentialIssuanceRuleStagedChangesRequest) Authorization(authorization string) ApiReadCredentialIssuanceRuleStagedChangesRequest {
-	r.authorization = &authorization
-	return r
 }
 
 func (r ApiReadCredentialIssuanceRuleStagedChangesRequest) Execute() (*http.Response, error) {
@@ -500,16 +458,16 @@ ReadCredentialIssuanceRuleStagedChanges Read Credential Issuance Rule Staged Cha
 This PingOne collection contains only the REST API request examples without documentation. For complete documentation, go to <a href="https://apidocs.pingidentity.com/pingone/platform/v1/api/">apidocs.pingidentity.com</a>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param envID
+ @param environmentID
  @param credentialTypeID
  @param credentialIssuanceRuleID
  @return ApiReadCredentialIssuanceRuleStagedChangesRequest
 */
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssuanceRuleStagedChanges(ctx context.Context, envID string, credentialTypeID string, credentialIssuanceRuleID string) ApiReadCredentialIssuanceRuleStagedChangesRequest {
+func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssuanceRuleStagedChanges(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiReadCredentialIssuanceRuleStagedChangesRequest {
 	return ApiReadCredentialIssuanceRuleStagedChangesRequest{
 		ApiService: a,
 		ctx: ctx,
-		envID: envID,
+		environmentID: environmentID,
 		credentialTypeID: credentialTypeID,
 		credentialIssuanceRuleID: credentialIssuanceRuleID,
 	}
@@ -528,8 +486,8 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssu
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{envID}/credentialTypes/{credentialTypeID}/issuanceRules/{credentialIssuanceRuleID}/stagedChanges"
-	localVarPath = strings.Replace(localVarPath, "{"+"envID"+"}", url.PathEscape(parameterValueToString(r.envID, "envID")), -1)
+	localVarPath := localBasePath + "/environments/{environmentID}/credentialTypes/{credentialTypeID}/issuanceRules/{credentialIssuanceRuleID}/stagedChanges"
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"credentialTypeID"+"}", url.PathEscape(parameterValueToString(r.credentialTypeID, "credentialTypeID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"credentialIssuanceRuleID"+"}", url.PathEscape(parameterValueToString(r.credentialIssuanceRuleID, "credentialIssuanceRuleID")), -1)
 
@@ -553,9 +511,6 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssu
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -588,15 +543,9 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssu
 type ApiReadCredentialIssuanceRuleUsageCountsRequest struct {
 	ctx context.Context
 	ApiService *PingOneCredentialsCredentialIssuanceRulesApiService
-	envID string
+	environmentID string
 	credentialTypeID string
 	credentialIssuanceRuleID string
-	authorization *string
-}
-
-func (r ApiReadCredentialIssuanceRuleUsageCountsRequest) Authorization(authorization string) ApiReadCredentialIssuanceRuleUsageCountsRequest {
-	r.authorization = &authorization
-	return r
 }
 
 func (r ApiReadCredentialIssuanceRuleUsageCountsRequest) Execute() (*http.Response, error) {
@@ -609,16 +558,16 @@ ReadCredentialIssuanceRuleUsageCounts Read Credential Issuance Rule Usage Counts
 This PingOne collection contains only the REST API request examples without documentation. For complete documentation, go to <a href="https://apidocs.pingidentity.com/pingone/platform/v1/api/">apidocs.pingidentity.com</a>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param envID
+ @param environmentID
  @param credentialTypeID
  @param credentialIssuanceRuleID
  @return ApiReadCredentialIssuanceRuleUsageCountsRequest
 */
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssuanceRuleUsageCounts(ctx context.Context, envID string, credentialTypeID string, credentialIssuanceRuleID string) ApiReadCredentialIssuanceRuleUsageCountsRequest {
+func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssuanceRuleUsageCounts(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiReadCredentialIssuanceRuleUsageCountsRequest {
 	return ApiReadCredentialIssuanceRuleUsageCountsRequest{
 		ApiService: a,
 		ctx: ctx,
-		envID: envID,
+		environmentID: environmentID,
 		credentialTypeID: credentialTypeID,
 		credentialIssuanceRuleID: credentialIssuanceRuleID,
 	}
@@ -637,8 +586,8 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssu
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{envID}/credentialTypes/{credentialTypeID}/issuanceRules/{credentialIssuanceRuleID}/usageCounts"
-	localVarPath = strings.Replace(localVarPath, "{"+"envID"+"}", url.PathEscape(parameterValueToString(r.envID, "envID")), -1)
+	localVarPath := localBasePath + "/environments/{environmentID}/credentialTypes/{credentialTypeID}/issuanceRules/{credentialIssuanceRuleID}/usageCounts"
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"credentialTypeID"+"}", url.PathEscape(parameterValueToString(r.credentialTypeID, "credentialTypeID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"credentialIssuanceRuleID"+"}", url.PathEscape(parameterValueToString(r.credentialIssuanceRuleID, "credentialIssuanceRuleID")), -1)
 
@@ -662,9 +611,6 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssu
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -697,15 +643,9 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssu
 type ApiReadCredentialIssuanceRuleUsageDetailsRequest struct {
 	ctx context.Context
 	ApiService *PingOneCredentialsCredentialIssuanceRulesApiService
-	envID string
+	environmentID string
 	credentialTypeID string
 	credentialIssuanceRuleID string
-	authorization *string
-}
-
-func (r ApiReadCredentialIssuanceRuleUsageDetailsRequest) Authorization(authorization string) ApiReadCredentialIssuanceRuleUsageDetailsRequest {
-	r.authorization = &authorization
-	return r
 }
 
 func (r ApiReadCredentialIssuanceRuleUsageDetailsRequest) Execute() (*http.Response, error) {
@@ -718,16 +658,16 @@ ReadCredentialIssuanceRuleUsageDetails Read Credential Issuance Rule Usage Detai
 This PingOne collection contains only the REST API request examples without documentation. For complete documentation, go to <a href="https://apidocs.pingidentity.com/pingone/platform/v1/api/">apidocs.pingidentity.com</a>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param envID
+ @param environmentID
  @param credentialTypeID
  @param credentialIssuanceRuleID
  @return ApiReadCredentialIssuanceRuleUsageDetailsRequest
 */
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssuanceRuleUsageDetails(ctx context.Context, envID string, credentialTypeID string, credentialIssuanceRuleID string) ApiReadCredentialIssuanceRuleUsageDetailsRequest {
+func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssuanceRuleUsageDetails(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiReadCredentialIssuanceRuleUsageDetailsRequest {
 	return ApiReadCredentialIssuanceRuleUsageDetailsRequest{
 		ApiService: a,
 		ctx: ctx,
-		envID: envID,
+		environmentID: environmentID,
 		credentialTypeID: credentialTypeID,
 		credentialIssuanceRuleID: credentialIssuanceRuleID,
 	}
@@ -746,8 +686,8 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssu
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{envID}/credentialTypes/{credentialTypeID}/issuanceRules/{credentialIssuanceRuleID}/usageDetails"
-	localVarPath = strings.Replace(localVarPath, "{"+"envID"+"}", url.PathEscape(parameterValueToString(r.envID, "envID")), -1)
+	localVarPath := localBasePath + "/environments/{environmentID}/credentialTypes/{credentialTypeID}/issuanceRules/{credentialIssuanceRuleID}/usageDetails"
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"credentialTypeID"+"}", url.PathEscape(parameterValueToString(r.credentialTypeID, "credentialTypeID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"credentialIssuanceRuleID"+"}", url.PathEscape(parameterValueToString(r.credentialIssuanceRuleID, "credentialIssuanceRuleID")), -1)
 
@@ -771,9 +711,6 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssu
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -806,15 +743,9 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssu
 type ApiReadOneCredentialIssuanceRuleRequest struct {
 	ctx context.Context
 	ApiService *PingOneCredentialsCredentialIssuanceRulesApiService
-	envID string
+	environmentID string
 	credentialTypeID string
 	credentialIssuanceRuleID string
-	authorization *string
-}
-
-func (r ApiReadOneCredentialIssuanceRuleRequest) Authorization(authorization string) ApiReadOneCredentialIssuanceRuleRequest {
-	r.authorization = &authorization
-	return r
 }
 
 func (r ApiReadOneCredentialIssuanceRuleRequest) Execute() (*http.Response, error) {
@@ -827,16 +758,16 @@ ReadOneCredentialIssuanceRule Read One Credential Issuance Rule
 This PingOne collection contains only the REST API request examples without documentation. For complete documentation, go to <a href="https://apidocs.pingidentity.com/pingone/platform/v1/api/">apidocs.pingidentity.com</a>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param envID
+ @param environmentID
  @param credentialTypeID
  @param credentialIssuanceRuleID
  @return ApiReadOneCredentialIssuanceRuleRequest
 */
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadOneCredentialIssuanceRule(ctx context.Context, envID string, credentialTypeID string, credentialIssuanceRuleID string) ApiReadOneCredentialIssuanceRuleRequest {
+func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadOneCredentialIssuanceRule(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiReadOneCredentialIssuanceRuleRequest {
 	return ApiReadOneCredentialIssuanceRuleRequest{
 		ApiService: a,
 		ctx: ctx,
-		envID: envID,
+		environmentID: environmentID,
 		credentialTypeID: credentialTypeID,
 		credentialIssuanceRuleID: credentialIssuanceRuleID,
 	}
@@ -855,8 +786,8 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadOneCredentialI
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{envID}/credentialTypes/{credentialTypeID}/issuanceRules/{credentialIssuanceRuleID}"
-	localVarPath = strings.Replace(localVarPath, "{"+"envID"+"}", url.PathEscape(parameterValueToString(r.envID, "envID")), -1)
+	localVarPath := localBasePath + "/environments/{environmentID}/credentialTypes/{credentialTypeID}/issuanceRules/{credentialIssuanceRuleID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"credentialTypeID"+"}", url.PathEscape(parameterValueToString(r.credentialTypeID, "credentialTypeID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"credentialIssuanceRuleID"+"}", url.PathEscape(parameterValueToString(r.credentialIssuanceRuleID, "credentialIssuanceRuleID")), -1)
 
@@ -880,9 +811,6 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadOneCredentialI
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -915,16 +843,10 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadOneCredentialI
 type ApiUpdateCredentialIssuanceRuleRequest struct {
 	ctx context.Context
 	ApiService *PingOneCredentialsCredentialIssuanceRulesApiService
-	envID string
+	environmentID string
 	credentialTypeID string
 	credentialIssuanceRuleID string
-	authorization *string
 	body *map[string]interface{}
-}
-
-func (r ApiUpdateCredentialIssuanceRuleRequest) Authorization(authorization string) ApiUpdateCredentialIssuanceRuleRequest {
-	r.authorization = &authorization
-	return r
 }
 
 func (r ApiUpdateCredentialIssuanceRuleRequest) Body(body map[string]interface{}) ApiUpdateCredentialIssuanceRuleRequest {
@@ -942,16 +864,16 @@ UpdateCredentialIssuanceRule Update Credential Issuance Rule
 This PingOne collection contains only the REST API request examples without documentation. For complete documentation, go to <a href="https://apidocs.pingidentity.com/pingone/platform/v1/api/">apidocs.pingidentity.com</a>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param envID
+ @param environmentID
  @param credentialTypeID
  @param credentialIssuanceRuleID
  @return ApiUpdateCredentialIssuanceRuleRequest
 */
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) UpdateCredentialIssuanceRule(ctx context.Context, envID string, credentialTypeID string, credentialIssuanceRuleID string) ApiUpdateCredentialIssuanceRuleRequest {
+func (a *PingOneCredentialsCredentialIssuanceRulesApiService) UpdateCredentialIssuanceRule(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiUpdateCredentialIssuanceRuleRequest {
 	return ApiUpdateCredentialIssuanceRuleRequest{
 		ApiService: a,
 		ctx: ctx,
-		envID: envID,
+		environmentID: environmentID,
 		credentialTypeID: credentialTypeID,
 		credentialIssuanceRuleID: credentialIssuanceRuleID,
 	}
@@ -970,8 +892,8 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) UpdateCredentialIs
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{envID}/credentialTypes/{credentialTypeID}/issuanceRules/{credentialIssuanceRuleID}"
-	localVarPath = strings.Replace(localVarPath, "{"+"envID"+"}", url.PathEscape(parameterValueToString(r.envID, "envID")), -1)
+	localVarPath := localBasePath + "/environments/{environmentID}/credentialTypes/{credentialTypeID}/issuanceRules/{credentialIssuanceRuleID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"credentialTypeID"+"}", url.PathEscape(parameterValueToString(r.credentialTypeID, "credentialTypeID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"credentialIssuanceRuleID"+"}", url.PathEscape(parameterValueToString(r.credentialIssuanceRuleID, "credentialIssuanceRuleID")), -1)
 
@@ -995,9 +917,6 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) UpdateCredentialIs
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
 	}
 	// body params
 	localVarPostBody = r.body

@@ -1,20 +1,20 @@
 # \PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi
 
-All URIs are relative to *https://api.pingone.*
+All URIs are relative to *https://api.pingone.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateDigitalWalletApp**](PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.md#CreateDigitalWalletApp) | **Post** /environments/{envID}/digitalWalletApplications | Create Digital Wallet App
-[**DeleteDigitalWalletApp**](PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.md#DeleteDigitalWalletApp) | **Delete** /environments/{envID}/digitalWalletApplications/{digitalWalletApplicationID} | Delete Digital Wallet App
-[**ReadAllDigitalWalletApps**](PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.md#ReadAllDigitalWalletApps) | **Get** /environments/{envID}/digitalWalletApplications | Read All Digital Wallet Apps
-[**ReadOneDigitalWalletApp**](PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.md#ReadOneDigitalWalletApp) | **Get** /environments/{envID}/digitalWalletApplications/{digitalWalletApplicationID} | Read One Digital Wallet App
-[**UpdateDigitalWalletApp**](PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.md#UpdateDigitalWalletApp) | **Put** /environments/{envID}/digitalWalletApplications/{digitalWalletApplicationID} | Update Digital Wallet App
+[**CreateDigitalWalletApp**](PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.md#CreateDigitalWalletApp) | **Post** /environments/{environmentID}/digitalWalletApplications | Create Digital Wallet App
+[**DeleteDigitalWalletApp**](PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.md#DeleteDigitalWalletApp) | **Delete** /environments/{environmentID}/digitalWalletApplications/{digitalWalletApplicationID} | Delete Digital Wallet App
+[**ReadAllDigitalWalletApps**](PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.md#ReadAllDigitalWalletApps) | **Get** /environments/{environmentID}/digitalWalletApplications | Read All Digital Wallet Apps
+[**ReadOneDigitalWalletApp**](PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.md#ReadOneDigitalWalletApp) | **Get** /environments/{environmentID}/digitalWalletApplications/{digitalWalletApplicationID} | Read One Digital Wallet App
+[**UpdateDigitalWalletApp**](PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.md#UpdateDigitalWalletApp) | **Put** /environments/{environmentID}/digitalWalletApplications/{digitalWalletApplicationID} | Update Digital Wallet App
 
 
 
 ## CreateDigitalWalletApp
 
-> CreateDigitalWalletApp(ctx, envID).Authorization(authorization).Body(body).Execute()
+> CreateDigitalWalletApp(ctx, environmentID).Body(body).Execute()
 
 Create Digital Wallet App
 
@@ -33,13 +33,12 @@ import (
 )
 
 func main() {
-    envID := "envID_example" // string | 
-    authorization := "Bearer {{jwtToken}}" // string |  (optional)
+    environmentID := "environmentID_example" // string | 
     body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.CreateDigitalWalletApp(context.Background(), envID).Authorization(authorization).Body(body).Execute()
+    r, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.CreateDigitalWalletApp(context.Background(), environmentID).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.CreateDigitalWalletApp``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -53,7 +52,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**envID** | **string** |  | 
+**environmentID** | **string** |  | 
 
 ### Other Parameters
 
@@ -63,7 +62,6 @@ Other parameters are passed through a pointer to a apiCreateDigitalWalletAppRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **authorization** | **string** |  | 
  **body** | **map[string]interface{}** |  | 
 
 ### Return type
@@ -86,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## DeleteDigitalWalletApp
 
-> DeleteDigitalWalletApp(ctx, envID, digitalWalletApplicationID).Authorization(authorization).Execute()
+> DeleteDigitalWalletApp(ctx, environmentID, digitalWalletApplicationID).Execute()
 
 Delete Digital Wallet App
 
@@ -105,13 +103,12 @@ import (
 )
 
 func main() {
-    envID := "envID_example" // string | 
+    environmentID := "environmentID_example" // string | 
     digitalWalletApplicationID := "digitalWalletApplicationID_example" // string | 
-    authorization := "Bearer {{jwtToken}}" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.DeleteDigitalWalletApp(context.Background(), envID, digitalWalletApplicationID).Authorization(authorization).Execute()
+    r, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.DeleteDigitalWalletApp(context.Background(), environmentID, digitalWalletApplicationID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.DeleteDigitalWalletApp``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -125,7 +122,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**envID** | **string** |  | 
+**environmentID** | **string** |  | 
 **digitalWalletApplicationID** | **string** |  | 
 
 ### Other Parameters
@@ -137,7 +134,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **authorization** | **string** |  | 
 
 ### Return type
 
@@ -159,7 +155,7 @@ Name | Type | Description  | Notes
 
 ## ReadAllDigitalWalletApps
 
-> ReadAllDigitalWalletApps(ctx, envID).Authorization(authorization).Execute()
+> ReadAllDigitalWalletApps(ctx, environmentID).Execute()
 
 Read All Digital Wallet Apps
 
@@ -178,12 +174,11 @@ import (
 )
 
 func main() {
-    envID := "envID_example" // string | 
-    authorization := "Bearer {{jwtToken}}" // string |  (optional)
+    environmentID := "environmentID_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.ReadAllDigitalWalletApps(context.Background(), envID).Authorization(authorization).Execute()
+    r, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.ReadAllDigitalWalletApps(context.Background(), environmentID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.ReadAllDigitalWalletApps``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -197,7 +192,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**envID** | **string** |  | 
+**environmentID** | **string** |  | 
 
 ### Other Parameters
 
@@ -207,7 +202,6 @@ Other parameters are passed through a pointer to a apiReadAllDigitalWalletAppsRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **authorization** | **string** |  | 
 
 ### Return type
 
@@ -229,7 +223,7 @@ Name | Type | Description  | Notes
 
 ## ReadOneDigitalWalletApp
 
-> ReadOneDigitalWalletApp(ctx, envID, digitalWalletApplicationID).Authorization(authorization).Execute()
+> ReadOneDigitalWalletApp(ctx, environmentID, digitalWalletApplicationID).Execute()
 
 Read One Digital Wallet App
 
@@ -248,13 +242,12 @@ import (
 )
 
 func main() {
-    envID := "envID_example" // string | 
+    environmentID := "environmentID_example" // string | 
     digitalWalletApplicationID := "digitalWalletApplicationID_example" // string | 
-    authorization := "Bearer {{jwtToken}}" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.ReadOneDigitalWalletApp(context.Background(), envID, digitalWalletApplicationID).Authorization(authorization).Execute()
+    r, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.ReadOneDigitalWalletApp(context.Background(), environmentID, digitalWalletApplicationID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.ReadOneDigitalWalletApp``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -268,7 +261,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**envID** | **string** |  | 
+**environmentID** | **string** |  | 
 **digitalWalletApplicationID** | **string** |  | 
 
 ### Other Parameters
@@ -280,7 +273,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **authorization** | **string** |  | 
 
 ### Return type
 
@@ -302,7 +294,7 @@ Name | Type | Description  | Notes
 
 ## UpdateDigitalWalletApp
 
-> UpdateDigitalWalletApp(ctx, envID, digitalWalletApplicationID).Authorization(authorization).Body(body).Execute()
+> UpdateDigitalWalletApp(ctx, environmentID, digitalWalletApplicationID).Body(body).Execute()
 
 Update Digital Wallet App
 
@@ -321,14 +313,13 @@ import (
 )
 
 func main() {
-    envID := "envID_example" // string | 
+    environmentID := "environmentID_example" // string | 
     digitalWalletApplicationID := "digitalWalletApplicationID_example" // string | 
-    authorization := "Bearer {{jwtToken}}" // string |  (optional)
     body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.UpdateDigitalWalletApp(context.Background(), envID, digitalWalletApplicationID).Authorization(authorization).Body(body).Execute()
+    r, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.UpdateDigitalWalletApp(context.Background(), environmentID, digitalWalletApplicationID).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.UpdateDigitalWalletApp``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -342,7 +333,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**envID** | **string** |  | 
+**environmentID** | **string** |  | 
 **digitalWalletApplicationID** | **string** |  | 
 
 ### Other Parameters
@@ -354,7 +345,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **authorization** | **string** |  | 
  **body** | **map[string]interface{}** |  | 
 
 ### Return type

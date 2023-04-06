@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -12,6 +11,11 @@ api_ping_one_credentials_credential_verifications.go
 api_ping_one_credentials_user_credentials.go
 client.go
 configuration.go
+docs/CredentialIssuerProfile.md
+docs/CredentialIssuerProfileApplicationInstance.md
+docs/P1Error.md
+docs/P1ErrorDetailsInner.md
+docs/P1ErrorDetailsInnerInnerError.md
 docs/PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi.md
 docs/PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.md
 docs/PingOneCredentialsCredentialIssuanceRulesApi.md
@@ -22,12 +26,10 @@ docs/PingOneCredentialsUserCredentialsApi.md
 git_push.sh
 go.mod
 go.sum
+model_credential_issuer_profile.go
+model_credential_issuer_profile_application_instance.go
+model_p1_error.go
+model_p1_error_details_inner.go
+model_p1_error_details_inner_inner_error.go
 response.go
-test/api_ping_one_credentials_credential_digital_wallets_digital_wallet_apps_test.go
-test/api_ping_one_credentials_credential_digital_wallets_digital_wallets_test.go
-test/api_ping_one_credentials_credential_issuance_rules_test.go
-test/api_ping_one_credentials_credential_issuers_test.go
-test/api_ping_one_credentials_credential_types_test.go
-test/api_ping_one_credentials_credential_verifications_test.go
-test/api_ping_one_credentials_user_credentials_test.go
 utils.go

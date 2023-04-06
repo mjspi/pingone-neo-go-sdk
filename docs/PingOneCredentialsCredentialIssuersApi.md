@@ -1,22 +1,20 @@
 # \PingOneCredentialsCredentialIssuersApi
 
-All URIs are relative to *https://api.pingone.*
+All URIs are relative to *https://api.pingone.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateCredentialIssuerProfile**](PingOneCredentialsCredentialIssuersApi.md#CreateCredentialIssuerProfile) | **Post** /environments/{envID}/credentialIssuerProfile | Create Credential Issuer Profile
-[**ReadCredentialIssuerProfile**](PingOneCredentialsCredentialIssuersApi.md#ReadCredentialIssuerProfile) | **Get** /environments/{envID}/credentialIssuerProfile | Read Credential Issuer Profile
-[**UpdateCredentialIssuerProfile**](PingOneCredentialsCredentialIssuersApi.md#UpdateCredentialIssuerProfile) | **Put** /environments/{envID}/credentialIssuerProfile | Update Credential Issuer Profile
+[**CreateCredentialIssuerProfile**](PingOneCredentialsCredentialIssuersApi.md#CreateCredentialIssuerProfile) | **Post** /environments/{environmentID}/credentialIssuerProfile | Create Credential Issuer Profile
+[**ReadCredentialIssuerProfile**](PingOneCredentialsCredentialIssuersApi.md#ReadCredentialIssuerProfile) | **Get** /environments/{environmentID}/credentialIssuerProfile | Read Credential Issuer Profile
+[**UpdateCredentialIssuerProfile**](PingOneCredentialsCredentialIssuersApi.md#UpdateCredentialIssuerProfile) | **Put** /environments/{environmentID}/credentialIssuerProfile | Update Credential Issuer Profile
 
 
 
 ## CreateCredentialIssuerProfile
 
-> CreateCredentialIssuerProfile(ctx, envID).Authorization(authorization).Body(body).Execute()
+> CredentialIssuerProfile CreateCredentialIssuerProfile(ctx, environmentID).CredentialIssuerProfile(credentialIssuerProfile).Execute()
 
 Create Credential Issuer Profile
-
-
 
 ### Example
 
@@ -31,17 +29,18 @@ import (
 )
 
 func main() {
-    envID := "envID_example" // string | 
-    authorization := "Bearer {{jwtToken}}" // string |  (optional)
-    body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+    environmentID := "environmentID_example" // string | 
+    credentialIssuerProfile := *openapiclient.NewCredentialIssuerProfile("Name_example") // CredentialIssuerProfile |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialIssuersApi.CreateCredentialIssuerProfile(context.Background(), envID).Authorization(authorization).Body(body).Execute()
+    resp, r, err := apiClient.PingOneCredentialsCredentialIssuersApi.CreateCredentialIssuerProfile(context.Background(), environmentID).CredentialIssuerProfile(credentialIssuerProfile).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialIssuersApi.CreateCredentialIssuerProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `CreateCredentialIssuerProfile`: CredentialIssuerProfile
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsCredentialIssuersApi.CreateCredentialIssuerProfile`: %v\n", resp)
 }
 ```
 
@@ -51,7 +50,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**envID** | **string** |  | 
+**environmentID** | **string** |  | 
 
 ### Other Parameters
 
@@ -61,12 +60,11 @@ Other parameters are passed through a pointer to a apiCreateCredentialIssuerProf
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **authorization** | **string** |  | 
- **body** | **map[string]interface{}** |  | 
+ **credentialIssuerProfile** | [**CredentialIssuerProfile**](CredentialIssuerProfile.md) |  | 
 
 ### Return type
 
- (empty response body)
+[**CredentialIssuerProfile**](CredentialIssuerProfile.md)
 
 ### Authorization
 
@@ -84,11 +82,9 @@ Name | Type | Description  | Notes
 
 ## ReadCredentialIssuerProfile
 
-> ReadCredentialIssuerProfile(ctx, envID).Authorization(authorization).Execute()
+> CredentialIssuerProfile ReadCredentialIssuerProfile(ctx, environmentID).Execute()
 
 Read Credential Issuer Profile
-
-
 
 ### Example
 
@@ -103,16 +99,17 @@ import (
 )
 
 func main() {
-    envID := "envID_example" // string | 
-    authorization := "Bearer {{jwtToken}}" // string |  (optional)
+    environmentID := "environmentID_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialIssuersApi.ReadCredentialIssuerProfile(context.Background(), envID).Authorization(authorization).Execute()
+    resp, r, err := apiClient.PingOneCredentialsCredentialIssuersApi.ReadCredentialIssuerProfile(context.Background(), environmentID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialIssuersApi.ReadCredentialIssuerProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `ReadCredentialIssuerProfile`: CredentialIssuerProfile
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsCredentialIssuersApi.ReadCredentialIssuerProfile`: %v\n", resp)
 }
 ```
 
@@ -122,7 +119,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**envID** | **string** |  | 
+**environmentID** | **string** |  | 
 
 ### Other Parameters
 
@@ -132,11 +129,10 @@ Other parameters are passed through a pointer to a apiReadCredentialIssuerProfil
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **authorization** | **string** |  | 
 
 ### Return type
 
- (empty response body)
+[**CredentialIssuerProfile**](CredentialIssuerProfile.md)
 
 ### Authorization
 
@@ -154,11 +150,9 @@ Name | Type | Description  | Notes
 
 ## UpdateCredentialIssuerProfile
 
-> UpdateCredentialIssuerProfile(ctx, envID).Authorization(authorization).Body(body).Execute()
+> CredentialIssuerProfile UpdateCredentialIssuerProfile(ctx, environmentID).CredentialIssuerProfile(credentialIssuerProfile).Execute()
 
 Update Credential Issuer Profile
-
-
 
 ### Example
 
@@ -173,17 +167,18 @@ import (
 )
 
 func main() {
-    envID := "envID_example" // string | 
-    authorization := "Bearer {{jwtToken}}" // string |  (optional)
-    body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+    environmentID := "environmentID_example" // string | 
+    credentialIssuerProfile := *openapiclient.NewCredentialIssuerProfile("Name_example") // CredentialIssuerProfile |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialIssuersApi.UpdateCredentialIssuerProfile(context.Background(), envID).Authorization(authorization).Body(body).Execute()
+    resp, r, err := apiClient.PingOneCredentialsCredentialIssuersApi.UpdateCredentialIssuerProfile(context.Background(), environmentID).CredentialIssuerProfile(credentialIssuerProfile).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialIssuersApi.UpdateCredentialIssuerProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `UpdateCredentialIssuerProfile`: CredentialIssuerProfile
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsCredentialIssuersApi.UpdateCredentialIssuerProfile`: %v\n", resp)
 }
 ```
 
@@ -193,7 +188,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**envID** | **string** |  | 
+**environmentID** | **string** |  | 
 
 ### Other Parameters
 
@@ -203,12 +198,11 @@ Other parameters are passed through a pointer to a apiUpdateCredentialIssuerProf
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **authorization** | **string** |  | 
- **body** | **map[string]interface{}** |  | 
+ **credentialIssuerProfile** | [**CredentialIssuerProfile**](CredentialIssuerProfile.md) |  | 
 
 ### Return type
 
- (empty response body)
+[**CredentialIssuerProfile**](CredentialIssuerProfile.md)
 
 ### Authorization
 
