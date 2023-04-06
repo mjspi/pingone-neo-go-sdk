@@ -11,11 +11,10 @@ package openapi
 
 import (
 	"context"
-	"testing"
-
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_openapi_PingOneCredentialsCredentialTypesApiService(t *testing.T) {
@@ -25,25 +24,26 @@ func Test_openapi_PingOneCredentialsCredentialTypesApiService(t *testing.T) {
 
 	t.Run("Test PingOneCredentialsCredentialTypesApiService CreateCredentialType", func(t *testing.T) {
 
-		// t.Skip("skip test")  // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialTypesApi.CreateCredentialType(context.Background(), envID).Execute()
+		resp, httpRes, err := apiClient.PingOneCredentialsCredentialTypesApi.CreateCredentialType(context.Background(), environmentID).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
 	t.Run("Test PingOneCredentialsCredentialTypesApiService DeleteACredentialType", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var credentialTypeID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialTypesApi.DeleteACredentialType(context.Background(), envID, credentialTypeID).Execute()
+		httpRes, err := apiClient.PingOneCredentialsCredentialTypesApi.DeleteACredentialType(context.Background(), environmentID, credentialTypeID).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -52,41 +52,44 @@ func Test_openapi_PingOneCredentialsCredentialTypesApiService(t *testing.T) {
 
 	t.Run("Test PingOneCredentialsCredentialTypesApiService ReadAllCredentialTypes", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialTypesApi.ReadAllCredentialTypes(context.Background(), envID).Execute()
+		resp, httpRes, err := apiClient.PingOneCredentialsCredentialTypesApi.ReadAllCredentialTypes(context.Background(), environmentID).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
 	t.Run("Test PingOneCredentialsCredentialTypesApiService ReadOneCredentialType", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var credentialTypeID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialTypesApi.ReadOneCredentialType(context.Background(), envID, credentialTypeID).Execute()
+		resp, httpRes, err := apiClient.PingOneCredentialsCredentialTypesApi.ReadOneCredentialType(context.Background(), environmentID, credentialTypeID).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
 	t.Run("Test PingOneCredentialsCredentialTypesApiService UpdateACredentialType", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var credentialTypeID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialTypesApi.UpdateACredentialType(context.Background(), envID, credentialTypeID).Execute()
+		resp, httpRes, err := apiClient.PingOneCredentialsCredentialTypesApi.UpdateACredentialType(context.Background(), environmentID, credentialTypeID).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

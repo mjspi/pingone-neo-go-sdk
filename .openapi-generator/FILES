@@ -50,4 +50,6 @@ model_p1_error.go
 model_p1_error_details_inner.go
 model_p1_error_details_inner_inner_error.go
 response.go
+test/api_ping_one_credentials_credential_issuers_test.go
+test/api_ping_one_credentials_credential_types_test.go
 utils.go

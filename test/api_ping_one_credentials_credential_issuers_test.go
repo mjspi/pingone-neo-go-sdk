@@ -26,11 +26,12 @@ func Test_openapi_PingOneCredentialsCredentialIssuersApiService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialIssuersApi.CreateCredentialIssuerProfile(context.Background(), envID).Execute()
+		resp, httpRes, err := apiClient.PingOneCredentialsCredentialIssuersApi.CreateCredentialIssuerProfile(context.Background(), environmentID).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -39,11 +40,12 @@ func Test_openapi_PingOneCredentialsCredentialIssuersApiService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialIssuersApi.ReadCredentialIssuerProfile(context.Background(), envID).Execute()
+		resp, httpRes, err := apiClient.PingOneCredentialsCredentialIssuersApi.ReadCredentialIssuerProfile(context.Background(), environmentID).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -52,11 +54,12 @@ func Test_openapi_PingOneCredentialsCredentialIssuersApiService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialIssuersApi.UpdateCredentialIssuerProfile(context.Background(), envID).Execute()
+		resp, httpRes, err := apiClient.PingOneCredentialsCredentialIssuersApi.UpdateCredentialIssuerProfile(context.Background(), environmentID).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
