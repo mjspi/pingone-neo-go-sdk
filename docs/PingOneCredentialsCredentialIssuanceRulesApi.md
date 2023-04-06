@@ -100,8 +100,6 @@ Name | Type | Description  | Notes
 
 Create Credential Issuance Rule
 
-
-
 ### Example
 
 ```go

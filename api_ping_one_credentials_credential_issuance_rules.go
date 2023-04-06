@@ -160,8 +160,6 @@ func (r ApiCreateCredentialIssuanceRuleRequest) Execute() (*http.Response, error
 /*
 CreateCredentialIssuanceRule Create Credential Issuance Rule
 
-This PingOne collection contains only the REST API request examples without documentation. For complete documentation, go to <a href="https://apidocs.pingidentity.com/pingone/platform/v1/api/">apidocs.pingidentity.com</a>.
-
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param environmentID
  @param credentialTypeID

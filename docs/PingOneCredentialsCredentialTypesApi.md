@@ -14,11 +14,9 @@ Method | HTTP request | Description
 
 ## CreateCredentialType
 
-> CreateCredentialType(ctx, environmentID).Body(body).Execute()
+> CredentialType CreateCredentialType(ctx, environmentID).CredentialType(credentialType).Execute()
 
 Create Credential Type
-
-
 
 ### Example
 
@@ -34,15 +32,17 @@ import (
 
 func main() {
     environmentID := "environmentID_example" // string | 
-    body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+    credentialType := *openapiclient.NewCredentialType("CardDesignTemplate_example", *openapiclient.NewCredentialTypeMetaData(), "Title_example") // CredentialType |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialTypesApi.CreateCredentialType(context.Background(), environmentID).Body(body).Execute()
+    resp, r, err := apiClient.PingOneCredentialsCredentialTypesApi.CreateCredentialType(context.Background(), environmentID).CredentialType(credentialType).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialTypesApi.CreateCredentialType``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `CreateCredentialType`: CredentialType
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsCredentialTypesApi.CreateCredentialType`: %v\n", resp)
 }
 ```
 
@@ -62,11 +62,11 @@ Other parameters are passed through a pointer to a apiCreateCredentialTypeReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body** | **map[string]interface{}** |  | 
+ **credentialType** | [**CredentialType**](CredentialType.md) |  | 
 
 ### Return type
 
- (empty response body)
+[**CredentialType**](CredentialType.md)
 
 ### Authorization
 
@@ -87,8 +87,6 @@ Name | Type | Description  | Notes
 > DeleteACredentialType(ctx, environmentID, credentialTypeID).Execute()
 
 Delete a Credential Type
-
-
 
 ### Example
 
@@ -155,11 +153,9 @@ Name | Type | Description  | Notes
 
 ## ReadAllCredentialTypes
 
-> ReadAllCredentialTypes(ctx, environmentID).Execute()
+> EntityArray ReadAllCredentialTypes(ctx, environmentID).Execute()
 
 Read All Credential Types
-
-
 
 ### Example
 
@@ -178,11 +174,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialTypesApi.ReadAllCredentialTypes(context.Background(), environmentID).Execute()
+    resp, r, err := apiClient.PingOneCredentialsCredentialTypesApi.ReadAllCredentialTypes(context.Background(), environmentID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialTypesApi.ReadAllCredentialTypes``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `ReadAllCredentialTypes`: EntityArray
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsCredentialTypesApi.ReadAllCredentialTypes`: %v\n", resp)
 }
 ```
 
@@ -205,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**EntityArray**](EntityArray.md)
 
 ### Authorization
 
@@ -223,11 +221,9 @@ Name | Type | Description  | Notes
 
 ## ReadOneCredentialType
 
-> ReadOneCredentialType(ctx, environmentID, credentialTypeID).Execute()
+> CredentialType ReadOneCredentialType(ctx, environmentID, credentialTypeID).Execute()
 
 Read One Credential Type
-
-
 
 ### Example
 
@@ -247,11 +243,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialTypesApi.ReadOneCredentialType(context.Background(), environmentID, credentialTypeID).Execute()
+    resp, r, err := apiClient.PingOneCredentialsCredentialTypesApi.ReadOneCredentialType(context.Background(), environmentID, credentialTypeID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialTypesApi.ReadOneCredentialType``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `ReadOneCredentialType`: CredentialType
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsCredentialTypesApi.ReadOneCredentialType`: %v\n", resp)
 }
 ```
 
@@ -276,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**CredentialType**](CredentialType.md)
 
 ### Authorization
 
@@ -294,11 +292,9 @@ Name | Type | Description  | Notes
 
 ## UpdateACredentialType
 
-> UpdateACredentialType(ctx, environmentID, credentialTypeID).Body(body).Execute()
+> CredentialType UpdateACredentialType(ctx, environmentID, credentialTypeID).CredentialType(credentialType).Execute()
 
 Update a Credential Type
-
-
 
 ### Example
 
@@ -315,15 +311,17 @@ import (
 func main() {
     environmentID := "environmentID_example" // string | 
     credentialTypeID := "credentialTypeID_example" // string | 
-    body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+    credentialType := *openapiclient.NewCredentialType("CardDesignTemplate_example", *openapiclient.NewCredentialTypeMetaData(), "Title_example") // CredentialType |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialTypesApi.UpdateACredentialType(context.Background(), environmentID, credentialTypeID).Body(body).Execute()
+    resp, r, err := apiClient.PingOneCredentialsCredentialTypesApi.UpdateACredentialType(context.Background(), environmentID, credentialTypeID).CredentialType(credentialType).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialTypesApi.UpdateACredentialType``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `UpdateACredentialType`: CredentialType
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsCredentialTypesApi.UpdateACredentialType`: %v\n", resp)
 }
 ```
 
@@ -345,11 +343,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **body** | **map[string]interface{}** |  | 
+ **credentialType** | [**CredentialType**](CredentialType.md) |  | 
 
 ### Return type
 
- (empty response body)
+[**CredentialType**](CredentialType.md)
 
 ### Authorization
 
