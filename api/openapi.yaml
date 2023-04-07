@@ -28,7 +28,6 @@ tags:
 - name: PingOne Credentials > Credential Digital Wallets > Digital Wallet Apps
 - name: PingOne Credentials > Credential Digital Wallets > Digital Wallets
 - name: PingOne Credentials > User Credentials
-- name: PingOne Credentials > Credential Verifications
 paths:
   /environments/{environmentID}/credentialIssuerProfile:
     get:
@@ -1033,9 +1032,6 @@ paths:
       - PingOne Credentials > Credential Issuance Rules
   /environments/{environmentID}/credentialTypes/{credentialTypeID}/issuanceRules/{credentialIssuanceRuleID}/usageCounts:
     get:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: readCredentialIssuanceRuleUsageCounts
       parameters:
       - explode: false
@@ -1060,18 +1056,54 @@ paths:
           type: string
         style: simple
       responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
         "200":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialIssuanceRuleUsageCounts'
           description: Successful response
       summary: Read Credential Issuance Rule Usage Counts
       tags:
       - PingOne Credentials > Credential Issuance Rules
   /environments/{environmentID}/credentialTypes/{credentialTypeID}/issuanceRules/{credentialIssuanceRuleID}/usageDetails:
     get:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: readCredentialIssuanceRuleUsageDetails
       parameters:
       - explode: false
@@ -1096,9 +1128,48 @@ paths:
           type: string
         style: simple
       responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
         "200":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialIssuanceRuleUsageDetails'
           description: Successful response
       summary: Read Credential Issuance Rule Usage Details
       tags:
@@ -1652,105 +1723,6 @@ paths:
       summary: Read One User Credential Wallets
       tags:
       - PingOne Credentials > User Credentials
-  /environments/{environmentID}/presentationSessions:
-    post:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
-      operationId: createCredentialVerificationPresentationSessionNative
-      parameters:
-      - explode: false
-        in: path
-        name: environmentID
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              example:
-                message: Some custom message for the user.
-                protocol: NATIVE
-                requestedCredentials:
-                - type: VerifiedEmployee
-                  keys:
-                  - id
-                - type: Trusted Partner
-                  keys:
-                  - givenName
-                issuerFilter:
-                  environmentIds:
-                  - a41aa672-204a-49b9-953d-b1f50c1b081b
-                  - 3258433d-f760-422d-8716-5a8f6a7d25d9
-              type: object
-      responses:
-        "200":
-          content:
-            application/json: {}
-          description: Successful response
-      summary: Create Credential Verification Presentation Session (NATIVE)
-      tags:
-      - PingOne Credentials > Credential Verifications
-  /environments/{environmentID}/presentationSessions/{credentialsVerificationID}:
-    get:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
-      operationId: readOneCredentialVerificationStatus
-      parameters:
-      - explode: false
-        in: path
-        name: environmentID
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: credentialsVerificationID
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json: {}
-          description: Successful response
-      summary: Read One Credential Verification Status
-      tags:
-      - PingOne Credentials > Credential Verifications
-  /environments/{environmentID}/presentationSessions/{credentialsVerificationID}/credentialData:
-    get:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
-      operationId: readCredentialVerificationCredentialData
-      parameters:
-      - explode: false
-        in: path
-        name: environmentID
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: credentialsVerificationID
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json: {}
-          description: Successful response
-      summary: Read Credential Verification Credential Data
-      tags:
-      - PingOne Credentials > Credential Verifications
 components:
   schemas:
     Environment:
@@ -2079,6 +2051,71 @@ components:
             type: string
           type: array
       type: object
+    CredentialIssuanceRuleUsageCounts:
+      example:
+        accepted: 6
+        issued: 0
+        revoked: 5
+        updated: 1
+      properties:
+        issued:
+          type: integer
+        accepted:
+          type: integer
+        updated:
+          type: integer
+        revoked:
+          type: integer
+      type: object
+    CredentialIssuanceRuleUsageDetails:
+      example:
+        issued:
+        - createdAt: createdAt
+          credential:
+            id: id
+          user:
+            id: id
+        - createdAt: createdAt
+          credential:
+            id: id
+          user:
+            id: id
+        revoked:
+        - createdAt: createdAt
+          credential:
+            id: id
+          user:
+            id: id
+        - createdAt: createdAt
+          credential:
+            id: id
+          user:
+            id: id
+        updated:
+        - createdAt: createdAt
+          credential:
+            id: id
+          user:
+            id: id
+        - createdAt: createdAt
+          credential:
+            id: id
+          user:
+            id: id
+      properties:
+        issued:
+          items:
+            $ref: '#/components/schemas/CredentialIssuanceRuleUsageDetails_issued_inner'
+          type: array
+        revoked:
+          items:
+            $ref: '#/components/schemas/CredentialIssuanceRuleUsageDetails_issued_inner'
+          type: array
+        updated:
+          items:
+            $ref: '#/components/schemas/CredentialIssuanceRuleUsageDetails_issued_inner'
+          type: array
+      type: object
     EntityArray:
       example:
         size: 0.8008281904610115
@@ -2401,6 +2438,45 @@ components:
           type: boolean
         user:
           $ref: '#/components/schemas/CredentialIssuanceRuleStagedChange_stagedChanges_user'
+      type: object
+    CredentialIssuanceRuleUsageDetails_issued_inner_user:
+      example:
+        id: id
+      properties:
+        id:
+          description: A string representing the identifier (UUID) of the user identified
+            by the filter on the credential issuance rule.
+          type: string
+      required:
+      - id
+      type: object
+    CredentialIssuanceRuleUsageDetails_issued_inner_credential:
+      example:
+        id: id
+      properties:
+        id:
+          description: A string representing the identifier (UUID) of the credential
+            subject to the issue action identified by the credential issuance rule.
+          type: string
+      required:
+      - id
+      type: object
+    CredentialIssuanceRuleUsageDetails_issued_inner:
+      example:
+        createdAt: createdAt
+        credential:
+          id: id
+        user:
+          id: id
+      properties:
+        user:
+          $ref: '#/components/schemas/CredentialIssuanceRuleUsageDetails_issued_inner_user'
+        credential:
+          $ref: '#/components/schemas/CredentialIssuanceRuleUsageDetails_issued_inner_credential'
+        createdAt:
+          description: A string representing the date and time the credential was
+            issued by the service.
+          type: string
       type: object
     EntityArray__embedded_items_inner:
       anyOf:

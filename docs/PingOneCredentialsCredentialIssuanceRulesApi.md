@@ -386,11 +386,9 @@ Name | Type | Description  | Notes
 
 ## ReadCredentialIssuanceRuleUsageCounts
 
-> ReadCredentialIssuanceRuleUsageCounts(ctx, environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
+> CredentialIssuanceRuleUsageCounts ReadCredentialIssuanceRuleUsageCounts(ctx, environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
 
 Read Credential Issuance Rule Usage Counts
-
-
 
 ### Example
 
@@ -411,11 +409,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ReadCredentialIssuanceRuleUsageCounts(context.Background(), environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
+    resp, r, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ReadCredentialIssuanceRuleUsageCounts(context.Background(), environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialIssuanceRulesApi.ReadCredentialIssuanceRuleUsageCounts``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `ReadCredentialIssuanceRuleUsageCounts`: CredentialIssuanceRuleUsageCounts
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsCredentialIssuanceRulesApi.ReadCredentialIssuanceRuleUsageCounts`: %v\n", resp)
 }
 ```
 
@@ -442,7 +442,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**CredentialIssuanceRuleUsageCounts**](CredentialIssuanceRuleUsageCounts.md)
 
 ### Authorization
 
@@ -460,11 +460,9 @@ Name | Type | Description  | Notes
 
 ## ReadCredentialIssuanceRuleUsageDetails
 
-> ReadCredentialIssuanceRuleUsageDetails(ctx, environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
+> CredentialIssuanceRuleUsageDetails ReadCredentialIssuanceRuleUsageDetails(ctx, environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
 
 Read Credential Issuance Rule Usage Details
-
-
 
 ### Example
 
@@ -485,11 +483,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ReadCredentialIssuanceRuleUsageDetails(context.Background(), environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
+    resp, r, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ReadCredentialIssuanceRuleUsageDetails(context.Background(), environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialIssuanceRulesApi.ReadCredentialIssuanceRuleUsageDetails``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `ReadCredentialIssuanceRuleUsageDetails`: CredentialIssuanceRuleUsageDetails
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsCredentialIssuanceRulesApi.ReadCredentialIssuanceRuleUsageDetails`: %v\n", resp)
 }
 ```
 
@@ -516,7 +516,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**CredentialIssuanceRuleUsageDetails**](CredentialIssuanceRuleUsageDetails.md)
 
 ### Authorization
 

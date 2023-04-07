@@ -105,9 +105,6 @@ Class | Method | HTTP request | Description
 *PingOneCredentialsCredentialTypesApi* | [**ReadAllCredentialTypes**](docs/PingOneCredentialsCredentialTypesApi.md#readallcredentialtypes) | **Get** /environments/{environmentID}/credentialTypes | Read All Credential Types
 *PingOneCredentialsCredentialTypesApi* | [**ReadOneCredentialType**](docs/PingOneCredentialsCredentialTypesApi.md#readonecredentialtype) | **Get** /environments/{environmentID}/credentialTypes/{credentialTypeID} | Read One Credential Type
 *PingOneCredentialsCredentialTypesApi* | [**UpdateACredentialType**](docs/PingOneCredentialsCredentialTypesApi.md#updateacredentialtype) | **Put** /environments/{environmentID}/credentialTypes/{credentialTypeID} | Update a Credential Type
-*PingOneCredentialsCredentialVerificationsApi* | [**CreateCredentialVerificationPresentationSessionNative**](docs/PingOneCredentialsCredentialVerificationsApi.md#createcredentialverificationpresentationsessionnative) | **Post** /environments/{environmentID}/presentationSessions | Create Credential Verification Presentation Session (NATIVE)
-*PingOneCredentialsCredentialVerificationsApi* | [**ReadCredentialVerificationCredentialData**](docs/PingOneCredentialsCredentialVerificationsApi.md#readcredentialverificationcredentialdata) | **Get** /environments/{environmentID}/presentationSessions/{credentialsVerificationID}/credentialData | Read Credential Verification Credential Data
-*PingOneCredentialsCredentialVerificationsApi* | [**ReadOneCredentialVerificationStatus**](docs/PingOneCredentialsCredentialVerificationsApi.md#readonecredentialverificationstatus) | **Get** /environments/{environmentID}/presentationSessions/{credentialsVerificationID} | Read One Credential Verification Status
 *PingOneCredentialsUserCredentialsApi* | [**CreateAUserCredential**](docs/PingOneCredentialsUserCredentialsApi.md#createausercredential) | **Post** /environments/{environmentID}/users/{userID}/credentials | Create a User Credential
 *PingOneCredentialsUserCredentialsApi* | [**ReadAllUserCredentials**](docs/PingOneCredentialsUserCredentialsApi.md#readallusercredentials) | **Get** /environments/{environmentID}/users/{userID}/credentials | Read All User Credentials
 *PingOneCredentialsUserCredentialsApi* | [**ReadOneUserCredential**](docs/PingOneCredentialsUserCredentialsApi.md#readoneusercredential) | **Get** /environments/{environmentID}/users/{userID}/credentials/{credentialID} | Read One User Credential
@@ -128,6 +125,11 @@ Class | Method | HTTP request | Description
  - [CredentialIssuanceRuleStagedChangeStagedChangesCredentialType](docs/CredentialIssuanceRuleStagedChangeStagedChangesCredentialType.md)
  - [CredentialIssuanceRuleStagedChangeStagedChangesIssuanceRule](docs/CredentialIssuanceRuleStagedChangeStagedChangesIssuanceRule.md)
  - [CredentialIssuanceRuleStagedChangeStagedChangesUser](docs/CredentialIssuanceRuleStagedChangeStagedChangesUser.md)
+ - [CredentialIssuanceRuleUsageCounts](docs/CredentialIssuanceRuleUsageCounts.md)
+ - [CredentialIssuanceRuleUsageDetails](docs/CredentialIssuanceRuleUsageDetails.md)
+ - [CredentialIssuanceRuleUsageDetailsIssuedInner](docs/CredentialIssuanceRuleUsageDetailsIssuedInner.md)
+ - [CredentialIssuanceRuleUsageDetailsIssuedInnerCredential](docs/CredentialIssuanceRuleUsageDetailsIssuedInnerCredential.md)
+ - [CredentialIssuanceRuleUsageDetailsIssuedInnerUser](docs/CredentialIssuanceRuleUsageDetailsIssuedInnerUser.md)
  - [CredentialIssuerProfile](docs/CredentialIssuerProfile.md)
  - [CredentialIssuerProfileApplicationInstance](docs/CredentialIssuerProfileApplicationInstance.md)
  - [CredentialType](docs/CredentialType.md)

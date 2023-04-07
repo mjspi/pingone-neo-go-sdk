@@ -59,8 +59,6 @@ type APIClient struct {
 
 	PingOneCredentialsCredentialTypesApi *PingOneCredentialsCredentialTypesApiService
 
-	PingOneCredentialsCredentialVerificationsApi *PingOneCredentialsCredentialVerificationsApiService
-
 	PingOneCredentialsUserCredentialsApi *PingOneCredentialsUserCredentialsApiService
 }
 
@@ -85,7 +83,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.PingOneCredentialsCredentialIssuanceRulesApi = (*PingOneCredentialsCredentialIssuanceRulesApiService)(&c.common)
 	c.PingOneCredentialsCredentialIssuersApi = (*PingOneCredentialsCredentialIssuersApiService)(&c.common)
 	c.PingOneCredentialsCredentialTypesApi = (*PingOneCredentialsCredentialTypesApiService)(&c.common)
-	c.PingOneCredentialsCredentialVerificationsApi = (*PingOneCredentialsCredentialVerificationsApiService)(&c.common)
 	c.PingOneCredentialsUserCredentialsApi = (*PingOneCredentialsUserCredentialsApiService)(&c.common)
 
 	return c
