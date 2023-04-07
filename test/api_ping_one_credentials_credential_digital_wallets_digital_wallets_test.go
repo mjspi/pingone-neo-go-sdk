@@ -26,10 +26,10 @@ func Test_openapi_PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiSer
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var userID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.CreateDigitalWallet(context.Background(), envID, userID).Execute()
+		httpRes, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.CreateDigitalWallet(context.Background(), environmentID, userID).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -40,11 +40,11 @@ func Test_openapi_PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiSer
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var userID string
 		var digitalWalletID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.DeleteDigitalWallet(context.Background(), envID, userID, digitalWalletID).Execute()
+		httpRes, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.DeleteDigitalWallet(context.Background(), environmentID, userID, digitalWalletID).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -55,10 +55,10 @@ func Test_openapi_PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiSer
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var userID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.ReadAllDigitalWallets(context.Background(), envID, userID).Execute()
+		httpRes, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.ReadAllDigitalWallets(context.Background(), environmentID, userID).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -69,11 +69,11 @@ func Test_openapi_PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiSer
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var userID string
 		var digitalWalletID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.ReadOneDigitalWallet(context.Background(), envID, userID, digitalWalletID).Execute()
+		httpRes, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.ReadOneDigitalWallet(context.Background(), environmentID, userID, digitalWalletID).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -84,11 +84,11 @@ func Test_openapi_PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiSer
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var userID string
 		var digitalWalletID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.ReadOneDigitalWalletCredentials(context.Background(), envID, userID, digitalWalletID).Execute()
+		httpRes, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.ReadOneDigitalWalletCredentials(context.Background(), environmentID, userID, digitalWalletID).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -99,11 +99,11 @@ func Test_openapi_PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiSer
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var userID string
 		var digitalWalletID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.UpdateDigitalWallet(context.Background(), envID, userID, digitalWalletID).Execute()
+		httpRes, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.UpdateDigitalWallet(context.Background(), environmentID, userID, digitalWalletID).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

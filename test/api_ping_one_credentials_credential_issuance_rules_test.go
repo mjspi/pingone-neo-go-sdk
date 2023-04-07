@@ -26,11 +26,11 @@ func Test_openapi_PingOneCredentialsCredentialIssuanceRulesApiService(t *testing
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var credentialTypeID string
 		var credentialIssuanceRuleID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ApplyCredentialIssuanceRuleStagedChanges(context.Background(), envID, credentialTypeID, credentialIssuanceRuleID).Execute()
+		httpRes, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ApplyCredentialIssuanceRuleStagedChanges(context.Background(), environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -41,12 +41,13 @@ func Test_openapi_PingOneCredentialsCredentialIssuanceRulesApiService(t *testing
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var credentialTypeID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.CreateCredentialIssuanceRule(context.Background(), envID, credentialTypeID).Execute()
+		resp, httpRes, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.CreateCredentialIssuanceRule(context.Background(), environmentID, credentialTypeID).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -55,11 +56,11 @@ func Test_openapi_PingOneCredentialsCredentialIssuanceRulesApiService(t *testing
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var credentialTypeID string
 		var credentialIssuanceRuleID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.DeleteCredentialIssuanceRule(context.Background(), envID, credentialTypeID, credentialIssuanceRuleID).Execute()
+		httpRes, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.DeleteCredentialIssuanceRule(context.Background(), environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -70,12 +71,13 @@ func Test_openapi_PingOneCredentialsCredentialIssuanceRulesApiService(t *testing
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var credentialTypeID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ReadAllCredentialIssuanceRules(context.Background(), envID, credentialTypeID).Execute()
+		resp, httpRes, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ReadAllCredentialIssuanceRules(context.Background(), environmentID, credentialTypeID).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -84,11 +86,11 @@ func Test_openapi_PingOneCredentialsCredentialIssuanceRulesApiService(t *testing
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var credentialTypeID string
 		var credentialIssuanceRuleID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ReadCredentialIssuanceRuleStagedChanges(context.Background(), envID, credentialTypeID, credentialIssuanceRuleID).Execute()
+		httpRes, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ReadCredentialIssuanceRuleStagedChanges(context.Background(), environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -99,11 +101,11 @@ func Test_openapi_PingOneCredentialsCredentialIssuanceRulesApiService(t *testing
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var credentialTypeID string
 		var credentialIssuanceRuleID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ReadCredentialIssuanceRuleUsageCounts(context.Background(), envID, credentialTypeID, credentialIssuanceRuleID).Execute()
+		httpRes, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ReadCredentialIssuanceRuleUsageCounts(context.Background(), environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -114,11 +116,11 @@ func Test_openapi_PingOneCredentialsCredentialIssuanceRulesApiService(t *testing
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var credentialTypeID string
 		var credentialIssuanceRuleID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ReadCredentialIssuanceRuleUsageDetails(context.Background(), envID, credentialTypeID, credentialIssuanceRuleID).Execute()
+		httpRes, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ReadCredentialIssuanceRuleUsageDetails(context.Background(), environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -129,13 +131,14 @@ func Test_openapi_PingOneCredentialsCredentialIssuanceRulesApiService(t *testing
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var credentialTypeID string
 		var credentialIssuanceRuleID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ReadOneCredentialIssuanceRule(context.Background(), envID, credentialTypeID, credentialIssuanceRuleID).Execute()
+		resp, httpRes, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ReadOneCredentialIssuanceRule(context.Background(), environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -144,13 +147,14 @@ func Test_openapi_PingOneCredentialsCredentialIssuanceRulesApiService(t *testing
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var credentialTypeID string
 		var credentialIssuanceRuleID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.UpdateCredentialIssuanceRule(context.Background(), envID, credentialTypeID, credentialIssuanceRuleID).Execute()
+		resp, httpRes, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.UpdateCredentialIssuanceRule(context.Background(), environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

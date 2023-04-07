@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ## CreateCredentialIssuanceRule
 
-> CreateCredentialIssuanceRule(ctx, environmentID, credentialTypeID).Body(body).Execute()
+> CredentialIssuanceRule CreateCredentialIssuanceRule(ctx, environmentID, credentialTypeID).CredentialIssuanceRule(credentialIssuanceRule).Execute()
 
 Create Credential Issuance Rule
 
@@ -115,15 +115,17 @@ import (
 func main() {
     environmentID := "environmentID_example" // string | 
     credentialTypeID := "credentialTypeID_example" // string | 
-    body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+    credentialIssuanceRule := *openapiclient.NewCredentialIssuanceRule(*openapiclient.NewCredentialIssuanceRuleAutomation(openapiclient.EnumCredentialIssuanceRuleAutomationMethod("PERIODIC"), openapiclient.EnumCredentialIssuanceRuleAutomationMethod("PERIODIC"), openapiclient.EnumCredentialIssuanceRuleAutomationMethod("PERIODIC")), openapiclient.EnumCredentialIssuanceRuleStatus("ACTIVE")) // CredentialIssuanceRule |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.CreateCredentialIssuanceRule(context.Background(), environmentID, credentialTypeID).Body(body).Execute()
+    resp, r, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.CreateCredentialIssuanceRule(context.Background(), environmentID, credentialTypeID).CredentialIssuanceRule(credentialIssuanceRule).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialIssuanceRulesApi.CreateCredentialIssuanceRule``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `CreateCredentialIssuanceRule`: CredentialIssuanceRule
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsCredentialIssuanceRulesApi.CreateCredentialIssuanceRule`: %v\n", resp)
 }
 ```
 
@@ -145,11 +147,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **body** | **map[string]interface{}** |  | 
+ **credentialIssuanceRule** | [**CredentialIssuanceRule**](CredentialIssuanceRule.md) |  | 
 
 ### Return type
 
- (empty response body)
+[**CredentialIssuanceRule**](CredentialIssuanceRule.md)
 
 ### Authorization
 
@@ -170,8 +172,6 @@ Name | Type | Description  | Notes
 > DeleteCredentialIssuanceRule(ctx, environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
 
 Delete Credential Issuance Rule
-
-
 
 ### Example
 
@@ -241,11 +241,9 @@ Name | Type | Description  | Notes
 
 ## ReadAllCredentialIssuanceRules
 
-> ReadAllCredentialIssuanceRules(ctx, environmentID, credentialTypeID).Execute()
+> EntityArray ReadAllCredentialIssuanceRules(ctx, environmentID, credentialTypeID).Execute()
 
 Read All Credential Issuance Rules
-
-
 
 ### Example
 
@@ -265,11 +263,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ReadAllCredentialIssuanceRules(context.Background(), environmentID, credentialTypeID).Execute()
+    resp, r, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ReadAllCredentialIssuanceRules(context.Background(), environmentID, credentialTypeID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialIssuanceRulesApi.ReadAllCredentialIssuanceRules``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `ReadAllCredentialIssuanceRules`: EntityArray
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsCredentialIssuanceRulesApi.ReadAllCredentialIssuanceRules`: %v\n", resp)
 }
 ```
 
@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**EntityArray**](EntityArray.md)
 
 ### Authorization
 
@@ -534,11 +534,9 @@ Name | Type | Description  | Notes
 
 ## ReadOneCredentialIssuanceRule
 
-> ReadOneCredentialIssuanceRule(ctx, environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
+> CredentialIssuanceRule ReadOneCredentialIssuanceRule(ctx, environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
 
 Read One Credential Issuance Rule
-
-
 
 ### Example
 
@@ -559,11 +557,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ReadOneCredentialIssuanceRule(context.Background(), environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
+    resp, r, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ReadOneCredentialIssuanceRule(context.Background(), environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialIssuanceRulesApi.ReadOneCredentialIssuanceRule``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `ReadOneCredentialIssuanceRule`: CredentialIssuanceRule
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsCredentialIssuanceRulesApi.ReadOneCredentialIssuanceRule`: %v\n", resp)
 }
 ```
 
@@ -590,7 +590,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**CredentialIssuanceRule**](CredentialIssuanceRule.md)
 
 ### Authorization
 
@@ -608,11 +608,9 @@ Name | Type | Description  | Notes
 
 ## UpdateCredentialIssuanceRule
 
-> UpdateCredentialIssuanceRule(ctx, environmentID, credentialTypeID, credentialIssuanceRuleID).Body(body).Execute()
+> CredentialIssuanceRule UpdateCredentialIssuanceRule(ctx, environmentID, credentialTypeID, credentialIssuanceRuleID).CredentialIssuanceRule(credentialIssuanceRule).Execute()
 
 Update Credential Issuance Rule
-
-
 
 ### Example
 
@@ -630,15 +628,17 @@ func main() {
     environmentID := "environmentID_example" // string | 
     credentialTypeID := "credentialTypeID_example" // string | 
     credentialIssuanceRuleID := "credentialIssuanceRuleID_example" // string | 
-    body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+    credentialIssuanceRule := *openapiclient.NewCredentialIssuanceRule(*openapiclient.NewCredentialIssuanceRuleAutomation(openapiclient.EnumCredentialIssuanceRuleAutomationMethod("PERIODIC"), openapiclient.EnumCredentialIssuanceRuleAutomationMethod("PERIODIC"), openapiclient.EnumCredentialIssuanceRuleAutomationMethod("PERIODIC")), openapiclient.EnumCredentialIssuanceRuleStatus("ACTIVE")) // CredentialIssuanceRule |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.UpdateCredentialIssuanceRule(context.Background(), environmentID, credentialTypeID, credentialIssuanceRuleID).Body(body).Execute()
+    resp, r, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.UpdateCredentialIssuanceRule(context.Background(), environmentID, credentialTypeID, credentialIssuanceRuleID).CredentialIssuanceRule(credentialIssuanceRule).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialIssuanceRulesApi.UpdateCredentialIssuanceRule``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `UpdateCredentialIssuanceRule`: CredentialIssuanceRule
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsCredentialIssuanceRulesApi.UpdateCredentialIssuanceRule`: %v\n", resp)
 }
 ```
 
@@ -662,11 +662,11 @@ Name | Type | Description  | Notes
 
 
 
- **body** | **map[string]interface{}** |  | 
+ **credentialIssuanceRule** | [**CredentialIssuanceRule**](CredentialIssuanceRule.md) |  | 
 
 ### Return type
 
- (empty response body)
+[**CredentialIssuanceRule**](CredentialIssuanceRule.md)
 
 ### Authorization
 

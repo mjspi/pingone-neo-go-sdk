@@ -20,6 +20,7 @@ var _ MappedNullable = &EntityArrayEmbedded{}
 // EntityArrayEmbedded struct for EntityArrayEmbedded
 type EntityArrayEmbedded struct {
 	Items []EntityArrayEmbeddedItemsInner `json:"items,omitempty"`
+	IssuanceRules []CredentialIssuanceRule `json:"issuanceRules,omitempty"`
 }
 
 // NewEntityArrayEmbedded instantiates a new EntityArrayEmbedded object
@@ -71,6 +72,38 @@ func (o *EntityArrayEmbedded) SetItems(v []EntityArrayEmbeddedItemsInner) {
 	o.Items = v
 }
 
+// GetIssuanceRules returns the IssuanceRules field value if set, zero value otherwise.
+func (o *EntityArrayEmbedded) GetIssuanceRules() []CredentialIssuanceRule {
+	if o == nil || IsNil(o.IssuanceRules) {
+		var ret []CredentialIssuanceRule
+		return ret
+	}
+	return o.IssuanceRules
+}
+
+// GetIssuanceRulesOk returns a tuple with the IssuanceRules field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EntityArrayEmbedded) GetIssuanceRulesOk() ([]CredentialIssuanceRule, bool) {
+	if o == nil || IsNil(o.IssuanceRules) {
+		return nil, false
+	}
+	return o.IssuanceRules, true
+}
+
+// HasIssuanceRules returns a boolean if a field has been set.
+func (o *EntityArrayEmbedded) HasIssuanceRules() bool {
+	if o != nil && !IsNil(o.IssuanceRules) {
+		return true
+	}
+
+	return false
+}
+
+// SetIssuanceRules gets a reference to the given []CredentialIssuanceRule and assigns it to the IssuanceRules field.
+func (o *EntityArrayEmbedded) SetIssuanceRules(v []CredentialIssuanceRule) {
+	o.IssuanceRules = v
+}
+
 func (o EntityArrayEmbedded) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -83,6 +116,9 @@ func (o EntityArrayEmbedded) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Items) {
 		toSerialize["items"] = o.Items
+	}
+	if !IsNil(o.IssuanceRules) {
+		toSerialize["issuanceRules"] = o.IssuanceRules
 	}
 	return toSerialize, nil
 }

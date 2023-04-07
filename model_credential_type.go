@@ -27,7 +27,7 @@ type CredentialType struct {
 	CreatedAt *string `json:"createdAt,omitempty"`
 	// A string that specifies the description of the credential type.
 	Description *string `json:"description,omitempty"`
-	Environment *CredentialTypeEnvironment `json:"environment,omitempty"`
+	Environment *Environment `json:"environment,omitempty"`
 	// A string that specifies the identifier (UUID) associated with the credential type.
 	Id *string `json:"id,omitempty"`
 	Issuer *CredentialTypeIssuer `json:"issuer,omitempty"`
@@ -181,9 +181,9 @@ func (o *CredentialType) SetDescription(v string) {
 }
 
 // GetEnvironment returns the Environment field value if set, zero value otherwise.
-func (o *CredentialType) GetEnvironment() CredentialTypeEnvironment {
+func (o *CredentialType) GetEnvironment() Environment {
 	if o == nil || IsNil(o.Environment) {
-		var ret CredentialTypeEnvironment
+		var ret Environment
 		return ret
 	}
 	return *o.Environment
@@ -191,7 +191,7 @@ func (o *CredentialType) GetEnvironment() CredentialTypeEnvironment {
 
 // GetEnvironmentOk returns a tuple with the Environment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CredentialType) GetEnvironmentOk() (*CredentialTypeEnvironment, bool) {
+func (o *CredentialType) GetEnvironmentOk() (*Environment, bool) {
 	if o == nil || IsNil(o.Environment) {
 		return nil, false
 	}
@@ -207,8 +207,8 @@ func (o *CredentialType) HasEnvironment() bool {
 	return false
 }
 
-// SetEnvironment gets a reference to the given CredentialTypeEnvironment and assigns it to the Environment field.
-func (o *CredentialType) SetEnvironment(v CredentialTypeEnvironment) {
+// SetEnvironment gets a reference to the given Environment and assigns it to the Environment field.
+func (o *CredentialType) SetEnvironment(v Environment) {
 	o.Environment = &v
 }
 

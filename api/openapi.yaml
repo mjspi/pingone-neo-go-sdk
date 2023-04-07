@@ -528,9 +528,6 @@ paths:
       - PingOne Credentials > Credential Types
   /environments/{environmentID}/credentialTypes/{credentialTypeID}/issuanceRules:
     get:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: readAllCredentialIssuanceRules
       parameters:
       - explode: false
@@ -548,9 +545,48 @@ paths:
           type: string
         style: simple
       responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
         "200":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityArray'
           description: Successful response
       summary: Read All Credential Issuance Rules
       tags:
@@ -576,31 +612,56 @@ paths:
         content:
           application/json:
             schema:
-              example:
-                status: ACTIVE
-                digitalWalletApplication:
-                  id: "{{digitalWalletApplicationID}}"
-                filter:
-                  populationIds:
-                  - "{{popID}}"
-                automation:
-                  issue: PERIODIC
-                  update: ON_DEMAND
-                  revoke: ON_DEMAND
-              type: object
+              $ref: '#/components/schemas/CredentialIssuanceRule'
       responses:
-        "200":
+        "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialIssuanceRule'
           description: Successful response
       summary: Create Credential Issuance Rule
       tags:
       - PingOne Credentials > Credential Issuance Rules
   /environments/{environmentID}/credentialTypes/{credentialTypeID}/issuanceRules/{credentialIssuanceRuleID}:
     delete:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: deleteCredentialIssuanceRule
       parameters:
       - explode: false
@@ -625,17 +686,49 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
+        "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
+        "204":
           description: Successful response
       summary: Delete Credential Issuance Rule
       tags:
       - PingOne Credentials > Credential Issuance Rules
     get:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: readOneCredentialIssuanceRule
       parameters:
       - explode: false
@@ -660,17 +753,53 @@ paths:
           type: string
         style: simple
       responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
         "200":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialIssuanceRule'
           description: Successful response
       summary: Read One Credential Issuance Rule
       tags:
       - PingOne Credentials > Credential Issuance Rules
     put:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: updateCredentialIssuanceRule
       parameters:
       - explode: false
@@ -698,22 +827,50 @@ paths:
         content:
           application/json:
             schema:
-              example:
-                status: ACTIVE
-                digitalWalletApplication:
-                  id: "{{digitalWalletApplicationID}}"
-                filter:
-                  populationIds:
-                  - "{{popID}}"
-                automation:
-                  issue: ON_DEMAND
-                  update: ON_DEMAND
-                  revoke: ON_DEMAND
-              type: object
+              $ref: '#/components/schemas/CredentialIssuanceRule'
       responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
         "200":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialIssuanceRule'
           description: Successful response
       summary: Update Credential Issuance Rule
       tags:
@@ -1528,6 +1685,33 @@ paths:
       - PingOne Credentials > Credential Verifications
 components:
   schemas:
+    Environment:
+      example:
+        id: id
+      properties:
+        id:
+          description: A string that specifies the PingOne environment identifier
+            (UUID) in which the credential type exists.
+          type: string
+      required:
+      - id
+      type: object
+    EnumCredentialIssuanceRuleAutomationMethod:
+      description: |
+        Specifies the method the service uses to issue, revoke, or update credentials with the credential issuance rule:
+        `PERIODIC` - the issuance rule is invoked by the credentials service on a scheduled interval
+        `ON_DEMAND` - the issuance rule is invoked in real-time by the calling service applying staged changes.
+      enum:
+      - PERIODIC
+      - ON_DEMAND
+      type: string
+    EnumCredentialIssuanceRuleStatus:
+      description: Specifies the ACTIVE or DISABLED status of the credential issuance
+        rule.
+      enum:
+      - ACTIVE
+      - DISABLED
+      type: string
     EnumCredentialTypeMetaDataFieldsType:
       description: |
         Specifies the type of data in the defined field within a credential type:
@@ -1688,7 +1872,7 @@ components:
           description: A string that specifies the description of the credential type.
           type: string
         environment:
-          $ref: '#/components/schemas/CredentialType_environment'
+          $ref: '#/components/schemas/Environment'
         id:
           description: A string that specifies the identifier (UUID) associated with
             the credential type.
@@ -1714,10 +1898,122 @@ components:
       - metadata
       - title
       type: object
+    CredentialIssuanceRule:
+      example:
+        credentialType:
+          id: id
+        filter:
+          scim: scim
+          populationIds:
+          - populationIds
+          - populationIds
+          groupIds:
+          - groupIds
+          - groupIds
+        createdAt: createdAt
+        notification:
+          methods:
+          - methods
+          - methods
+        digitalWalletApplication:
+          id: id
+        environment:
+          id: id
+        automation:
+          issue: null
+          update: null
+          revoke: null
+        id: id
+        status: null
+        updatedAt: updatedAt
+      properties:
+        automation:
+          $ref: '#/components/schemas/CredentialIssuanceRule_automation'
+        createdAt:
+          description: A string that specifies the date and time the credential issuance
+            rule was created.
+          type: string
+        credentialType:
+          $ref: '#/components/schemas/CredentialIssuanceRule_credentialType'
+        digitalWalletApplication:
+          $ref: '#/components/schemas/CredentialIssuanceRule_digitalWalletApplication'
+        environment:
+          $ref: '#/components/schemas/Environment'
+        filter:
+          $ref: '#/components/schemas/CredentialIssuanceRule_filter'
+        id:
+          description: A string that specifies the identifier (UUID) of the credential
+            issuance rule.
+          type: string
+        notification:
+          $ref: '#/components/schemas/CredentialIssuanceRule_notification'
+        status:
+          $ref: '#/components/schemas/EnumCredentialIssuanceRuleStatus'
+        updatedAt:
+          description: A string that specifies the date and time the credential issuance
+            rule was last updated; can be null.
+          type: string
+      required:
+      - automation
+      - status
+      type: object
     EntityArray:
       example:
         size: 0.8008281904610115
         _embedded:
+          issuanceRules:
+          - credentialType:
+              id: id
+            filter:
+              scim: scim
+              populationIds:
+              - populationIds
+              - populationIds
+              groupIds:
+              - groupIds
+              - groupIds
+            createdAt: createdAt
+            notification:
+              methods:
+              - methods
+              - methods
+            digitalWalletApplication:
+              id: id
+            environment:
+              id: id
+            automation:
+              issue: null
+              update: null
+              revoke: null
+            id: id
+            status: null
+            updatedAt: updatedAt
+          - credentialType:
+              id: id
+            filter:
+              scim: scim
+              populationIds:
+              - populationIds
+              - populationIds
+              groupIds:
+              - groupIds
+              - groupIds
+            createdAt: createdAt
+            notification:
+              methods:
+              - methods
+              - methods
+            digitalWalletApplication:
+              id: id
+            environment:
+              id: id
+            automation:
+              issue: null
+              update: null
+              revoke: null
+            id: id
+            status: null
+            updatedAt: updatedAt
           items:
           - null
           - null
@@ -1794,17 +2090,6 @@ components:
       - title
       - type
       type: object
-    CredentialType_environment:
-      example:
-        id: id
-      properties:
-        id:
-          description: A string that specifies the PingOne environment identifier
-            (UUID) in which the credential type exists.
-          type: string
-      required:
-      - id
-      type: object
     CredentialType_issuer:
       example:
         id: id
@@ -1815,11 +2100,135 @@ components:
       required:
       - id
       type: object
+    CredentialIssuanceRule_automation:
+      example:
+        issue: null
+        update: null
+        revoke: null
+      properties:
+        issue:
+          $ref: '#/components/schemas/EnumCredentialIssuanceRuleAutomationMethod'
+        update:
+          $ref: '#/components/schemas/EnumCredentialIssuanceRuleAutomationMethod'
+        revoke:
+          $ref: '#/components/schemas/EnumCredentialIssuanceRuleAutomationMethod'
+      required:
+      - issue
+      - revoke
+      - update
+      type: object
+    CredentialIssuanceRule_credentialType:
+      example:
+        id: id
+      properties:
+        id:
+          description: A string that specifies the iIdentifier (UUID) of the credential
+            type with which this credential issuance rule is associated.
+          type: string
+      required:
+      - id
+      type: object
+    CredentialIssuanceRule_digitalWalletApplication:
+      example:
+        id: id
+      properties:
+        id:
+          description: A string that specifies the identifier (UUID) of the customer's
+            Digital Wallet App that will interact with the user's Digital Wallet.
+          type: string
+      required:
+      - id
+      type: object
+    CredentialIssuanceRule_filter:
+      example:
+        scim: scim
+        populationIds:
+        - populationIds
+        - populationIds
+        groupIds:
+        - groupIds
+        - groupIds
+      properties:
+        groupIds:
+          items:
+            type: string
+          type: array
+        populationIds:
+          items:
+            type: string
+          type: array
+        scim:
+          type: string
+      type: object
+    CredentialIssuanceRule_notification:
+      example:
+        methods:
+        - methods
+        - methods
+      properties:
+        methods:
+          items:
+            type: string
+          type: array
+      type: object
     EntityArray__embedded_items_inner:
       anyOf:
       - $ref: '#/components/schemas/CredentialType'
     EntityArray__embedded:
       example:
+        issuanceRules:
+        - credentialType:
+            id: id
+          filter:
+            scim: scim
+            populationIds:
+            - populationIds
+            - populationIds
+            groupIds:
+            - groupIds
+            - groupIds
+          createdAt: createdAt
+          notification:
+            methods:
+            - methods
+            - methods
+          digitalWalletApplication:
+            id: id
+          environment:
+            id: id
+          automation:
+            issue: null
+            update: null
+            revoke: null
+          id: id
+          status: null
+          updatedAt: updatedAt
+        - credentialType:
+            id: id
+          filter:
+            scim: scim
+            populationIds:
+            - populationIds
+            - populationIds
+            groupIds:
+            - groupIds
+            - groupIds
+          createdAt: createdAt
+          notification:
+            methods:
+            - methods
+            - methods
+          digitalWalletApplication:
+            id: id
+          environment:
+            id: id
+          automation:
+            issue: null
+            update: null
+            revoke: null
+          id: id
+          status: null
+          updatedAt: updatedAt
         items:
         - null
         - null
@@ -1827,6 +2236,10 @@ components:
         items:
           items:
             $ref: '#/components/schemas/EntityArray__embedded_items_inner'
+          type: array
+        issuanceRules:
+          items:
+            $ref: '#/components/schemas/CredentialIssuanceRule'
           type: array
       type: object
     P1Error_details_inner_innerError:

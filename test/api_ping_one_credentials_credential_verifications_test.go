@@ -26,9 +26,9 @@ func Test_openapi_PingOneCredentialsCredentialVerificationsApiService(t *testing
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialVerificationsApi.CreateCredentialVerificationPresentationSessionNative(context.Background(), envID).Execute()
+		httpRes, err := apiClient.PingOneCredentialsCredentialVerificationsApi.CreateCredentialVerificationPresentationSessionNative(context.Background(), environmentID).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -39,10 +39,10 @@ func Test_openapi_PingOneCredentialsCredentialVerificationsApiService(t *testing
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var credentialsVerificationID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialVerificationsApi.ReadCredentialVerificationCredentialData(context.Background(), envID, credentialsVerificationID).Execute()
+		httpRes, err := apiClient.PingOneCredentialsCredentialVerificationsApi.ReadCredentialVerificationCredentialData(context.Background(), environmentID, credentialsVerificationID).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -53,10 +53,10 @@ func Test_openapi_PingOneCredentialsCredentialVerificationsApiService(t *testing
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var credentialsVerificationID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialVerificationsApi.ReadOneCredentialVerificationStatus(context.Background(), envID, credentialsVerificationID).Execute()
+		httpRes, err := apiClient.PingOneCredentialsCredentialVerificationsApi.ReadOneCredentialVerificationStatus(context.Background(), environmentID, credentialsVerificationID).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

@@ -26,10 +26,10 @@ func Test_openapi_PingOneCredentialsUserCredentialsApiService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var userID string
 
-		httpRes, err := apiClient.PingOneCredentialsUserCredentialsApi.CreateAUserCredential(context.Background(), envID, userID).Execute()
+		httpRes, err := apiClient.PingOneCredentialsUserCredentialsApi.CreateAUserCredential(context.Background(), environmentID, userID).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -40,10 +40,10 @@ func Test_openapi_PingOneCredentialsUserCredentialsApiService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var userID string
 
-		httpRes, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadAllUserCredentials(context.Background(), envID, userID).Execute()
+		httpRes, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadAllUserCredentials(context.Background(), environmentID, userID).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -54,11 +54,11 @@ func Test_openapi_PingOneCredentialsUserCredentialsApiService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var userID string
 		var credentialID string
 
-		httpRes, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadOneUserCredential(context.Background(), envID, userID, credentialID).Execute()
+		httpRes, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadOneUserCredential(context.Background(), environmentID, userID, credentialID).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -69,11 +69,11 @@ func Test_openapi_PingOneCredentialsUserCredentialsApiService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var userID string
 		var credentialID string
 
-		httpRes, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadOneUserCredentialWallets(context.Background(), envID, userID, credentialID).Execute()
+		httpRes, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadOneUserCredentialWallets(context.Background(), environmentID, userID, credentialID).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -84,11 +84,11 @@ func Test_openapi_PingOneCredentialsUserCredentialsApiService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var envID string
+		var environmentID string
 		var userID string
 		var credentialID string
 
-		httpRes, err := apiClient.PingOneCredentialsUserCredentialsApi.UpdateAUserCredential(context.Background(), envID, userID, credentialID).Execute()
+		httpRes, err := apiClient.PingOneCredentialsUserCredentialsApi.UpdateAUserCredential(context.Background(), environmentID, userID, credentialID).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

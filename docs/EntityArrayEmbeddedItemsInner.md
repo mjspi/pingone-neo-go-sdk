@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **CardType** | Pointer to **string** | A string that specifies the descriptor of the credential type. Can be non-identity types such as proof of employment or proof of insurance. | [optional] 
 **CreatedAt** | Pointer to **string** | A string that specifies the date and time the credential type was created. | [optional] 
 **Description** | Pointer to **string** | A string that specifies the description of the credential type. | [optional] 
-**Environment** | Pointer to [**CredentialTypeEnvironment**](CredentialTypeEnvironment.md) |  | [optional] 
+**Environment** | Pointer to [**Environment**](Environment.md) |  | [optional] 
 **Id** | Pointer to **string** | A string that specifies the identifier (UUID) associated with the credential type. | [optional] 
 **Issuer** | Pointer to [**CredentialTypeIssuer**](CredentialTypeIssuer.md) |  | [optional] 
 **IssuerName** | Pointer to **string** | v issuer name associated with the card, can differ from title. | [optional] 
@@ -132,20 +132,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetEnvironment
 
-`func (o *EntityArrayEmbeddedItemsInner) GetEnvironment() CredentialTypeEnvironment`
+`func (o *EntityArrayEmbeddedItemsInner) GetEnvironment() Environment`
 
 GetEnvironment returns the Environment field if non-nil, zero value otherwise.
 
 ### GetEnvironmentOk
 
-`func (o *EntityArrayEmbeddedItemsInner) GetEnvironmentOk() (*CredentialTypeEnvironment, bool)`
+`func (o *EntityArrayEmbeddedItemsInner) GetEnvironmentOk() (*Environment, bool)`
 
 GetEnvironmentOk returns a tuple with the Environment field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEnvironment
 
-`func (o *EntityArrayEmbeddedItemsInner) SetEnvironment(v CredentialTypeEnvironment)`
+`func (o *EntityArrayEmbeddedItemsInner) SetEnvironment(v Environment)`
 
 SetEnvironment sets Environment field to given value.
 
