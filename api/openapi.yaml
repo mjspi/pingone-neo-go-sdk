@@ -877,9 +877,6 @@ paths:
       - PingOne Credentials > Credential Issuance Rules
   /environments/{environmentID}/credentialTypes/{credentialTypeID}/issuanceRules/{credentialIssuanceRuleID}/stagedChanges:
     get:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: readCredentialIssuanceRuleStagedChanges
       parameters:
       - explode: false
@@ -904,17 +901,53 @@ paths:
           type: string
         style: simple
       responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
         "200":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialIssuanceRuleStagedChange'
           description: Successful response
       summary: Read Credential Issuance Rule Staged Changes
       tags:
       - PingOne Credentials > Credential Issuance Rules
     post:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: applyCredentialIssuanceRuleStagedChanges
       parameters:
       - example: application/vnd.pingidentity.credentials.applyStagedChanges+json
@@ -950,15 +983,50 @@ paths:
         content:
           application/json:
             schema:
-              example:
-                revoke:
-                - "{{userID}}"
-                - "{{userID2}}"
-              type: object
+              $ref: '#/components/schemas/CredentialIssuanceRuleStagedChange'
       responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
         "200":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialIssuanceRuleStagedChange'
           description: Successful response
       summary: Apply Credential Issuance Rule Staged Changes
       tags:
@@ -1696,6 +1764,17 @@ components:
       required:
       - id
       type: object
+    EnumCredentialTypeMetaDataFieldsType:
+      description: |
+        Specifies the type of data in the defined field within a credential type:
+        `Alphanumeric Text` - static text string of letters, numbers, or punctuation set on fields.value
+        `Issued Timestamp` - date and time the credential was issued
+        `Directory Attribute` - any PingOne Directory standard or custom attribute.
+      enum:
+      - Alphanumeric Text
+      - Issued Timestamp
+      - Directory Attribute
+      type: string
     EnumCredentialIssuanceRuleAutomationMethod:
       description: |
         Specifies the method the service uses to issue, revoke, or update credentials with the credential issuance rule:
@@ -1712,16 +1791,14 @@ components:
       - ACTIVE
       - DISABLED
       type: string
-    EnumCredentialTypeMetaDataFieldsType:
-      description: |
-        Specifies the type of data in the defined field within a credential type:
-        `Alphanumeric Text` - static text string of letters, numbers, or punctuation set on fields.value
-        `Issued Timestamp` - date and time the credential was issued
-        `Directory Attribute` - any PingOne Directory standard or custom attribute.
+    EnumCredentialIssuanceRuleStagedChangeAction:
+      description: "Specifies the ISSUE, UPDATE, or REVOKE action determined by the\
+        \ service that should be taken for the credential based on the request that\
+        \ staged it."
       enum:
-      - Alphanumeric Text
-      - Issued Timestamp
-      - Directory Attribute
+      - ISSUE
+      - UPDATE
+      - REVOKE
       type: string
     CredentialIssuerProfile:
       example:
@@ -1957,10 +2034,98 @@ components:
       - automation
       - status
       type: object
+    CredentialIssuanceRuleStagedChange:
+      example:
+        issue:
+        - issue
+        - issue
+        stagedChanges:
+          credentialType:
+            id: id
+          createdAt: createdAt
+          environment:
+            id: id
+          issuanceRule:
+            id: id
+          scheduled: true
+          action: null
+          user:
+            id: id
+        revoke:
+        - revoke
+        - revoke
+        update:
+        - update
+        - update
+      properties:
+        issue:
+          description: An array that specifies one or more identifiers (UUIDs) of
+            users whose credentials are in an issue action state and should be issued.
+          items:
+            type: string
+          type: array
+        revoke:
+          description: An array that specifies one or more identifiers (UUIDs) of
+            users whose credentials are in an revoke action state and should be issued.
+          items:
+            type: string
+          type: array
+        stagedChanges:
+          $ref: '#/components/schemas/CredentialIssuanceRuleStagedChange_stagedChanges'
+        update:
+          description: An array that specifies one or more identifiers (UUIDs) of
+            users whose credentials are in an update action state and should be issued.
+          items:
+            type: string
+          type: array
+      type: object
     EntityArray:
       example:
         size: 0.8008281904610115
         _embedded:
+          stagedChanges:
+          - issue:
+            - issue
+            - issue
+            stagedChanges:
+              credentialType:
+                id: id
+              createdAt: createdAt
+              environment:
+                id: id
+              issuanceRule:
+                id: id
+              scheduled: true
+              action: null
+              user:
+                id: id
+            revoke:
+            - revoke
+            - revoke
+            update:
+            - update
+            - update
+          - issue:
+            - issue
+            - issue
+            stagedChanges:
+              credentialType:
+                id: id
+              createdAt: createdAt
+              environment:
+                id: id
+              issuanceRule:
+                id: id
+              scheduled: true
+              action: null
+              user:
+                id: id
+            revoke:
+            - revoke
+            - revoke
+            update:
+            - update
+            - update
           issuanceRules:
           - credentialType:
               id: id
@@ -2171,11 +2336,120 @@ components:
             type: string
           type: array
       type: object
+    CredentialIssuanceRuleStagedChange_stagedChanges_credentialType:
+      example:
+        id: id
+      properties:
+        id:
+          description: A string that specifies the identifier (UUID) of the credential
+            type with which this credential issuance rule is associated.
+          type: string
+      required:
+      - id
+      type: object
+    CredentialIssuanceRuleStagedChange_stagedChanges_issuanceRule:
+      example:
+        id: id
+      properties:
+        id:
+          description: A string that specifies the identifier (UUID) of the credential
+            issuance rule.
+          type: string
+      required:
+      - id
+      type: object
+    CredentialIssuanceRuleStagedChange_stagedChanges_user:
+      example:
+        id: id
+      properties:
+        id:
+          description: A string that specifies the identifier (UUID) of the user identified
+            by the filter on the credential issuance rule.
+          type: string
+      required:
+      - id
+      type: object
+    CredentialIssuanceRuleStagedChange_stagedChanges:
+      example:
+        credentialType:
+          id: id
+        createdAt: createdAt
+        environment:
+          id: id
+        issuanceRule:
+          id: id
+        scheduled: true
+        action: null
+        user:
+          id: id
+      properties:
+        action:
+          $ref: '#/components/schemas/EnumCredentialIssuanceRuleAutomationMethod'
+        createdAt:
+          description: A string that specifies the date and time the change was staged
+            by the service.
+          type: string
+        credentialType:
+          $ref: '#/components/schemas/CredentialIssuanceRuleStagedChange_stagedChanges_credentialType'
+        environment:
+          $ref: '#/components/schemas/Environment'
+        issuanceRule:
+          $ref: '#/components/schemas/CredentialIssuanceRuleStagedChange_stagedChanges_issuanceRule'
+        scheduled:
+          description: A boolean that specifies whether or not the staged change is
+            scheduled.
+          type: boolean
+        user:
+          $ref: '#/components/schemas/CredentialIssuanceRuleStagedChange_stagedChanges_user'
+      type: object
     EntityArray__embedded_items_inner:
       anyOf:
       - $ref: '#/components/schemas/CredentialType'
     EntityArray__embedded:
       example:
+        stagedChanges:
+        - issue:
+          - issue
+          - issue
+          stagedChanges:
+            credentialType:
+              id: id
+            createdAt: createdAt
+            environment:
+              id: id
+            issuanceRule:
+              id: id
+            scheduled: true
+            action: null
+            user:
+              id: id
+          revoke:
+          - revoke
+          - revoke
+          update:
+          - update
+          - update
+        - issue:
+          - issue
+          - issue
+          stagedChanges:
+            credentialType:
+              id: id
+            createdAt: createdAt
+            environment:
+              id: id
+            issuanceRule:
+              id: id
+            scheduled: true
+            action: null
+            user:
+              id: id
+          revoke:
+          - revoke
+          - revoke
+          update:
+          - update
+          - update
         issuanceRules:
         - credentialType:
             id: id
@@ -2240,6 +2514,10 @@ components:
         issuanceRules:
           items:
             $ref: '#/components/schemas/CredentialIssuanceRule'
+          type: array
+        stagedChanges:
+          items:
+            $ref: '#/components/schemas/CredentialIssuanceRuleStagedChange'
           type: array
       type: object
     P1Error_details_inner_innerError:

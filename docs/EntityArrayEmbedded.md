@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Items** | Pointer to [**[]EntityArrayEmbeddedItemsInner**](EntityArrayEmbeddedItemsInner.md) |  | [optional] 
 **IssuanceRules** | Pointer to [**[]CredentialIssuanceRule**](CredentialIssuanceRule.md) |  | [optional] 
+**StagedChanges** | Pointer to [**[]CredentialIssuanceRuleStagedChange**](CredentialIssuanceRuleStagedChange.md) |  | [optional] 
 
 ## Methods
 
@@ -75,6 +76,31 @@ SetIssuanceRules sets IssuanceRules field to given value.
 `func (o *EntityArrayEmbedded) HasIssuanceRules() bool`
 
 HasIssuanceRules returns a boolean if a field has been set.
+
+### GetStagedChanges
+
+`func (o *EntityArrayEmbedded) GetStagedChanges() []CredentialIssuanceRuleStagedChange`
+
+GetStagedChanges returns the StagedChanges field if non-nil, zero value otherwise.
+
+### GetStagedChangesOk
+
+`func (o *EntityArrayEmbedded) GetStagedChangesOk() (*[]CredentialIssuanceRuleStagedChange, bool)`
+
+GetStagedChangesOk returns a tuple with the StagedChanges field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStagedChanges
+
+`func (o *EntityArrayEmbedded) SetStagedChanges(v []CredentialIssuanceRuleStagedChange)`
+
+SetStagedChanges sets StagedChanges field to given value.
+
+### HasStagedChanges
+
+`func (o *EntityArrayEmbedded) HasStagedChanges() bool`
+
+HasStagedChanges returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

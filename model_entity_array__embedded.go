@@ -21,6 +21,7 @@ var _ MappedNullable = &EntityArrayEmbedded{}
 type EntityArrayEmbedded struct {
 	Items []EntityArrayEmbeddedItemsInner `json:"items,omitempty"`
 	IssuanceRules []CredentialIssuanceRule `json:"issuanceRules,omitempty"`
+	StagedChanges []CredentialIssuanceRuleStagedChange `json:"stagedChanges,omitempty"`
 }
 
 // NewEntityArrayEmbedded instantiates a new EntityArrayEmbedded object
@@ -104,6 +105,38 @@ func (o *EntityArrayEmbedded) SetIssuanceRules(v []CredentialIssuanceRule) {
 	o.IssuanceRules = v
 }
 
+// GetStagedChanges returns the StagedChanges field value if set, zero value otherwise.
+func (o *EntityArrayEmbedded) GetStagedChanges() []CredentialIssuanceRuleStagedChange {
+	if o == nil || IsNil(o.StagedChanges) {
+		var ret []CredentialIssuanceRuleStagedChange
+		return ret
+	}
+	return o.StagedChanges
+}
+
+// GetStagedChangesOk returns a tuple with the StagedChanges field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EntityArrayEmbedded) GetStagedChangesOk() ([]CredentialIssuanceRuleStagedChange, bool) {
+	if o == nil || IsNil(o.StagedChanges) {
+		return nil, false
+	}
+	return o.StagedChanges, true
+}
+
+// HasStagedChanges returns a boolean if a field has been set.
+func (o *EntityArrayEmbedded) HasStagedChanges() bool {
+	if o != nil && !IsNil(o.StagedChanges) {
+		return true
+	}
+
+	return false
+}
+
+// SetStagedChanges gets a reference to the given []CredentialIssuanceRuleStagedChange and assigns it to the StagedChanges field.
+func (o *EntityArrayEmbedded) SetStagedChanges(v []CredentialIssuanceRuleStagedChange) {
+	o.StagedChanges = v
+}
+
 func (o EntityArrayEmbedded) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -119,6 +152,9 @@ func (o EntityArrayEmbedded) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IssuanceRules) {
 		toSerialize["issuanceRules"] = o.IssuanceRules
+	}
+	if !IsNil(o.StagedChanges) {
+		toSerialize["stagedChanges"] = o.StagedChanges
 	}
 	return toSerialize, nil
 }

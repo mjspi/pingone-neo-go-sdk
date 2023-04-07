@@ -18,11 +18,9 @@ Method | HTTP request | Description
 
 ## ApplyCredentialIssuanceRuleStagedChanges
 
-> ApplyCredentialIssuanceRuleStagedChanges(ctx, environmentID, credentialTypeID, credentialIssuanceRuleID).ContentType(contentType).Body(body).Execute()
+> CredentialIssuanceRuleStagedChange ApplyCredentialIssuanceRuleStagedChanges(ctx, environmentID, credentialTypeID, credentialIssuanceRuleID).ContentType(contentType).CredentialIssuanceRuleStagedChange(credentialIssuanceRuleStagedChange).Execute()
 
 Apply Credential Issuance Rule Staged Changes
-
-
 
 ### Example
 
@@ -41,15 +39,17 @@ func main() {
     credentialTypeID := "credentialTypeID_example" // string | 
     credentialIssuanceRuleID := "credentialIssuanceRuleID_example" // string | 
     contentType := "application/vnd.pingidentity.credentials.applyStagedChanges+json" // string |  (optional)
-    body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+    credentialIssuanceRuleStagedChange := *openapiclient.NewCredentialIssuanceRuleStagedChange() // CredentialIssuanceRuleStagedChange |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ApplyCredentialIssuanceRuleStagedChanges(context.Background(), environmentID, credentialTypeID, credentialIssuanceRuleID).ContentType(contentType).Body(body).Execute()
+    resp, r, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ApplyCredentialIssuanceRuleStagedChanges(context.Background(), environmentID, credentialTypeID, credentialIssuanceRuleID).ContentType(contentType).CredentialIssuanceRuleStagedChange(credentialIssuanceRuleStagedChange).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialIssuanceRulesApi.ApplyCredentialIssuanceRuleStagedChanges``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `ApplyCredentialIssuanceRuleStagedChanges`: CredentialIssuanceRuleStagedChange
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsCredentialIssuanceRulesApi.ApplyCredentialIssuanceRuleStagedChanges`: %v\n", resp)
 }
 ```
 
@@ -74,11 +74,11 @@ Name | Type | Description  | Notes
 
 
  **contentType** | **string** |  | 
- **body** | **map[string]interface{}** |  | 
+ **credentialIssuanceRuleStagedChange** | [**CredentialIssuanceRuleStagedChange**](CredentialIssuanceRuleStagedChange.md) |  | 
 
 ### Return type
 
- (empty response body)
+[**CredentialIssuanceRuleStagedChange**](CredentialIssuanceRuleStagedChange.md)
 
 ### Authorization
 
@@ -312,11 +312,9 @@ Name | Type | Description  | Notes
 
 ## ReadCredentialIssuanceRuleStagedChanges
 
-> ReadCredentialIssuanceRuleStagedChanges(ctx, environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
+> CredentialIssuanceRuleStagedChange ReadCredentialIssuanceRuleStagedChanges(ctx, environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
 
 Read Credential Issuance Rule Staged Changes
-
-
 
 ### Example
 
@@ -337,11 +335,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ReadCredentialIssuanceRuleStagedChanges(context.Background(), environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
+    resp, r, err := apiClient.PingOneCredentialsCredentialIssuanceRulesApi.ReadCredentialIssuanceRuleStagedChanges(context.Background(), environmentID, credentialTypeID, credentialIssuanceRuleID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialIssuanceRulesApi.ReadCredentialIssuanceRuleStagedChanges``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `ReadCredentialIssuanceRuleStagedChanges`: CredentialIssuanceRuleStagedChange
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsCredentialIssuanceRulesApi.ReadCredentialIssuanceRuleStagedChanges`: %v\n", resp)
 }
 ```
 
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**CredentialIssuanceRuleStagedChange**](CredentialIssuanceRuleStagedChange.md)
 
 ### Authorization
 
