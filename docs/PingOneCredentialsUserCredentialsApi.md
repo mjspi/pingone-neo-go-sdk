@@ -14,11 +14,9 @@ Method | HTTP request | Description
 
 ## CreateAUserCredential
 
-> CreateAUserCredential(ctx, environmentID, userID).Body(body).Execute()
+> UserCredential CreateAUserCredential(ctx, environmentID, userID).UserCredential(userCredential).Execute()
 
 Create a User Credential
-
-
 
 ### Example
 
@@ -35,15 +33,17 @@ import (
 func main() {
     environmentID := "environmentID_example" // string | 
     userID := "userID_example" // string | 
-    body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+    userCredential := *openapiclient.NewUserCredential() // UserCredential |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsUserCredentialsApi.CreateAUserCredential(context.Background(), environmentID, userID).Body(body).Execute()
+    resp, r, err := apiClient.PingOneCredentialsUserCredentialsApi.CreateAUserCredential(context.Background(), environmentID, userID).UserCredential(userCredential).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsUserCredentialsApi.CreateAUserCredential``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `CreateAUserCredential`: UserCredential
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsUserCredentialsApi.CreateAUserCredential`: %v\n", resp)
 }
 ```
 
@@ -65,11 +65,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **body** | **map[string]interface{}** |  | 
+ **userCredential** | [**UserCredential**](UserCredential.md) |  | 
 
 ### Return type
 
- (empty response body)
+[**UserCredential**](UserCredential.md)
 
 ### Authorization
 
@@ -87,11 +87,9 @@ Name | Type | Description  | Notes
 
 ## ReadAllUserCredentials
 
-> ReadAllUserCredentials(ctx, environmentID, userID).Execute()
+> EntityArray ReadAllUserCredentials(ctx, environmentID, userID).Execute()
 
 Read All User Credentials
-
-
 
 ### Example
 
@@ -111,11 +109,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadAllUserCredentials(context.Background(), environmentID, userID).Execute()
+    resp, r, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadAllUserCredentials(context.Background(), environmentID, userID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsUserCredentialsApi.ReadAllUserCredentials``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `ReadAllUserCredentials`: EntityArray
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsUserCredentialsApi.ReadAllUserCredentials`: %v\n", resp)
 }
 ```
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**EntityArray**](EntityArray.md)
 
 ### Authorization
 
@@ -158,11 +158,9 @@ Name | Type | Description  | Notes
 
 ## ReadOneUserCredential
 
-> ReadOneUserCredential(ctx, environmentID, userID, credentialID).Execute()
+> UserCredential ReadOneUserCredential(ctx, environmentID, userID, credentialID).Execute()
 
 Read One User Credential
-
-
 
 ### Example
 
@@ -183,11 +181,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadOneUserCredential(context.Background(), environmentID, userID, credentialID).Execute()
+    resp, r, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadOneUserCredential(context.Background(), environmentID, userID, credentialID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsUserCredentialsApi.ReadOneUserCredential``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `ReadOneUserCredential`: UserCredential
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsUserCredentialsApi.ReadOneUserCredential`: %v\n", resp)
 }
 ```
 
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**UserCredential**](UserCredential.md)
 
 ### Authorization
 
@@ -232,11 +232,9 @@ Name | Type | Description  | Notes
 
 ## ReadOneUserCredentialWallets
 
-> ReadOneUserCredentialWallets(ctx, environmentID, userID, credentialID).Execute()
+> EntityArray ReadOneUserCredentialWallets(ctx, environmentID, userID, credentialID).Execute()
 
 Read One User Credential Wallets
-
-
 
 ### Example
 
@@ -257,11 +255,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadOneUserCredentialWallets(context.Background(), environmentID, userID, credentialID).Execute()
+    resp, r, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadOneUserCredentialWallets(context.Background(), environmentID, userID, credentialID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsUserCredentialsApi.ReadOneUserCredentialWallets``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `ReadOneUserCredentialWallets`: EntityArray
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsUserCredentialsApi.ReadOneUserCredentialWallets`: %v\n", resp)
 }
 ```
 
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**EntityArray**](EntityArray.md)
 
 ### Authorization
 
@@ -306,11 +306,9 @@ Name | Type | Description  | Notes
 
 ## UpdateAUserCredential
 
-> UpdateAUserCredential(ctx, environmentID, userID, credentialID).Body(body).Execute()
+> UserCredential UpdateAUserCredential(ctx, environmentID, userID, credentialID).UserCredential(userCredential).Execute()
 
 Update a User Credential
-
-
 
 ### Example
 
@@ -328,15 +326,17 @@ func main() {
     environmentID := "environmentID_example" // string | 
     userID := "userID_example" // string | 
     credentialID := "credentialID_example" // string | 
-    body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+    userCredential := *openapiclient.NewUserCredential() // UserCredential |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsUserCredentialsApi.UpdateAUserCredential(context.Background(), environmentID, userID, credentialID).Body(body).Execute()
+    resp, r, err := apiClient.PingOneCredentialsUserCredentialsApi.UpdateAUserCredential(context.Background(), environmentID, userID, credentialID).UserCredential(userCredential).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsUserCredentialsApi.UpdateAUserCredential``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `UpdateAUserCredential`: UserCredential
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsUserCredentialsApi.UpdateAUserCredential`: %v\n", resp)
 }
 ```
 
@@ -360,11 +360,11 @@ Name | Type | Description  | Notes
 
 
 
- **body** | **map[string]interface{}** |  | 
+ **userCredential** | [**UserCredential**](UserCredential.md) |  | 
 
 ### Return type
 
- (empty response body)
+[**UserCredential**](UserCredential.md)
 
 ### Authorization
 

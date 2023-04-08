@@ -1839,9 +1839,6 @@ paths:
       - PingOne Credentials > Credential Digital Wallets > Digital Wallets
   /environments/{environmentID}/users/{userID}/digitalWallets/{digitalWalletID}/provisionedCredentials:
     get:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: readOneDigitalWalletCredentials
       parameters:
       - explode: false
@@ -1866,18 +1863,54 @@ paths:
           type: string
         style: simple
       responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
         "200":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityArray'
           description: Successful response
       summary: Read One Digital Wallet Credentials
       tags:
       - PingOne Credentials > Credential Digital Wallets > Digital Wallets
   /environments/{environmentID}/users/{userID}/credentials:
     get:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: readAllUserCredentials
       parameters:
       - explode: false
@@ -1895,17 +1928,53 @@ paths:
           type: string
         style: simple
       responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
         "200":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityArray'
           description: Successful response
       summary: Read All User Credentials
       tags:
       - PingOne Credentials > User Credentials
     post:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: createAUserCredential
       parameters:
       - explode: false
@@ -1926,23 +1995,56 @@ paths:
         content:
           application/json:
             schema:
-              example:
-                credentialType:
-                  id: "{{credentialTypeID}}"
-              type: object
+              $ref: '#/components/schemas/UserCredential'
       responses:
-        "200":
+        "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserCredential'
           description: Successful response
       summary: Create a User Credential
       tags:
       - PingOne Credentials > User Credentials
   /environments/{environmentID}/users/{userID}/credentials/{credentialID}:
     get:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: readOneUserCredential
       parameters:
       - explode: false
@@ -1967,17 +2069,53 @@ paths:
           type: string
         style: simple
       responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
         "200":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserCredential'
           description: Successful response
       summary: Read One User Credential
       tags:
       - PingOne Credentials > User Credentials
     put:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: updateAUserCredential
       parameters:
       - explode: false
@@ -2005,22 +2143,56 @@ paths:
         content:
           application/json:
             schema:
-              example:
-                expiresAt: 2024-01-01T00:00:00.000Z
-              type: object
+              $ref: '#/components/schemas/UserCredential'
       responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
         "200":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserCredential'
           description: Successful response
       summary: Update a User Credential
       tags:
       - PingOne Credentials > User Credentials
   /environments/{environmentID}/users/{userID}/credentials/{credentialID}/provisionedCredentials:
     get:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: readOneUserCredentialWallets
       parameters:
       - explode: false
@@ -2045,9 +2217,48 @@ paths:
           type: string
         style: simple
       responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
         "200":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityArray'
           description: Successful response
       summary: Read One User Credential Wallets
       tags:
@@ -2580,9 +2791,137 @@ components:
         pairingSession:
           $ref: '#/components/schemas/CredentialDigitalWallet_pairingSession'
       type: object
+    ProvisionedCredential:
+      example:
+        createdAt: createdAt
+        expiredAt: expiredAt
+        digitalWallet:
+          id: id
+        environment:
+          id: id
+        claimReference:
+          dataHash: dataHash
+          partitionId: partitionId
+          subject: subject
+          holder: holder
+          id: id
+          dataJson: dataJson
+          dataSignature: dataSignature
+          version: 0
+          issuer: issuer
+          createDate: createDate
+        credential:
+          id: id
+        id: id
+        walletActions:
+        - occurredAt: occurredAt
+          type: type
+        - occurredAt: occurredAt
+          type: type
+        user:
+          id: id
+        status: status
+      properties:
+        claimReference:
+          $ref: '#/components/schemas/ProvisionedCredential_claimReference'
+        createdAt:
+          type: string
+        credential:
+          $ref: '#/components/schemas/CredentialDigitalWallet_notification_results_inner_notification'
+        digitalWallet:
+          $ref: '#/components/schemas/CredentialDigitalWallet_notification_results_inner_notification'
+        environment:
+          $ref: '#/components/schemas/Environment'
+        expiredAt:
+          description: "A string that specifies the date that the provisioned credential\
+            \ expires. If this value is null, the provisioned credential never expires."
+          type: string
+        id:
+          type: string
+        status:
+          description: A string that specifies the tatus of the provisioned credential.
+          type: string
+        user:
+          $ref: '#/components/schemas/ProvisionedCredential_user'
+        walletActions:
+          items:
+            $ref: '#/components/schemas/ProvisionedCredential_walletActions_inner'
+          type: array
+      type: object
+    UserCredential:
+      example:
+        credentialType:
+          id: id
+        createdAt: createdAt
+        notification:
+          template:
+            variant: variant
+            locale: locale
+          methods:
+          - methods
+          - methods
+          results:
+          - notification:
+              id: id
+            method: method
+            error:
+              code: code
+              details:
+              - code: code
+                message: message
+              - code: code
+                message: message
+              id: id
+              message: message
+            sent: true
+          - notification:
+              id: id
+            method: method
+            error:
+              code: code
+              details:
+              - code: code
+                message: message
+              - code: code
+                message: message
+              id: id
+              message: message
+            sent: true
+        userdata:
+          CardImage: CardImage
+        environment:
+          id: id
+        id: id
+        user:
+          id: id
+        expiresAt: expiresAt
+        status: status
+        updatedAt: updatedAt
+      properties:
+        createdAt:
+          type: string
+        credentialType:
+          $ref: '#/components/schemas/CredentialDigitalWallet_notification_results_inner_notification'
+        environment:
+          $ref: '#/components/schemas/Environment'
+        expiresAt:
+          type: string
+        id:
+          type: string
+        notification:
+          $ref: '#/components/schemas/CredentialDigitalWallet_notification'
+        status:
+          type: string
+        updatedAt:
+          type: string
+        user:
+          $ref: '#/components/schemas/CredentialDigitalWallet_notification_results_inner_notification'
+        userdata:
+          $ref: '#/components/schemas/UserCredential_userdata'
+      type: object
     EntityArray:
       example:
-        size: 0.8008281904610115
+        size: 6.027456183070403
         _embedded:
           digitalWalletApplications:
           - appOpenUrl: appOpenUrl
@@ -2823,6 +3162,63 @@ components:
           items:
           - null
           - null
+          provisionedCredentials:
+          - createdAt: createdAt
+            expiredAt: expiredAt
+            digitalWallet:
+              id: id
+            environment:
+              id: id
+            claimReference:
+              dataHash: dataHash
+              partitionId: partitionId
+              subject: subject
+              holder: holder
+              id: id
+              dataJson: dataJson
+              dataSignature: dataSignature
+              version: 0
+              issuer: issuer
+              createDate: createDate
+            credential:
+              id: id
+            id: id
+            walletActions:
+            - occurredAt: occurredAt
+              type: type
+            - occurredAt: occurredAt
+              type: type
+            user:
+              id: id
+            status: status
+          - createdAt: createdAt
+            expiredAt: expiredAt
+            digitalWallet:
+              id: id
+            environment:
+              id: id
+            claimReference:
+              dataHash: dataHash
+              partitionId: partitionId
+              subject: subject
+              holder: holder
+              id: id
+              dataJson: dataJson
+              dataSignature: dataSignature
+              version: 0
+              issuer: issuer
+              createDate: createDate
+            credential:
+              id: id
+            id: id
+            walletActions:
+            - occurredAt: occurredAt
+              type: type
+            - occurredAt: occurredAt
+              type: type
+            user:
+              id: id
+            status: status
       properties:
         _embedded:
           $ref: '#/components/schemas/EntityArray__embedded'
@@ -3283,9 +3679,75 @@ components:
         status:
           type: string
       type: object
+    ProvisionedCredential_claimReference:
+      example:
+        dataHash: dataHash
+        partitionId: partitionId
+        subject: subject
+        holder: holder
+        id: id
+        dataJson: dataJson
+        dataSignature: dataSignature
+        version: 0
+        issuer: issuer
+        createDate: createDate
+      properties:
+        id:
+          type: string
+        version:
+          type: integer
+        issuer:
+          type: string
+        subject:
+          type: string
+        holder:
+          type: string
+        createDate:
+          type: string
+        dataJson:
+          type: string
+        dataSignature:
+          type: string
+        dataHash:
+          type: string
+        partitionId:
+          type: string
+      type: object
+    ProvisionedCredential_user:
+      example:
+        id: id
+      properties:
+        id:
+          description: A string that specifies the identifier (UUID) of the user associated
+            with the provisioned credential.
+          type: string
+      required:
+      - id
+      type: object
+    ProvisionedCredential_walletActions_inner:
+      example:
+        occurredAt: occurredAt
+        type: type
+      properties:
+        type:
+          description: A string that specifies the action taken regarding the provisioned
+            credential.
+          type: string
+        occurredAt:
+          description: A string that specifies the date and time that the action occurred.
+          type: string
+      type: object
+    UserCredential_userdata:
+      example:
+        CardImage: CardImage
+      properties:
+        CardImage:
+          type: string
+      type: object
     EntityArray__embedded_items_inner:
       anyOf:
       - $ref: '#/components/schemas/CredentialType'
+      - $ref: '#/components/schemas/UserCredential'
     EntityArray__embedded:
       example:
         digitalWalletApplications:
@@ -3527,6 +3989,63 @@ components:
         items:
         - null
         - null
+        provisionedCredentials:
+        - createdAt: createdAt
+          expiredAt: expiredAt
+          digitalWallet:
+            id: id
+          environment:
+            id: id
+          claimReference:
+            dataHash: dataHash
+            partitionId: partitionId
+            subject: subject
+            holder: holder
+            id: id
+            dataJson: dataJson
+            dataSignature: dataSignature
+            version: 0
+            issuer: issuer
+            createDate: createDate
+          credential:
+            id: id
+          id: id
+          walletActions:
+          - occurredAt: occurredAt
+            type: type
+          - occurredAt: occurredAt
+            type: type
+          user:
+            id: id
+          status: status
+        - createdAt: createdAt
+          expiredAt: expiredAt
+          digitalWallet:
+            id: id
+          environment:
+            id: id
+          claimReference:
+            dataHash: dataHash
+            partitionId: partitionId
+            subject: subject
+            holder: holder
+            id: id
+            dataJson: dataJson
+            dataSignature: dataSignature
+            version: 0
+            issuer: issuer
+            createDate: createDate
+          credential:
+            id: id
+          id: id
+          walletActions:
+          - occurredAt: occurredAt
+            type: type
+          - occurredAt: occurredAt
+            type: type
+          user:
+            id: id
+          status: status
       properties:
         items:
           items:
@@ -3547,6 +4066,10 @@ components:
         digitalWallets:
           items:
             $ref: '#/components/schemas/CredentialDigitalWallet'
+          type: array
+        provisionedCredentials:
+          items:
+            $ref: '#/components/schemas/ProvisionedCredential'
           type: array
       type: object
     P1Error_details_inner_innerError:

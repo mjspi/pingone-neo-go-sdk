@@ -61,6 +61,12 @@ docs/PingOneCredentialsCredentialIssuanceRulesApi.md
 docs/PingOneCredentialsCredentialIssuersApi.md
 docs/PingOneCredentialsCredentialTypesApi.md
 docs/PingOneCredentialsUserCredentialsApi.md
+docs/ProvisionedCredential.md
+docs/ProvisionedCredentialClaimReference.md
+docs/ProvisionedCredentialUser.md
+docs/ProvisionedCredentialWalletActionsInner.md
+docs/UserCredential.md
+docs/UserCredentialUserdata.md
 git_push.sh
 go.mod
 go.sum
@@ -109,6 +115,12 @@ model_environment.go
 model_p1_error.go
 model_p1_error_details_inner.go
 model_p1_error_details_inner_inner_error.go
+model_provisioned_credential.go
+model_provisioned_credential_claim_reference.go
+model_provisioned_credential_user.go
+model_provisioned_credential_wallet_actions_inner.go
+model_user_credential.go
+model_user_credential_userdata.go
 response.go
 test/api_ping_one_credentials_credential_digital_wallets_digital_wallet_apps_test.go
 test/api_ping_one_credentials_credential_digital_wallets_digital_wallets_test.go

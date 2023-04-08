@@ -24,6 +24,7 @@ type EntityArrayEmbedded struct {
 	StagedChanges []CredentialIssuanceRuleStagedChange `json:"stagedChanges,omitempty"`
 	DigitalWalletApplications []CredentialDigitalWalletApplication `json:"digitalWalletApplications,omitempty"`
 	DigitalWallets []CredentialDigitalWallet `json:"digitalWallets,omitempty"`
+	ProvisionedCredentials []ProvisionedCredential `json:"provisionedCredentials,omitempty"`
 }
 
 // NewEntityArrayEmbedded instantiates a new EntityArrayEmbedded object
@@ -203,6 +204,38 @@ func (o *EntityArrayEmbedded) SetDigitalWallets(v []CredentialDigitalWallet) {
 	o.DigitalWallets = v
 }
 
+// GetProvisionedCredentials returns the ProvisionedCredentials field value if set, zero value otherwise.
+func (o *EntityArrayEmbedded) GetProvisionedCredentials() []ProvisionedCredential {
+	if o == nil || IsNil(o.ProvisionedCredentials) {
+		var ret []ProvisionedCredential
+		return ret
+	}
+	return o.ProvisionedCredentials
+}
+
+// GetProvisionedCredentialsOk returns a tuple with the ProvisionedCredentials field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EntityArrayEmbedded) GetProvisionedCredentialsOk() ([]ProvisionedCredential, bool) {
+	if o == nil || IsNil(o.ProvisionedCredentials) {
+		return nil, false
+	}
+	return o.ProvisionedCredentials, true
+}
+
+// HasProvisionedCredentials returns a boolean if a field has been set.
+func (o *EntityArrayEmbedded) HasProvisionedCredentials() bool {
+	if o != nil && !IsNil(o.ProvisionedCredentials) {
+		return true
+	}
+
+	return false
+}
+
+// SetProvisionedCredentials gets a reference to the given []ProvisionedCredential and assigns it to the ProvisionedCredentials field.
+func (o *EntityArrayEmbedded) SetProvisionedCredentials(v []ProvisionedCredential) {
+	o.ProvisionedCredentials = v
+}
+
 func (o EntityArrayEmbedded) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -227,6 +260,9 @@ func (o EntityArrayEmbedded) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.DigitalWallets) {
 		toSerialize["digitalWallets"] = o.DigitalWallets
+	}
+	if !IsNil(o.ProvisionedCredentials) {
+		toSerialize["provisionedCredentials"] = o.ProvisionedCredentials
 	}
 	return toSerialize, nil
 }

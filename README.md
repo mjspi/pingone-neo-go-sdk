@@ -159,6 +159,12 @@ Class | Method | HTTP request | Description
  - [P1Error](docs/P1Error.md)
  - [P1ErrorDetailsInner](docs/P1ErrorDetailsInner.md)
  - [P1ErrorDetailsInnerInnerError](docs/P1ErrorDetailsInnerInnerError.md)
+ - [ProvisionedCredential](docs/ProvisionedCredential.md)
+ - [ProvisionedCredentialClaimReference](docs/ProvisionedCredentialClaimReference.md)
+ - [ProvisionedCredentialUser](docs/ProvisionedCredentialUser.md)
+ - [ProvisionedCredentialWalletActionsInner](docs/ProvisionedCredentialWalletActionsInner.md)
+ - [UserCredential](docs/UserCredential.md)
+ - [UserCredentialUserdata](docs/UserCredentialUserdata.md)
 
 
 ## Documentation For Authorization

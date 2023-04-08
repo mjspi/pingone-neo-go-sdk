@@ -29,9 +29,10 @@ func Test_openapi_PingOneCredentialsUserCredentialsApiService(t *testing.T) {
 		var environmentID string
 		var userID string
 
-		httpRes, err := apiClient.PingOneCredentialsUserCredentialsApi.CreateAUserCredential(context.Background(), environmentID, userID).Execute()
+		resp, httpRes, err := apiClient.PingOneCredentialsUserCredentialsApi.CreateAUserCredential(context.Background(), environmentID, userID).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -43,9 +44,10 @@ func Test_openapi_PingOneCredentialsUserCredentialsApiService(t *testing.T) {
 		var environmentID string
 		var userID string
 
-		httpRes, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadAllUserCredentials(context.Background(), environmentID, userID).Execute()
+		resp, httpRes, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadAllUserCredentials(context.Background(), environmentID, userID).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -58,9 +60,10 @@ func Test_openapi_PingOneCredentialsUserCredentialsApiService(t *testing.T) {
 		var userID string
 		var credentialID string
 
-		httpRes, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadOneUserCredential(context.Background(), environmentID, userID, credentialID).Execute()
+		resp, httpRes, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadOneUserCredential(context.Background(), environmentID, userID, credentialID).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -73,9 +76,10 @@ func Test_openapi_PingOneCredentialsUserCredentialsApiService(t *testing.T) {
 		var userID string
 		var credentialID string
 
-		httpRes, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadOneUserCredentialWallets(context.Background(), environmentID, userID, credentialID).Execute()
+		resp, httpRes, err := apiClient.PingOneCredentialsUserCredentialsApi.ReadOneUserCredentialWallets(context.Background(), environmentID, userID, credentialID).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -88,9 +92,10 @@ func Test_openapi_PingOneCredentialsUserCredentialsApiService(t *testing.T) {
 		var userID string
 		var credentialID string
 
-		httpRes, err := apiClient.PingOneCredentialsUserCredentialsApi.UpdateAUserCredential(context.Background(), environmentID, userID, credentialID).Execute()
+		resp, httpRes, err := apiClient.PingOneCredentialsUserCredentialsApi.UpdateAUserCredential(context.Background(), environmentID, userID, credentialID).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

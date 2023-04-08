@@ -91,9 +91,10 @@ func Test_openapi_PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiSer
 		var userID string
 		var digitalWalletID string
 
-		httpRes, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.ReadOneDigitalWalletCredentials(context.Background(), environmentID, userID, digitalWalletID).Execute()
+		resp, httpRes, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.ReadOneDigitalWalletCredentials(context.Background(), environmentID, userID, digitalWalletID).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

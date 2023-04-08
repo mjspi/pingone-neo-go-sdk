@@ -305,11 +305,9 @@ Name | Type | Description  | Notes
 
 ## ReadOneDigitalWalletCredentials
 
-> ReadOneDigitalWalletCredentials(ctx, environmentID, userID, digitalWalletID).Execute()
+> EntityArray ReadOneDigitalWalletCredentials(ctx, environmentID, userID, digitalWalletID).Execute()
 
 Read One Digital Wallet Credentials
-
-
 
 ### Example
 
@@ -330,11 +328,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.ReadOneDigitalWalletCredentials(context.Background(), environmentID, userID, digitalWalletID).Execute()
+    resp, r, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.ReadOneDigitalWalletCredentials(context.Background(), environmentID, userID, digitalWalletID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.ReadOneDigitalWalletCredentials``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `ReadOneDigitalWalletCredentials`: EntityArray
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.ReadOneDigitalWalletCredentials`: %v\n", resp)
 }
 ```
 
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**EntityArray**](EntityArray.md)
 
 ### Authorization
 

@@ -18,6 +18,7 @@ import (
 // EntityArrayEmbeddedItemsInner struct for EntityArrayEmbeddedItemsInner
 type EntityArrayEmbeddedItemsInner struct {
 	CredentialType *CredentialType
+	UserCredential *UserCredential
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
@@ -36,6 +37,19 @@ func (dst *EntityArrayEmbeddedItemsInner) UnmarshalJSON(data []byte) error {
 		dst.CredentialType = nil
 	}
 
+	// try to unmarshal JSON data into UserCredential
+	err = json.Unmarshal(data, &dst.UserCredential);
+	if err == nil {
+		jsonUserCredential, _ := json.Marshal(dst.UserCredential)
+		if string(jsonUserCredential) == "{}" { // empty struct
+			dst.UserCredential = nil
+		} else {
+			return nil // data stored in dst.UserCredential, return on the first match
+		}
+	} else {
+		dst.UserCredential = nil
+	}
+
 	return fmt.Errorf("data failed to match schemas in anyOf(EntityArrayEmbeddedItemsInner)")
 }
 
@@ -43,6 +57,10 @@ func (dst *EntityArrayEmbeddedItemsInner) UnmarshalJSON(data []byte) error {
 func (src *EntityArrayEmbeddedItemsInner) MarshalJSON() ([]byte, error) {
 	if src.CredentialType != nil {
 		return json.Marshal(&src.CredentialType)
+	}
+
+	if src.UserCredential != nil {
+		return json.Marshal(&src.UserCredential)
 	}
 
 	return nil, nil // no data in anyOf schemas
