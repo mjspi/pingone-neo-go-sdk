@@ -32,7 +32,7 @@ import (
 
 func main() {
     environmentID := "environmentID_example" // string | 
-    credentialDigitalWalletApplication := *openapiclient.NewCredentialDigitalWalletApplication("AppOpenUrl_example", "Name_example") // CredentialDigitalWalletApplication |  (optional)
+    credentialDigitalWalletApplication := *openapiclient.NewCredentialDigitalWalletApplication("Id_example") // CredentialDigitalWalletApplication |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -311,7 +311,7 @@ import (
 func main() {
     environmentID := "environmentID_example" // string | 
     digitalWalletApplicationID := "digitalWalletApplicationID_example" // string | 
-    credentialDigitalWalletApplication := *openapiclient.NewCredentialDigitalWalletApplication("AppOpenUrl_example", "Name_example") // CredentialDigitalWalletApplication |  (optional)
+    credentialDigitalWalletApplication := *openapiclient.NewCredentialDigitalWalletApplication("Id_example") // CredentialDigitalWalletApplication |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

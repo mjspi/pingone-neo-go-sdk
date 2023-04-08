@@ -15,11 +15,9 @@ Method | HTTP request | Description
 
 ## CreateDigitalWallet
 
-> CreateDigitalWallet(ctx, environmentID, userID).Body(body).Execute()
+> CredentialDigitalWallet CreateDigitalWallet(ctx, environmentID, userID).CredentialDigitalWallet(credentialDigitalWallet).Execute()
 
 Create Digital Wallet
-
-
 
 ### Example
 
@@ -36,15 +34,17 @@ import (
 func main() {
     environmentID := "environmentID_example" // string | 
     userID := "userID_example" // string | 
-    body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+    credentialDigitalWallet := *openapiclient.NewCredentialDigitalWallet() // CredentialDigitalWallet |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.CreateDigitalWallet(context.Background(), environmentID, userID).Body(body).Execute()
+    resp, r, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.CreateDigitalWallet(context.Background(), environmentID, userID).CredentialDigitalWallet(credentialDigitalWallet).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.CreateDigitalWallet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `CreateDigitalWallet`: CredentialDigitalWallet
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.CreateDigitalWallet`: %v\n", resp)
 }
 ```
 
@@ -66,11 +66,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **body** | **map[string]interface{}** |  | 
+ **credentialDigitalWallet** | [**CredentialDigitalWallet**](CredentialDigitalWallet.md) |  | 
 
 ### Return type
 
- (empty response body)
+[**CredentialDigitalWallet**](CredentialDigitalWallet.md)
 
 ### Authorization
 
@@ -91,8 +91,6 @@ Name | Type | Description  | Notes
 > DeleteDigitalWallet(ctx, environmentID, userID, digitalWalletID).Execute()
 
 Delete Digital Wallet
-
-
 
 ### Example
 
@@ -162,11 +160,9 @@ Name | Type | Description  | Notes
 
 ## ReadAllDigitalWallets
 
-> ReadAllDigitalWallets(ctx, environmentID, userID).Execute()
+> EntityArray ReadAllDigitalWallets(ctx, environmentID, userID).Execute()
 
 Read All Digital Wallets
-
-
 
 ### Example
 
@@ -186,11 +182,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.ReadAllDigitalWallets(context.Background(), environmentID, userID).Execute()
+    resp, r, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.ReadAllDigitalWallets(context.Background(), environmentID, userID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.ReadAllDigitalWallets``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `ReadAllDigitalWallets`: EntityArray
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.ReadAllDigitalWallets`: %v\n", resp)
 }
 ```
 
@@ -215,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**EntityArray**](EntityArray.md)
 
 ### Authorization
 
@@ -233,11 +231,9 @@ Name | Type | Description  | Notes
 
 ## ReadOneDigitalWallet
 
-> ReadOneDigitalWallet(ctx, environmentID, userID, digitalWalletID).Execute()
+> CredentialDigitalWallet ReadOneDigitalWallet(ctx, environmentID, userID, digitalWalletID).Execute()
 
 Read One Digital Wallet
-
-
 
 ### Example
 
@@ -258,11 +254,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.ReadOneDigitalWallet(context.Background(), environmentID, userID, digitalWalletID).Execute()
+    resp, r, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.ReadOneDigitalWallet(context.Background(), environmentID, userID, digitalWalletID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.ReadOneDigitalWallet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `ReadOneDigitalWallet`: CredentialDigitalWallet
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.ReadOneDigitalWallet`: %v\n", resp)
 }
 ```
 
@@ -289,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**CredentialDigitalWallet**](CredentialDigitalWallet.md)
 
 ### Authorization
 
@@ -381,11 +379,9 @@ Name | Type | Description  | Notes
 
 ## UpdateDigitalWallet
 
-> UpdateDigitalWallet(ctx, environmentID, userID, digitalWalletID).Body(body).Execute()
+> CredentialDigitalWallet UpdateDigitalWallet(ctx, environmentID, userID, digitalWalletID).CredentialDigitalWallet(credentialDigitalWallet).Execute()
 
 Update Digital Wallet
-
-
 
 ### Example
 
@@ -403,15 +399,17 @@ func main() {
     environmentID := "environmentID_example" // string | 
     userID := "userID_example" // string | 
     digitalWalletID := "digitalWalletID_example" // string | 
-    body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+    credentialDigitalWallet := *openapiclient.NewCredentialDigitalWallet() // CredentialDigitalWallet |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.UpdateDigitalWallet(context.Background(), environmentID, userID, digitalWalletID).Body(body).Execute()
+    resp, r, err := apiClient.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.UpdateDigitalWallet(context.Background(), environmentID, userID, digitalWalletID).CredentialDigitalWallet(credentialDigitalWallet).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.UpdateDigitalWallet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `UpdateDigitalWallet`: CredentialDigitalWallet
+    fmt.Fprintf(os.Stdout, "Response from `PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi.UpdateDigitalWallet`: %v\n", resp)
 }
 ```
 
@@ -435,11 +433,11 @@ Name | Type | Description  | Notes
 
 
 
- **body** | **map[string]interface{}** |  | 
+ **credentialDigitalWallet** | [**CredentialDigitalWallet**](CredentialDigitalWallet.md) |  | 
 
 ### Return type
 
- (empty response body)
+[**CredentialDigitalWallet**](CredentialDigitalWallet.md)
 
 ### Authorization
 

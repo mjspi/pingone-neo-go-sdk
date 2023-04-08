@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **IssuanceRules** | Pointer to [**[]CredentialIssuanceRule**](CredentialIssuanceRule.md) |  | [optional] 
 **StagedChanges** | Pointer to [**[]CredentialIssuanceRuleStagedChange**](CredentialIssuanceRuleStagedChange.md) |  | [optional] 
 **DigitalWalletApplications** | Pointer to [**[]CredentialDigitalWalletApplication**](CredentialDigitalWalletApplication.md) |  | [optional] 
+**DigitalWallets** | Pointer to [**[]CredentialDigitalWallet**](CredentialDigitalWallet.md) |  | [optional] 
 
 ## Methods
 
@@ -127,6 +128,31 @@ SetDigitalWalletApplications sets DigitalWalletApplications field to given value
 `func (o *EntityArrayEmbedded) HasDigitalWalletApplications() bool`
 
 HasDigitalWalletApplications returns a boolean if a field has been set.
+
+### GetDigitalWallets
+
+`func (o *EntityArrayEmbedded) GetDigitalWallets() []CredentialDigitalWallet`
+
+GetDigitalWallets returns the DigitalWallets field if non-nil, zero value otherwise.
+
+### GetDigitalWalletsOk
+
+`func (o *EntityArrayEmbedded) GetDigitalWalletsOk() (*[]CredentialDigitalWallet, bool)`
+
+GetDigitalWalletsOk returns a tuple with the DigitalWallets field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDigitalWallets
+
+`func (o *EntityArrayEmbedded) SetDigitalWallets(v []CredentialDigitalWallet)`
+
+SetDigitalWallets sets DigitalWallets field to given value.
+
+### HasDigitalWallets
+
+`func (o *EntityArrayEmbedded) HasDigitalWallets() bool`
+
+HasDigitalWallets returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

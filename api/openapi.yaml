@@ -1490,9 +1490,6 @@ paths:
       - PingOne Credentials > Credential Digital Wallets > Digital Wallet Apps
   /environments/{environmentID}/users/{userID}/digitalWallets:
     get:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: readAllDigitalWallets
       parameters:
       - explode: false
@@ -1510,17 +1507,53 @@ paths:
           type: string
         style: simple
       responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
         "200":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityArray'
           description: Successful response
       summary: Read All Digital Wallets
       tags:
       - PingOne Credentials > Credential Digital Wallets > Digital Wallets
     post:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: createDigitalWallet
       parameters:
       - explode: false
@@ -1541,31 +1574,56 @@ paths:
         content:
           application/json:
             schema:
-              example:
-                digitalWalletApplication:
-                  id: "{{digitalWalletApplicationID}}"
-                notification:
-                  methods:
-                  - EMAIL
-                  - SMS
-                  template:
-                    locale: en
-                    variant: variant_B
-                    variables: {}
-              type: object
+              $ref: '#/components/schemas/CredentialDigitalWallet'
       responses:
-        "200":
+        "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialDigitalWallet'
           description: Successful response
       summary: Create Digital Wallet
       tags:
       - PingOne Credentials > Credential Digital Wallets > Digital Wallets
   /environments/{environmentID}/users/{userID}/digitalWallets/{digitalWalletID}:
     delete:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: deleteDigitalWallet
       parameters:
       - explode: false
@@ -1590,17 +1648,49 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
+        "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
+        "200":
           description: Successful response
       summary: Delete Digital Wallet
       tags:
       - PingOne Credentials > Credential Digital Wallets > Digital Wallets
     get:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: readOneDigitalWallet
       parameters:
       - explode: false
@@ -1625,17 +1715,53 @@ paths:
           type: string
         style: simple
       responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
         "200":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialDigitalWallet'
           description: Successful response
       summary: Read One Digital Wallet
       tags:
       - PingOne Credentials > Credential Digital Wallets > Digital Wallets
     put:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: updateDigitalWallet
       parameters:
       - explode: false
@@ -1663,13 +1789,50 @@ paths:
         content:
           application/json:
             schema:
-              example:
-                status: DISABLED
-              type: object
+              $ref: '#/components/schemas/CredentialDigitalWallet'
       responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
         "200":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialDigitalWallet'
           description: Successful response
       summary: Update Digital Wallet
       tags:
@@ -2327,6 +2490,96 @@ components:
       - appOpenUrl
       - name
       type: object
+    CredentialDigitalWallet:
+      example:
+        createdAt: createdAt
+        notification:
+          template:
+            variant: variant
+            locale: locale
+          methods:
+          - methods
+          - methods
+          results:
+          - notification:
+              id: id
+            method: method
+            error:
+              code: code
+              details:
+              - code: code
+                message: message
+              - code: code
+                message: message
+              id: id
+              message: message
+            sent: true
+          - notification:
+              id: id
+            method: method
+            error:
+              code: code
+              details:
+              - code: code
+                message: message
+              - code: code
+                message: message
+              id: id
+              message: message
+            sent: true
+        digitalWalletApplication:
+          id: id
+        environment:
+          id: id
+        application:
+          id: id
+        pairingSession:
+          createdAt: createdAt
+          environment:
+            id: id
+          digitalWallet:
+            id: id
+          qrUrl: qrUrl
+          challenge: challenge
+          id: id
+          user:
+            id: id
+          updatedAt: updatedAt
+          status: status
+        id: id
+        user:
+          id: id
+        updatedAt: updatedAt
+        status: status
+      properties:
+        application:
+          $ref: '#/components/schemas/CredentialDigitalWallet_application'
+        createdAt:
+          description: A string that specifies the date and time the credential digital
+            wallet was created.
+          type: string
+        digitalWalletApplication:
+          $ref: '#/components/schemas/CredentialDigitalWallet_digitalWalletApplication'
+        environment:
+          $ref: '#/components/schemas/Environment'
+        id:
+          description: A string that specifies the identifier (UUID) associated with
+            the credential digital wallet app.
+          type: string
+        notification:
+          $ref: '#/components/schemas/CredentialDigitalWallet_notification'
+        updatedAt:
+          description: A string that specifies the date and time the credential digital
+            wallet was last updated; can be null.
+          type: string
+        user:
+          $ref: '#/components/schemas/CredentialDigitalWallet_user'
+        status:
+          description: A string that specifies the status of the wallet.
+          type: string
+        pairingSession:
+          $ref: '#/components/schemas/CredentialDigitalWallet_pairingSession'
+      type: object
     EntityArray:
       example:
         size: 0.8008281904610115
@@ -2395,6 +2648,125 @@ components:
             update:
             - update
             - update
+          digitalWallets:
+          - createdAt: createdAt
+            notification:
+              template:
+                variant: variant
+                locale: locale
+              methods:
+              - methods
+              - methods
+              results:
+              - notification:
+                  id: id
+                method: method
+                error:
+                  code: code
+                  details:
+                  - code: code
+                    message: message
+                  - code: code
+                    message: message
+                  id: id
+                  message: message
+                sent: true
+              - notification:
+                  id: id
+                method: method
+                error:
+                  code: code
+                  details:
+                  - code: code
+                    message: message
+                  - code: code
+                    message: message
+                  id: id
+                  message: message
+                sent: true
+            digitalWalletApplication:
+              id: id
+            environment:
+              id: id
+            application:
+              id: id
+            pairingSession:
+              createdAt: createdAt
+              environment:
+                id: id
+              digitalWallet:
+                id: id
+              qrUrl: qrUrl
+              challenge: challenge
+              id: id
+              user:
+                id: id
+              updatedAt: updatedAt
+              status: status
+            id: id
+            user:
+              id: id
+            updatedAt: updatedAt
+            status: status
+          - createdAt: createdAt
+            notification:
+              template:
+                variant: variant
+                locale: locale
+              methods:
+              - methods
+              - methods
+              results:
+              - notification:
+                  id: id
+                method: method
+                error:
+                  code: code
+                  details:
+                  - code: code
+                    message: message
+                  - code: code
+                    message: message
+                  id: id
+                  message: message
+                sent: true
+              - notification:
+                  id: id
+                method: method
+                error:
+                  code: code
+                  details:
+                  - code: code
+                    message: message
+                  - code: code
+                    message: message
+                  id: id
+                  message: message
+                sent: true
+            digitalWalletApplication:
+              id: id
+            environment:
+              id: id
+            application:
+              id: id
+            pairingSession:
+              createdAt: createdAt
+              environment:
+                id: id
+              digitalWallet:
+                id: id
+              qrUrl: qrUrl
+              challenge: challenge
+              id: id
+              user:
+                id: id
+              updatedAt: updatedAt
+              status: status
+            id: id
+            user:
+              id: id
+            updatedAt: updatedAt
+            status: status
           issuanceRules:
           - credentialType:
               id: id
@@ -2721,6 +3093,196 @@ components:
       required:
       - id
       type: object
+    CredentialDigitalWallet_application:
+      example:
+        id: id
+      properties:
+        id:
+          description: A string that specifies the ientifier (UUID) of the application
+            running the Wallet SDK on the user’s device and registered with the service.
+          type: string
+      required:
+      - id
+      type: object
+    CredentialDigitalWallet_digitalWalletApplication:
+      example:
+        id: id
+      properties:
+        id:
+          description: A string that specifies the identifier (UUID) of the customer's
+            digital wallet app that will interact with the user's digital wallet.
+          type: string
+      required:
+      - id
+      type: object
+    CredentialDigitalWallet_notification_results_inner_notification:
+      example:
+        id: id
+      properties:
+        id:
+          type: string
+      required:
+      - id
+      type: object
+    CredentialDigitalWallet_notification_results_inner_error_details_inner:
+      example:
+        code: code
+        message: message
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      type: object
+    CredentialDigitalWallet_notification_results_inner_error:
+      example:
+        code: code
+        details:
+        - code: code
+          message: message
+        - code: code
+          message: message
+        id: id
+        message: message
+      properties:
+        id:
+          type: string
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          items:
+            $ref: '#/components/schemas/CredentialDigitalWallet_notification_results_inner_error_details_inner'
+          type: array
+      type: object
+    CredentialDigitalWallet_notification_results_inner:
+      example:
+        notification:
+          id: id
+        method: method
+        error:
+          code: code
+          details:
+          - code: code
+            message: message
+          - code: code
+            message: message
+          id: id
+          message: message
+        sent: true
+      properties:
+        method:
+          type: string
+        sent:
+          type: boolean
+        notification:
+          $ref: '#/components/schemas/CredentialDigitalWallet_notification_results_inner_notification'
+        error:
+          $ref: '#/components/schemas/CredentialDigitalWallet_notification_results_inner_error'
+      type: object
+    CredentialDigitalWallet_notification_template:
+      example:
+        variant: variant
+        locale: locale
+      properties:
+        locale:
+          type: string
+        variant:
+          type: string
+      type: object
+    CredentialDigitalWallet_notification:
+      example:
+        template:
+          variant: variant
+          locale: locale
+        methods:
+        - methods
+        - methods
+        results:
+        - notification:
+            id: id
+          method: method
+          error:
+            code: code
+            details:
+            - code: code
+              message: message
+            - code: code
+              message: message
+            id: id
+            message: message
+          sent: true
+        - notification:
+            id: id
+          method: method
+          error:
+            code: code
+            details:
+            - code: code
+              message: message
+            - code: code
+              message: message
+            id: id
+            message: message
+          sent: true
+      properties:
+        methods:
+          items:
+            type: string
+          type: array
+        results:
+          items:
+            $ref: '#/components/schemas/CredentialDigitalWallet_notification_results_inner'
+          type: array
+        template:
+          $ref: '#/components/schemas/CredentialDigitalWallet_notification_template'
+      type: object
+    CredentialDigitalWallet_user:
+      example:
+        id: id
+      properties:
+        id:
+          description: A string that specifies the identifier (UUID) of the user associated
+            with the credential digital wallet.
+          type: string
+      required:
+      - id
+      type: object
+    CredentialDigitalWallet_pairingSession:
+      example:
+        createdAt: createdAt
+        environment:
+          id: id
+        digitalWallet:
+          id: id
+        qrUrl: qrUrl
+        challenge: challenge
+        id: id
+        user:
+          id: id
+        updatedAt: updatedAt
+        status: status
+      properties:
+        id:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+        environment:
+          $ref: '#/components/schemas/CredentialDigitalWallet_notification_results_inner_notification'
+        user:
+          $ref: '#/components/schemas/CredentialDigitalWallet_notification_results_inner_notification'
+        digitalWallet:
+          $ref: '#/components/schemas/CredentialDigitalWallet_notification_results_inner_notification'
+        challenge:
+          type: string
+        qrUrl:
+          type: string
+        status:
+          type: string
+      type: object
     EntityArray__embedded_items_inner:
       anyOf:
       - $ref: '#/components/schemas/CredentialType'
@@ -2790,6 +3352,125 @@ components:
           update:
           - update
           - update
+        digitalWallets:
+        - createdAt: createdAt
+          notification:
+            template:
+              variant: variant
+              locale: locale
+            methods:
+            - methods
+            - methods
+            results:
+            - notification:
+                id: id
+              method: method
+              error:
+                code: code
+                details:
+                - code: code
+                  message: message
+                - code: code
+                  message: message
+                id: id
+                message: message
+              sent: true
+            - notification:
+                id: id
+              method: method
+              error:
+                code: code
+                details:
+                - code: code
+                  message: message
+                - code: code
+                  message: message
+                id: id
+                message: message
+              sent: true
+          digitalWalletApplication:
+            id: id
+          environment:
+            id: id
+          application:
+            id: id
+          pairingSession:
+            createdAt: createdAt
+            environment:
+              id: id
+            digitalWallet:
+              id: id
+            qrUrl: qrUrl
+            challenge: challenge
+            id: id
+            user:
+              id: id
+            updatedAt: updatedAt
+            status: status
+          id: id
+          user:
+            id: id
+          updatedAt: updatedAt
+          status: status
+        - createdAt: createdAt
+          notification:
+            template:
+              variant: variant
+              locale: locale
+            methods:
+            - methods
+            - methods
+            results:
+            - notification:
+                id: id
+              method: method
+              error:
+                code: code
+                details:
+                - code: code
+                  message: message
+                - code: code
+                  message: message
+                id: id
+                message: message
+              sent: true
+            - notification:
+                id: id
+              method: method
+              error:
+                code: code
+                details:
+                - code: code
+                  message: message
+                - code: code
+                  message: message
+                id: id
+                message: message
+              sent: true
+          digitalWalletApplication:
+            id: id
+          environment:
+            id: id
+          application:
+            id: id
+          pairingSession:
+            createdAt: createdAt
+            environment:
+              id: id
+            digitalWallet:
+              id: id
+            qrUrl: qrUrl
+            challenge: challenge
+            id: id
+            user:
+              id: id
+            updatedAt: updatedAt
+            status: status
+          id: id
+          user:
+            id: id
+          updatedAt: updatedAt
+          status: status
         issuanceRules:
         - credentialType:
             id: id
@@ -2862,6 +3543,10 @@ components:
         digitalWalletApplications:
           items:
             $ref: '#/components/schemas/CredentialDigitalWalletApplication'
+          type: array
+        digitalWallets:
+          items:
+            $ref: '#/components/schemas/CredentialDigitalWallet'
           type: array
       type: object
     P1Error_details_inner_innerError:

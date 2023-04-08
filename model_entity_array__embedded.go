@@ -23,6 +23,7 @@ type EntityArrayEmbedded struct {
 	IssuanceRules []CredentialIssuanceRule `json:"issuanceRules,omitempty"`
 	StagedChanges []CredentialIssuanceRuleStagedChange `json:"stagedChanges,omitempty"`
 	DigitalWalletApplications []CredentialDigitalWalletApplication `json:"digitalWalletApplications,omitempty"`
+	DigitalWallets []CredentialDigitalWallet `json:"digitalWallets,omitempty"`
 }
 
 // NewEntityArrayEmbedded instantiates a new EntityArrayEmbedded object
@@ -170,6 +171,38 @@ func (o *EntityArrayEmbedded) SetDigitalWalletApplications(v []CredentialDigital
 	o.DigitalWalletApplications = v
 }
 
+// GetDigitalWallets returns the DigitalWallets field value if set, zero value otherwise.
+func (o *EntityArrayEmbedded) GetDigitalWallets() []CredentialDigitalWallet {
+	if o == nil || IsNil(o.DigitalWallets) {
+		var ret []CredentialDigitalWallet
+		return ret
+	}
+	return o.DigitalWallets
+}
+
+// GetDigitalWalletsOk returns a tuple with the DigitalWallets field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EntityArrayEmbedded) GetDigitalWalletsOk() ([]CredentialDigitalWallet, bool) {
+	if o == nil || IsNil(o.DigitalWallets) {
+		return nil, false
+	}
+	return o.DigitalWallets, true
+}
+
+// HasDigitalWallets returns a boolean if a field has been set.
+func (o *EntityArrayEmbedded) HasDigitalWallets() bool {
+	if o != nil && !IsNil(o.DigitalWallets) {
+		return true
+	}
+
+	return false
+}
+
+// SetDigitalWallets gets a reference to the given []CredentialDigitalWallet and assigns it to the DigitalWallets field.
+func (o *EntityArrayEmbedded) SetDigitalWallets(v []CredentialDigitalWallet) {
+	o.DigitalWallets = v
+}
+
 func (o EntityArrayEmbedded) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -191,6 +224,9 @@ func (o EntityArrayEmbedded) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.DigitalWalletApplications) {
 		toSerialize["digitalWalletApplications"] = o.DigitalWalletApplications
+	}
+	if !IsNil(o.DigitalWallets) {
+		toSerialize["digitalWallets"] = o.DigitalWallets
 	}
 	return toSerialize, nil
 }

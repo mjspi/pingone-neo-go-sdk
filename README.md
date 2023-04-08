@@ -114,8 +114,18 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [CredentialDigitalWallet](docs/CredentialDigitalWallet.md)
  - [CredentialDigitalWalletApplication](docs/CredentialDigitalWalletApplication.md)
  - [CredentialDigitalWalletApplicationApplication](docs/CredentialDigitalWalletApplicationApplication.md)
+ - [CredentialDigitalWalletDigitalWalletApplication](docs/CredentialDigitalWalletDigitalWalletApplication.md)
+ - [CredentialDigitalWalletNotification](docs/CredentialDigitalWalletNotification.md)
+ - [CredentialDigitalWalletNotificationResultsInner](docs/CredentialDigitalWalletNotificationResultsInner.md)
+ - [CredentialDigitalWalletNotificationResultsInnerError](docs/CredentialDigitalWalletNotificationResultsInnerError.md)
+ - [CredentialDigitalWalletNotificationResultsInnerErrorDetailsInner](docs/CredentialDigitalWalletNotificationResultsInnerErrorDetailsInner.md)
+ - [CredentialDigitalWalletNotificationResultsInnerNotification](docs/CredentialDigitalWalletNotificationResultsInnerNotification.md)
+ - [CredentialDigitalWalletNotificationTemplate](docs/CredentialDigitalWalletNotificationTemplate.md)
+ - [CredentialDigitalWalletPairingSession](docs/CredentialDigitalWalletPairingSession.md)
+ - [CredentialDigitalWalletUser](docs/CredentialDigitalWalletUser.md)
  - [CredentialIssuanceRule](docs/CredentialIssuanceRule.md)
  - [CredentialIssuanceRuleAutomation](docs/CredentialIssuanceRuleAutomation.md)
  - [CredentialIssuanceRuleCredentialType](docs/CredentialIssuanceRuleCredentialType.md)
