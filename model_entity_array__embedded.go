@@ -22,6 +22,7 @@ type EntityArrayEmbedded struct {
 	Items []EntityArrayEmbeddedItemsInner `json:"items,omitempty"`
 	IssuanceRules []CredentialIssuanceRule `json:"issuanceRules,omitempty"`
 	StagedChanges []CredentialIssuanceRuleStagedChange `json:"stagedChanges,omitempty"`
+	DigitalWalletApplications []CredentialDigitalWalletApplication `json:"digitalWalletApplications,omitempty"`
 }
 
 // NewEntityArrayEmbedded instantiates a new EntityArrayEmbedded object
@@ -137,6 +138,38 @@ func (o *EntityArrayEmbedded) SetStagedChanges(v []CredentialIssuanceRuleStagedC
 	o.StagedChanges = v
 }
 
+// GetDigitalWalletApplications returns the DigitalWalletApplications field value if set, zero value otherwise.
+func (o *EntityArrayEmbedded) GetDigitalWalletApplications() []CredentialDigitalWalletApplication {
+	if o == nil || IsNil(o.DigitalWalletApplications) {
+		var ret []CredentialDigitalWalletApplication
+		return ret
+	}
+	return o.DigitalWalletApplications
+}
+
+// GetDigitalWalletApplicationsOk returns a tuple with the DigitalWalletApplications field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EntityArrayEmbedded) GetDigitalWalletApplicationsOk() ([]CredentialDigitalWalletApplication, bool) {
+	if o == nil || IsNil(o.DigitalWalletApplications) {
+		return nil, false
+	}
+	return o.DigitalWalletApplications, true
+}
+
+// HasDigitalWalletApplications returns a boolean if a field has been set.
+func (o *EntityArrayEmbedded) HasDigitalWalletApplications() bool {
+	if o != nil && !IsNil(o.DigitalWalletApplications) {
+		return true
+	}
+
+	return false
+}
+
+// SetDigitalWalletApplications gets a reference to the given []CredentialDigitalWalletApplication and assigns it to the DigitalWalletApplications field.
+func (o *EntityArrayEmbedded) SetDigitalWalletApplications(v []CredentialDigitalWalletApplication) {
+	o.DigitalWalletApplications = v
+}
+
 func (o EntityArrayEmbedded) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -155,6 +188,9 @@ func (o EntityArrayEmbedded) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.StagedChanges) {
 		toSerialize["stagedChanges"] = o.StagedChanges
+	}
+	if !IsNil(o.DigitalWalletApplications) {
+		toSerialize["digitalWalletApplications"] = o.DigitalWalletApplications
 	}
 	return toSerialize, nil
 }

@@ -114,6 +114,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [CredentialDigitalWalletApplication](docs/CredentialDigitalWalletApplication.md)
+ - [CredentialDigitalWalletApplicationApplication](docs/CredentialDigitalWalletApplicationApplication.md)
  - [CredentialIssuanceRule](docs/CredentialIssuanceRule.md)
  - [CredentialIssuanceRuleAutomation](docs/CredentialIssuanceRuleAutomation.md)
  - [CredentialIssuanceRuleCredentialType](docs/CredentialIssuanceRuleCredentialType.md)

@@ -1176,9 +1176,6 @@ paths:
       - PingOne Credentials > Credential Issuance Rules
   /environments/{environmentID}/digitalWalletApplications:
     get:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: readAllDigitalWalletApps
       parameters:
       - explode: false
@@ -1189,17 +1186,53 @@ paths:
           type: string
         style: simple
       responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
         "200":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityArray'
           description: Successful response
       summary: Read All Digital Wallet Apps
       tags:
       - PingOne Credentials > Credential Digital Wallets > Digital Wallet Apps
     post:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: createDigitalWalletApp
       parameters:
       - explode: false
@@ -1213,25 +1246,56 @@ paths:
         content:
           application/json:
             schema:
-              example:
-                name: Customer Wallet App
-                application:
-                  id: "{{applicationID}}"
-                appOpenUrl: https://credentials.customer.com
-              type: object
+              $ref: '#/components/schemas/CredentialDigitalWalletApplication'
       responses:
-        "200":
+        "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialDigitalWalletApplication'
           description: Successful response
       summary: Create Digital Wallet App
       tags:
       - PingOne Credentials > Credential Digital Wallets > Digital Wallet Apps
   /environments/{environmentID}/digitalWalletApplications/{digitalWalletApplicationID}:
     delete:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: deleteDigitalWalletApp
       parameters:
       - explode: false
@@ -1249,17 +1313,49 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
+        "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
+        "204":
           description: Successful response
       summary: Delete Digital Wallet App
       tags:
       - PingOne Credentials > Credential Digital Wallets > Digital Wallet Apps
     get:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: readOneDigitalWalletApp
       parameters:
       - explode: false
@@ -1277,17 +1373,53 @@ paths:
           type: string
         style: simple
       responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
         "200":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialDigitalWalletApplication'
           description: Successful response
       summary: Read One Digital Wallet App
       tags:
       - PingOne Credentials > Credential Digital Wallets > Digital Wallet Apps
     put:
-      description: "This PingOne collection contains only the REST API request examples\
-        \ without documentation. For complete documentation, go to <a href=\"https://apidocs.pingidentity.com/pingone/platform/v1/api/\"\
-        >apidocs.pingidentity.com</a>."
       operationId: updateDigitalWalletApp
       parameters:
       - explode: false
@@ -1308,16 +1440,50 @@ paths:
         content:
           application/json:
             schema:
-              example:
-                name: Fine Wallet App
-                application:
-                  id: "{{applicationID}}"
-                appOpenUrl: https://credentials.customer.com
-              type: object
+              $ref: '#/components/schemas/CredentialDigitalWalletApplication'
       responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: "Invalid request received.  Malformed JSON, malformed HTTP\
+            \ request."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request failed due to authorization issue.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Not found.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Request was rate limited
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P1Error'
+          description: Uncaught error occurred.  Platform outage
         "200":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialDigitalWalletApplication'
           description: Successful response
       summary: Update Digital Wallet App
       tags:
@@ -2116,10 +2282,76 @@ components:
             $ref: '#/components/schemas/CredentialIssuanceRuleUsageDetails_issued_inner'
           type: array
       type: object
+    CredentialDigitalWalletApplication:
+      example:
+        appOpenUrl: appOpenUrl
+        createdAt: createdAt
+        environment:
+          id: id
+        usesPingOneWalletSDK: true
+        application:
+          id: id
+        name: name
+        id: id
+        updatedAt: updatedAt
+      properties:
+        application:
+          $ref: '#/components/schemas/CredentialDigitalWalletApplication_application'
+        appOpenUrl:
+          description: A string that specifies the URL sent in notifications to the
+            user to communicate with the service.
+          type: string
+        createdAt:
+          description: A string that specifies the date and time the credential digital
+            wallet app was created.
+          type: string
+        environment:
+          $ref: '#/components/schemas/Environment'
+        id:
+          description: A string that specifies the identifier (UUID) associated with
+            the credential digital wallet app.
+          type: string
+        name:
+          description: A string that specifies the name associated with the digital
+            wallet app.
+          type: string
+        updatedAt:
+          description: A string that specifies the date and time the credential digital
+            wallet app was last updated; can be null.
+          type: string
+        usesPingOneWalletSDK:
+          description: A boolean that specifies whether the user's wallet app uses
+            the PingOne Wallet SDK.
+          type: boolean
+      required:
+      - appOpenUrl
+      - name
+      type: object
     EntityArray:
       example:
         size: 0.8008281904610115
         _embedded:
+          digitalWalletApplications:
+          - appOpenUrl: appOpenUrl
+            createdAt: createdAt
+            environment:
+              id: id
+            usesPingOneWalletSDK: true
+            application:
+              id: id
+            name: name
+            id: id
+            updatedAt: updatedAt
+          - appOpenUrl: appOpenUrl
+            createdAt: createdAt
+            environment:
+              id: id
+            usesPingOneWalletSDK: true
+            application:
+              id: id
+            name: name
+            id: id
+            updatedAt: updatedAt
           stagedChanges:
           - issue:
             - issue
@@ -2478,11 +2710,43 @@ components:
             issued by the service.
           type: string
       type: object
+    CredentialDigitalWalletApplication_application:
+      example:
+        id: id
+      properties:
+        id:
+          description: A string that specifies the identifier (UUID) of the PingOne
+            application associated with the digital wallet app.
+          type: string
+      required:
+      - id
+      type: object
     EntityArray__embedded_items_inner:
       anyOf:
       - $ref: '#/components/schemas/CredentialType'
     EntityArray__embedded:
       example:
+        digitalWalletApplications:
+        - appOpenUrl: appOpenUrl
+          createdAt: createdAt
+          environment:
+            id: id
+          usesPingOneWalletSDK: true
+          application:
+            id: id
+          name: name
+          id: id
+          updatedAt: updatedAt
+        - appOpenUrl: appOpenUrl
+          createdAt: createdAt
+          environment:
+            id: id
+          usesPingOneWalletSDK: true
+          application:
+            id: id
+          name: name
+          id: id
+          updatedAt: updatedAt
         stagedChanges:
         - issue:
           - issue
@@ -2594,6 +2858,10 @@ components:
         stagedChanges:
           items:
             $ref: '#/components/schemas/CredentialIssuanceRuleStagedChange'
+          type: array
+        digitalWalletApplications:
+          items:
+            $ref: '#/components/schemas/CredentialDigitalWalletApplication'
           type: array
       type: object
     P1Error_details_inner_innerError:

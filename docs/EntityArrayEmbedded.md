@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Items** | Pointer to [**[]EntityArrayEmbeddedItemsInner**](EntityArrayEmbeddedItemsInner.md) |  | [optional] 
 **IssuanceRules** | Pointer to [**[]CredentialIssuanceRule**](CredentialIssuanceRule.md) |  | [optional] 
 **StagedChanges** | Pointer to [**[]CredentialIssuanceRuleStagedChange**](CredentialIssuanceRuleStagedChange.md) |  | [optional] 
+**DigitalWalletApplications** | Pointer to [**[]CredentialDigitalWalletApplication**](CredentialDigitalWalletApplication.md) |  | [optional] 
 
 ## Methods
 
@@ -101,6 +102,31 @@ SetStagedChanges sets StagedChanges field to given value.
 `func (o *EntityArrayEmbedded) HasStagedChanges() bool`
 
 HasStagedChanges returns a boolean if a field has been set.
+
+### GetDigitalWalletApplications
+
+`func (o *EntityArrayEmbedded) GetDigitalWalletApplications() []CredentialDigitalWalletApplication`
+
+GetDigitalWalletApplications returns the DigitalWalletApplications field if non-nil, zero value otherwise.
+
+### GetDigitalWalletApplicationsOk
+
+`func (o *EntityArrayEmbedded) GetDigitalWalletApplicationsOk() (*[]CredentialDigitalWalletApplication, bool)`
+
+GetDigitalWalletApplicationsOk returns a tuple with the DigitalWalletApplications field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDigitalWalletApplications
+
+`func (o *EntityArrayEmbedded) SetDigitalWalletApplications(v []CredentialDigitalWalletApplication)`
+
+SetDigitalWalletApplications sets DigitalWalletApplications field to given value.
+
+### HasDigitalWalletApplications
+
+`func (o *EntityArrayEmbedded) HasDigitalWalletApplications() bool`
+
+HasDigitalWalletApplications returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

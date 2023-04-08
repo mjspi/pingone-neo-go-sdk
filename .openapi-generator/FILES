@@ -10,6 +10,8 @@ api_ping_one_credentials_credential_types.go
 api_ping_one_credentials_user_credentials.go
 client.go
 configuration.go
+docs/CredentialDigitalWalletApplication.md
+docs/CredentialDigitalWalletApplicationApplication.md
 docs/CredentialIssuanceRule.md
 docs/CredentialIssuanceRuleAutomation.md
 docs/CredentialIssuanceRuleCredentialType.md
@@ -52,6 +54,8 @@ docs/PingOneCredentialsUserCredentialsApi.md
 git_push.sh
 go.mod
 go.sum
+model_credential_digital_wallet_application.go
+model_credential_digital_wallet_application_application.go
 model_credential_issuance_rule.go
 model_credential_issuance_rule_automation.go
 model_credential_issuance_rule_credential_type.go
@@ -86,10 +90,4 @@ model_p1_error.go
 model_p1_error_details_inner.go
 model_p1_error_details_inner_inner_error.go
 response.go
-test/api_ping_one_credentials_credential_digital_wallets_digital_wallet_apps_test.go
-test/api_ping_one_credentials_credential_digital_wallets_digital_wallets_test.go
-test/api_ping_one_credentials_credential_issuance_rules_test.go
-test/api_ping_one_credentials_credential_issuers_test.go
-test/api_ping_one_credentials_credential_types_test.go
-test/api_ping_one_credentials_user_credentials_test.go
 utils.go
