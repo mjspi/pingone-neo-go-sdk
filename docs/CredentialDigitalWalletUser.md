@@ -1,46 +1,46 @@
-# CredentialTypeEnvironment
+# CredentialDigitalWalletUser
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | A string that specifies the PingOne environment identifier (UUID) in which the credential type exists. | 
+**Id** | **string** | A string that specifies the identifier (UUID) of the user associated with the credential digital wallet. | 
 
 ## Methods
 
-### NewCredentialTypeEnvironment
+### NewCredentialDigitalWalletUser
 
-`func NewCredentialTypeEnvironment(id string, ) *CredentialTypeEnvironment`
+`func NewCredentialDigitalWalletUser(id string, ) *CredentialDigitalWalletUser`
 
-NewCredentialTypeEnvironment instantiates a new CredentialTypeEnvironment object
+NewCredentialDigitalWalletUser instantiates a new CredentialDigitalWalletUser object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewCredentialTypeEnvironmentWithDefaults
+### NewCredentialDigitalWalletUserWithDefaults
 
-`func NewCredentialTypeEnvironmentWithDefaults() *CredentialTypeEnvironment`
+`func NewCredentialDigitalWalletUserWithDefaults() *CredentialDigitalWalletUser`
 
-NewCredentialTypeEnvironmentWithDefaults instantiates a new CredentialTypeEnvironment object
+NewCredentialDigitalWalletUserWithDefaults instantiates a new CredentialDigitalWalletUser object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *CredentialTypeEnvironment) GetId() string`
+`func (o *CredentialDigitalWalletUser) GetId() string`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *CredentialTypeEnvironment) GetIdOk() (*string, bool)`
+`func (o *CredentialDigitalWalletUser) GetIdOk() (*string, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *CredentialTypeEnvironment) SetId(v string)`
+`func (o *CredentialDigitalWalletUser) SetId(v string)`
 
 SetId sets Id field to given value.
 
