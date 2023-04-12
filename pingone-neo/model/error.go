@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/mjspi/pingone-neo-go-sdk-v2/credentials"
+	"github.com/mjspi/pingone-neo-go-sdk/credentials"
 )
 
 // GenericOpenAPIError Provides access to the body, error and model on returned errors.

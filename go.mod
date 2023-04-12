@@ -1,4 +1,4 @@
-module github.com/pingone-neo-go-sdk
+module github.com/mjspi/pingone-neo-go-sdk
 
 go 1.20
 

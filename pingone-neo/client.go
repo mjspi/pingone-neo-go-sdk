@@ -1,4 +1,4 @@
-package pingone
+package pingoneneo
 
 import (
 	"context"
