@@ -20,9 +20,9 @@ type EnumCredentialTypeMetaDataFieldsType string
 
 // List of EnumCredentialTypeMetaDataFieldsType
 const (
-	ALPHANUMERIC_TEXT EnumCredentialTypeMetaDataFieldsType = "Alphanumeric Text"
-	ISSUED_TIMESTAMP EnumCredentialTypeMetaDataFieldsType = "Issued Timestamp"
-	DIRECTORY_ATTRIBUTE EnumCredentialTypeMetaDataFieldsType = "Directory Attribute"
+	ENUMCREDENTIALTYPEMETADATAFIELDSTYPE_ALPHANUMERIC_TEXT EnumCredentialTypeMetaDataFieldsType = "Alphanumeric Text"
+	ENUMCREDENTIALTYPEMETADATAFIELDSTYPE_ISSUED_TIMESTAMP EnumCredentialTypeMetaDataFieldsType = "Issued Timestamp"
+	ENUMCREDENTIALTYPEMETADATAFIELDSTYPE_DIRECTORY_ATTRIBUTE EnumCredentialTypeMetaDataFieldsType = "Directory Attribute"
 )
 
 // All allowed values of EnumCredentialTypeMetaDataFieldsType enum

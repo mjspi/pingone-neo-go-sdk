@@ -20,8 +20,8 @@ type EnumCredentialIssuanceRuleAutomationMethod string
 
 // List of EnumCredentialIssuanceRuleAutomationMethod
 const (
-	PERIODIC EnumCredentialIssuanceRuleAutomationMethod = "PERIODIC"
-	ON_DEMAND EnumCredentialIssuanceRuleAutomationMethod = "ON_DEMAND"
+	ENUMCREDENTIALISSUANCERULEAUTOMATIONMETHOD_PERIODIC EnumCredentialIssuanceRuleAutomationMethod = "PERIODIC"
+	ENUMCREDENTIALISSUANCERULEAUTOMATIONMETHOD_ON_DEMAND EnumCredentialIssuanceRuleAutomationMethod = "ON_DEMAND"
 )
 
 // All allowed values of EnumCredentialIssuanceRuleAutomationMethod enum

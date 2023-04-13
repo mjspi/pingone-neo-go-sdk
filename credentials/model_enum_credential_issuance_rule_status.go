@@ -20,8 +20,8 @@ type EnumCredentialIssuanceRuleStatus string
 
 // List of EnumCredentialIssuanceRuleStatus
 const (
-	ACTIVE EnumCredentialIssuanceRuleStatus = "ACTIVE"
-	DISABLED EnumCredentialIssuanceRuleStatus = "DISABLED"
+	ENUMCREDENTIALISSUANCERULESTATUS_ACTIVE EnumCredentialIssuanceRuleStatus = "ACTIVE"
+	ENUMCREDENTIALISSUANCERULESTATUS_DISABLED EnumCredentialIssuanceRuleStatus = "DISABLED"
 )
 
 // All allowed values of EnumCredentialIssuanceRuleStatus enum

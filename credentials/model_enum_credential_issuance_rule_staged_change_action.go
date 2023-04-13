@@ -20,9 +20,9 @@ type EnumCredentialIssuanceRuleStagedChangeAction string
 
 // List of EnumCredentialIssuanceRuleStagedChangeAction
 const (
-	ISSUE EnumCredentialIssuanceRuleStagedChangeAction = "ISSUE"
-	UPDATE EnumCredentialIssuanceRuleStagedChangeAction = "UPDATE"
-	REVOKE EnumCredentialIssuanceRuleStagedChangeAction = "REVOKE"
+	ENUMCREDENTIALISSUANCERULESTAGEDCHANGEACTION_ISSUE EnumCredentialIssuanceRuleStagedChangeAction = "ISSUE"
+	ENUMCREDENTIALISSUANCERULESTAGEDCHANGEACTION_UPDATE EnumCredentialIssuanceRuleStagedChangeAction = "UPDATE"
+	ENUMCREDENTIALISSUANCERULESTAGEDCHANGEACTION_REVOKE EnumCredentialIssuanceRuleStagedChangeAction = "REVOKE"
 )
 
 // All allowed values of EnumCredentialIssuanceRuleStagedChangeAction enum
