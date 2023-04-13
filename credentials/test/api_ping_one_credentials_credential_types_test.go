@@ -18,6 +18,21 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+/* talk to patrick
+type Config struct {
+	ClientID      string
+	ClientSecret  string
+	EnvironmentID string
+	AccessToken   string
+	Region        string
+}
+
+type Client struct {
+	CredentialsAPIClient *credentials.APIClient
+	Region               model.RegionMapping
+}
+*/
+
 func Test_openapi_PingOneCredentialsCredentialTypesApiService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
@@ -53,7 +68,17 @@ func Test_openapi_PingOneCredentialsCredentialTypesApiService(t *testing.T) {
 
 	t.Run("Test PingOneCredentialsCredentialTypesApiService ReadAllCredentialTypes", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		// t.Skip("skip test") // remove to run test
+
+		/* var ctx = context.Background()
+		config := &Config{
+			ClientID:      os.Getenv("PINGONE_CLIENT_ID"),
+			ClientSecret:  os.Getenv("PINGONE_CLIENT_SECRET"),
+			EnvironmentID: os.Getenv("PINGONE_ENVIRONMENT_ID"),
+			Region:        os.Getenv("PINGONE_REGION"),
+		}
+
+		client, err := config.APIClient(ctx) */
 
 		var environmentID string
 

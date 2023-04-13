@@ -50,11 +50,11 @@ func RemarshalGenericOpenAPIErrorObj(errorInf interface{}) (*GenericOpenAPIError
 		}
 		errorJSON, err = json.Marshal(t.Model())
 	default:
-		return nil, fmt.Errorf("Cannot Marshal OpenAPI error interface for Remarshal, unknown type - %T", t)
+		return nil, fmt.Errorf("cannot marshal openapi error interface for remarshal, unknown type - %T", t)
 	}
 
 	if err != nil {
-		return nil, fmt.Errorf("Cannot Marshal OpenAPI error interface for Remarshal - %s", err)
+		return nil, fmt.Errorf("cannot marshal openapi error interface for remarshal - %s", err)
 	}
 
 	if errorJSON != nil {
@@ -63,7 +63,7 @@ func RemarshalGenericOpenAPIErrorObj(errorInf interface{}) (*GenericOpenAPIError
 
 		err = json.Unmarshal(errorJSON, &model)
 		if err != nil {
-			return nil, fmt.Errorf("Cannot Unmarshal OpenAPI error interface for Remarshal - %s", err)
+			return nil, fmt.Errorf("cannot marshal openapi error interface for remarshal - %s", err)
 		}
 
 		errorObj.model = model
@@ -79,14 +79,14 @@ func RemarshalErrorObj(errorInf interface{}) (*P1Error, error) {
 
 	errorJSON, err = json.Marshal(errorInf)
 	if err != nil {
-		return nil, fmt.Errorf("Cannot Marshal error interface for Remarshal - %s", err)
+		return nil, fmt.Errorf("cannot marshal error interface for remarshal - %s", err)
 	}
 
 	var errorObj *P1Error
 
 	err = json.Unmarshal(errorJSON, &errorObj)
 	if err != nil {
-		return nil, fmt.Errorf("Cannot Marshal error interface for Remarshal - %s", err)
+		return nil, fmt.Errorf("cannot marshal openapi error interface for remarshal - %s", err)
 	}
 
 	return errorObj, nil
