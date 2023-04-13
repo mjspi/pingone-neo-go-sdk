@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/patrickcping/pingone-go-sdk-v2/management"
+	"github.com/mjspi/pingone-neo-go-sdk/credentials"
 )
 
 func TestRemarshalGenericOpenAPIErrorObj_Success(t *testing.T) {
@@ -19,11 +19,11 @@ func TestRemarshalGenericOpenAPIErrorObj_Success(t *testing.T) {
 	moduleApiError := GenericOpenAPIError{
 		body:  []byte(fmt.Sprintf(`{"id": "%s","code": "%s","message": "%s","details": [{"code": "INSUFFICIENT_PERMISSIONS","message": "The actor attempting to perform the request is not authorized."}]}`, p1ErrorId, p1ErrorCode, p1ErrorMessage)),
 		error: errorName,
-		model: &management.P1Error{
+		model: &credentials.P1Error{
 			Id:      &p1ErrorId,
 			Code:    &p1ErrorCode,
 			Message: &p1ErrorMessage,
-			Details: []management.P1ErrorDetailsInner{
+			Details: []credentials.P1ErrorDetailsInner{
 				{
 					Code:    &p1ErrorDetailsCode,
 					Message: &p1ErrorDetailsMessage,
@@ -76,11 +76,11 @@ func TestRemarshalErrorObj_Success(t *testing.T) {
 	p1ErrorDetailsCode := "INSUFFICIENT_PERMISSIONS"
 	p1ErrorDetailsMessage := "The actor attempting to perform the request is not authorized."
 
-	moduleApiError := &management.P1Error{
+	moduleApiError := &credentials.P1Error{
 		Id:      &p1ErrorId,
 		Code:    &p1ErrorCode,
 		Message: &p1ErrorMessage,
-		Details: []management.P1ErrorDetailsInner{
+		Details: []credentials.P1ErrorDetailsInner{
 			{
 				Code:    &p1ErrorDetailsCode,
 				Message: &p1ErrorDetailsMessage,

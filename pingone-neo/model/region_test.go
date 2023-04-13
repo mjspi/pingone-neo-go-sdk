@@ -4,7 +4,6 @@ import (
 	"reflect"
 	"testing"
 
-	// discuss w/patrick
 	"github.com/patrickcping/pingone-go-sdk-v2/management"
 )
 
