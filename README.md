@@ -1,2 +1,2 @@
-# pingone-neo-go-sdk-v2
+# pingone-neo-go-sdk
 
