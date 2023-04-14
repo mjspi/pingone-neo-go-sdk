@@ -6,7 +6,7 @@ import (
 	"log"
 
 	"github.com/mjspi/pingone-neo-go-sdk/credentials"
-	"github.com/mjspi/pingone-neo-go-sdk/pingone-neo/model"
+	"github.com/mjspi/pingone-neo-go-sdk/pingoneneo/model"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/clientcredentials"
 )

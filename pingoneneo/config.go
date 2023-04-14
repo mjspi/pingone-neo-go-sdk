@@ -2,7 +2,7 @@ package pingoneneo
 
 import (
 	"github.com/mjspi/pingone-neo-go-sdk/credentials"
-	"github.com/mjspi/pingone-neo-go-sdk/pingone-neo/model"
+	"github.com/mjspi/pingone-neo-go-sdk/pingoneneo/model"
 )
 
 type Config struct {

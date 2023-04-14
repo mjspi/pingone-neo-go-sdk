@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/mjspi/pingone-neo-go-sdk/pingone-neo/model"
+	"github.com/mjspi/pingone-neo-go-sdk/pingoneneo/model"
 )
 
 func TestAccAPIClient_Success(t *testing.T) {
