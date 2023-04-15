@@ -548,7 +548,7 @@ func (a *UserCredentialsApiService) ReadOneUserCredentialExecute(r ApiReadOneUse
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiReadOneUserCredentialWalletsRequest struct {
+type ApiReadOneUserCredentialWalletRequest struct {
 	ctx context.Context
 	ApiService *UserCredentialsApiService
 	environmentID string
@@ -556,21 +556,21 @@ type ApiReadOneUserCredentialWalletsRequest struct {
 	credentialID string
 }
 
-func (r ApiReadOneUserCredentialWalletsRequest) Execute() (*EntityArray, *http.Response, error) {
-	return r.ApiService.ReadOneUserCredentialWalletsExecute(r)
+func (r ApiReadOneUserCredentialWalletRequest) Execute() (*EntityArray, *http.Response, error) {
+	return r.ApiService.ReadOneUserCredentialWalletExecute(r)
 }
 
 /*
-ReadOneUserCredentialWallets Read One User Credential Wallets
+ReadOneUserCredentialWallet Read One User Credential Wallet
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param environmentID
  @param userID
  @param credentialID
- @return ApiReadOneUserCredentialWalletsRequest
+ @return ApiReadOneUserCredentialWalletRequest
 */
-func (a *UserCredentialsApiService) ReadOneUserCredentialWallets(ctx context.Context, environmentID string, userID string, credentialID string) ApiReadOneUserCredentialWalletsRequest {
-	return ApiReadOneUserCredentialWalletsRequest{
+func (a *UserCredentialsApiService) ReadOneUserCredentialWallet(ctx context.Context, environmentID string, userID string, credentialID string) ApiReadOneUserCredentialWalletRequest {
+	return ApiReadOneUserCredentialWalletRequest{
 		ApiService: a,
 		ctx: ctx,
 		environmentID: environmentID,
@@ -581,7 +581,7 @@ func (a *UserCredentialsApiService) ReadOneUserCredentialWallets(ctx context.Con
 
 // Execute executes the request
 //  @return EntityArray
-func (a *UserCredentialsApiService) ReadOneUserCredentialWalletsExecute(r ApiReadOneUserCredentialWalletsRequest) (*EntityArray, *http.Response, error) {
+func (a *UserCredentialsApiService) ReadOneUserCredentialWalletExecute(r ApiReadOneUserCredentialWalletRequest) (*EntityArray, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -589,7 +589,7 @@ func (a *UserCredentialsApiService) ReadOneUserCredentialWalletsExecute(r ApiRea
 		localVarReturnValue  *EntityArray
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserCredentialsApiService.ReadOneUserCredentialWallets")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserCredentialsApiService.ReadOneUserCredentialWallet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

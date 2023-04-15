@@ -49,15 +49,15 @@ type APIClient struct {
 
 	// API Services
 
-	CredentialDigitalWalletsDigitalWalletAppsApi *CredentialDigitalWalletsDigitalWalletAppsApiService
-
-	CredentialDigitalWalletsDigitalWalletsApi *CredentialDigitalWalletsDigitalWalletsApiService
-
 	CredentialIssuanceRulesApi *CredentialIssuanceRulesApiService
 
 	CredentialIssuersApi *CredentialIssuersApiService
 
 	CredentialTypesApi *CredentialTypesApiService
+
+	DigitalWalletAppsApi *DigitalWalletAppsApiService
+
+	DigitalWalletsApi *DigitalWalletsApiService
 
 	UserCredentialsApi *UserCredentialsApiService
 }
@@ -78,11 +78,11 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.CredentialDigitalWalletsDigitalWalletAppsApi = (*CredentialDigitalWalletsDigitalWalletAppsApiService)(&c.common)
-	c.CredentialDigitalWalletsDigitalWalletsApi = (*CredentialDigitalWalletsDigitalWalletsApiService)(&c.common)
 	c.CredentialIssuanceRulesApi = (*CredentialIssuanceRulesApiService)(&c.common)
 	c.CredentialIssuersApi = (*CredentialIssuersApiService)(&c.common)
 	c.CredentialTypesApi = (*CredentialTypesApiService)(&c.common)
+	c.DigitalWalletAppsApi = (*DigitalWalletAppsApiService)(&c.common)
+	c.DigitalWalletsApi = (*DigitalWalletsApiService)(&c.common)
 	c.UserCredentialsApi = (*UserCredentialsApiService)(&c.common)
 
 	return c

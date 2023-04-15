@@ -1,22 +1,22 @@
-# \UserCredentialsApi
+# \DigitalWalletAppsApi
 
 All URIs are relative to *https://api.pingone.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateAUserCredential**](UserCredentialsApi.md#CreateAUserCredential) | **Post** /environments/{environmentID}/users/{userID}/credentials | Create a User Credential
-[**ReadAllUserCredentials**](UserCredentialsApi.md#ReadAllUserCredentials) | **Get** /environments/{environmentID}/users/{userID}/credentials | Read All User Credentials
-[**ReadOneUserCredential**](UserCredentialsApi.md#ReadOneUserCredential) | **Get** /environments/{environmentID}/users/{userID}/credentials/{credentialID} | Read One User Credential
-[**ReadOneUserCredentialWallet**](UserCredentialsApi.md#ReadOneUserCredentialWallet) | **Get** /environments/{environmentID}/users/{userID}/credentials/{credentialID}/provisionedCredentials | Read One User Credential Wallet
-[**UpdateAUserCredential**](UserCredentialsApi.md#UpdateAUserCredential) | **Put** /environments/{environmentID}/users/{userID}/credentials/{credentialID} | Update a User Credential
+[**CreateDigitalWalletApp**](DigitalWalletAppsApi.md#CreateDigitalWalletApp) | **Post** /environments/{environmentID}/digitalWalletApplications | Create Digital Wallet App
+[**DeleteDigitalWalletApp**](DigitalWalletAppsApi.md#DeleteDigitalWalletApp) | **Delete** /environments/{environmentID}/digitalWalletApplications/{digitalWalletApplicationID} | Delete Digital Wallet App
+[**ReadAllDigitalWalletApps**](DigitalWalletAppsApi.md#ReadAllDigitalWalletApps) | **Get** /environments/{environmentID}/digitalWalletApplications | Read All Digital Wallet Apps
+[**ReadOneDigitalWalletApp**](DigitalWalletAppsApi.md#ReadOneDigitalWalletApp) | **Get** /environments/{environmentID}/digitalWalletApplications/{digitalWalletApplicationID} | Read One Digital Wallet App
+[**UpdateDigitalWalletApp**](DigitalWalletAppsApi.md#UpdateDigitalWalletApp) | **Put** /environments/{environmentID}/digitalWalletApplications/{digitalWalletApplicationID} | Update Digital Wallet App
 
 
 
-## CreateAUserCredential
+## CreateDigitalWalletApp
 
-> UserCredential CreateAUserCredential(ctx, environmentID, userID).UserCredential(userCredential).Execute()
+> CredentialDigitalWalletApplication CreateDigitalWalletApp(ctx, environmentID).CredentialDigitalWalletApplication(credentialDigitalWalletApplication).Execute()
 
-Create a User Credential
+Create Digital Wallet App
 
 ### Example
 
@@ -32,18 +32,17 @@ import (
 
 func main() {
     environmentID := "environmentID_example" // string | 
-    userID := "userID_example" // string | 
-    userCredential := *openapiclient.NewUserCredential() // UserCredential |  (optional)
+    credentialDigitalWalletApplication := *openapiclient.NewCredentialDigitalWalletApplication("Id_example") // CredentialDigitalWalletApplication |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserCredentialsApi.CreateAUserCredential(context.Background(), environmentID, userID).UserCredential(userCredential).Execute()
+    resp, r, err := apiClient.DigitalWalletAppsApi.CreateDigitalWalletApp(context.Background(), environmentID).CredentialDigitalWalletApplication(credentialDigitalWalletApplication).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserCredentialsApi.CreateAUserCredential``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DigitalWalletAppsApi.CreateDigitalWalletApp``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateAUserCredential`: UserCredential
-    fmt.Fprintf(os.Stdout, "Response from `UserCredentialsApi.CreateAUserCredential`: %v\n", resp)
+    // response from `CreateDigitalWalletApp`: CredentialDigitalWalletApplication
+    fmt.Fprintf(os.Stdout, "Response from `DigitalWalletAppsApi.CreateDigitalWalletApp`: %v\n", resp)
 }
 ```
 
@@ -54,22 +53,20 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **environmentID** | **string** |  | 
-**userID** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateAUserCredentialRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateDigitalWalletAppRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
- **userCredential** | [**UserCredential**](UserCredential.md) |  | 
+ **credentialDigitalWalletApplication** | [**CredentialDigitalWalletApplication**](CredentialDigitalWalletApplication.md) |  | 
 
 ### Return type
 
-[**UserCredential**](UserCredential.md)
+[**CredentialDigitalWalletApplication**](CredentialDigitalWalletApplication.md)
 
 ### Authorization
 
@@ -85,11 +82,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ReadAllUserCredentials
+## DeleteDigitalWalletApp
 
-> EntityArray ReadAllUserCredentials(ctx, environmentID, userID).Execute()
+> DeleteDigitalWalletApp(ctx, environmentID, digitalWalletApplicationID).Execute()
 
-Read All User Credentials
+Delete Digital Wallet App
 
 ### Example
 
@@ -105,17 +102,15 @@ import (
 
 func main() {
     environmentID := "environmentID_example" // string | 
-    userID := "userID_example" // string | 
+    digitalWalletApplicationID := "digitalWalletApplicationID_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserCredentialsApi.ReadAllUserCredentials(context.Background(), environmentID, userID).Execute()
+    r, err := apiClient.DigitalWalletAppsApi.DeleteDigitalWalletApp(context.Background(), environmentID, digitalWalletApplicationID).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserCredentialsApi.ReadAllUserCredentials``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DigitalWalletAppsApi.DeleteDigitalWalletApp``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ReadAllUserCredentials`: EntityArray
-    fmt.Fprintf(os.Stdout, "Response from `UserCredentialsApi.ReadAllUserCredentials`: %v\n", resp)
 }
 ```
 
@@ -126,16 +121,84 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **environmentID** | **string** |  | 
-**userID** | **string** |  | 
+**digitalWalletApplicationID** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiReadAllUserCredentialsRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteDigitalWalletAppRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ReadAllDigitalWalletApps
+
+> EntityArray ReadAllDigitalWalletApps(ctx, environmentID).Execute()
+
+Read All Digital Wallet Apps
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/--git-user-id/credentials"
+)
+
+func main() {
+    environmentID := "environmentID_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DigitalWalletAppsApi.ReadAllDigitalWalletApps(context.Background(), environmentID).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DigitalWalletAppsApi.ReadAllDigitalWalletApps``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ReadAllDigitalWalletApps`: EntityArray
+    fmt.Fprintf(os.Stdout, "Response from `DigitalWalletAppsApi.ReadAllDigitalWalletApps`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**environmentID** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiReadAllDigitalWalletAppsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type
@@ -156,11 +219,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ReadOneUserCredential
+## ReadOneDigitalWalletApp
 
-> UserCredential ReadOneUserCredential(ctx, environmentID, userID, credentialID).Execute()
+> CredentialDigitalWalletApplication ReadOneDigitalWalletApp(ctx, environmentID, digitalWalletApplicationID).Execute()
 
-Read One User Credential
+Read One Digital Wallet App
 
 ### Example
 
@@ -176,18 +239,17 @@ import (
 
 func main() {
     environmentID := "environmentID_example" // string | 
-    userID := "userID_example" // string | 
-    credentialID := "credentialID_example" // string | 
+    digitalWalletApplicationID := "digitalWalletApplicationID_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserCredentialsApi.ReadOneUserCredential(context.Background(), environmentID, userID, credentialID).Execute()
+    resp, r, err := apiClient.DigitalWalletAppsApi.ReadOneDigitalWalletApp(context.Background(), environmentID, digitalWalletApplicationID).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserCredentialsApi.ReadOneUserCredential``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DigitalWalletAppsApi.ReadOneDigitalWalletApp``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ReadOneUserCredential`: UserCredential
-    fmt.Fprintf(os.Stdout, "Response from `UserCredentialsApi.ReadOneUserCredential`: %v\n", resp)
+    // response from `ReadOneDigitalWalletApp`: CredentialDigitalWalletApplication
+    fmt.Fprintf(os.Stdout, "Response from `DigitalWalletAppsApi.ReadOneDigitalWalletApp`: %v\n", resp)
 }
 ```
 
@@ -198,12 +260,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **environmentID** | **string** |  | 
-**userID** | **string** |  | 
-**credentialID** | **string** |  | 
+**digitalWalletApplicationID** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiReadOneUserCredentialRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiReadOneDigitalWalletAppRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -211,10 +272,9 @@ Name | Type | Description  | Notes
 
 
 
-
 ### Return type
 
-[**UserCredential**](UserCredential.md)
+[**CredentialDigitalWalletApplication**](CredentialDigitalWalletApplication.md)
 
 ### Authorization
 
@@ -230,85 +290,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ReadOneUserCredentialWallet
+## UpdateDigitalWalletApp
 
-> EntityArray ReadOneUserCredentialWallet(ctx, environmentID, userID, credentialID).Execute()
+> CredentialDigitalWalletApplication UpdateDigitalWalletApp(ctx, environmentID, digitalWalletApplicationID).CredentialDigitalWalletApplication(credentialDigitalWalletApplication).Execute()
 
-Read One User Credential Wallet
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/--git-user-id/credentials"
-)
-
-func main() {
-    environmentID := "environmentID_example" // string | 
-    userID := "userID_example" // string | 
-    credentialID := "credentialID_example" // string | 
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserCredentialsApi.ReadOneUserCredentialWallet(context.Background(), environmentID, userID, credentialID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserCredentialsApi.ReadOneUserCredentialWallet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ReadOneUserCredentialWallet`: EntityArray
-    fmt.Fprintf(os.Stdout, "Response from `UserCredentialsApi.ReadOneUserCredentialWallet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**environmentID** | **string** |  | 
-**userID** | **string** |  | 
-**credentialID** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiReadOneUserCredentialWalletRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-
-### Return type
-
-[**EntityArray**](EntityArray.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## UpdateAUserCredential
-
-> UserCredential UpdateAUserCredential(ctx, environmentID, userID, credentialID).UserCredential(userCredential).Execute()
-
-Update a User Credential
+Update Digital Wallet App
 
 ### Example
 
@@ -324,19 +310,18 @@ import (
 
 func main() {
     environmentID := "environmentID_example" // string | 
-    userID := "userID_example" // string | 
-    credentialID := "credentialID_example" // string | 
-    userCredential := *openapiclient.NewUserCredential() // UserCredential |  (optional)
+    digitalWalletApplicationID := "digitalWalletApplicationID_example" // string | 
+    credentialDigitalWalletApplication := *openapiclient.NewCredentialDigitalWalletApplication("Id_example") // CredentialDigitalWalletApplication |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserCredentialsApi.UpdateAUserCredential(context.Background(), environmentID, userID, credentialID).UserCredential(userCredential).Execute()
+    resp, r, err := apiClient.DigitalWalletAppsApi.UpdateDigitalWalletApp(context.Background(), environmentID, digitalWalletApplicationID).CredentialDigitalWalletApplication(credentialDigitalWalletApplication).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserCredentialsApi.UpdateAUserCredential``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DigitalWalletAppsApi.UpdateDigitalWalletApp``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UpdateAUserCredential`: UserCredential
-    fmt.Fprintf(os.Stdout, "Response from `UserCredentialsApi.UpdateAUserCredential`: %v\n", resp)
+    // response from `UpdateDigitalWalletApp`: CredentialDigitalWalletApplication
+    fmt.Fprintf(os.Stdout, "Response from `DigitalWalletAppsApi.UpdateDigitalWalletApp`: %v\n", resp)
 }
 ```
 
@@ -347,24 +332,22 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **environmentID** | **string** |  | 
-**userID** | **string** |  | 
-**credentialID** | **string** |  | 
+**digitalWalletApplicationID** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateAUserCredentialRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateDigitalWalletAppRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
- **userCredential** | [**UserCredential**](UserCredential.md) |  | 
+ **credentialDigitalWalletApplication** | [**CredentialDigitalWalletApplication**](CredentialDigitalWalletApplication.md) |  | 
 
 ### Return type
 
-[**UserCredential**](UserCredential.md)
+[**CredentialDigitalWalletApplication**](CredentialDigitalWalletApplication.md)
 
 ### Authorization
 

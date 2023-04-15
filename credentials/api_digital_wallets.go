@@ -20,12 +20,12 @@ import (
 )
 
 
-// CredentialDigitalWalletsDigitalWalletsApiService CredentialDigitalWalletsDigitalWalletsApi service
-type CredentialDigitalWalletsDigitalWalletsApiService service
+// DigitalWalletsApiService DigitalWalletsApi service
+type DigitalWalletsApiService service
 
 type ApiCreateDigitalWalletRequest struct {
 	ctx context.Context
-	ApiService *CredentialDigitalWalletsDigitalWalletsApiService
+	ApiService *DigitalWalletsApiService
 	environmentID string
 	userID string
 	credentialDigitalWallet *CredentialDigitalWallet
@@ -48,7 +48,7 @@ CreateDigitalWallet Create Digital Wallet
  @param userID
  @return ApiCreateDigitalWalletRequest
 */
-func (a *CredentialDigitalWalletsDigitalWalletsApiService) CreateDigitalWallet(ctx context.Context, environmentID string, userID string) ApiCreateDigitalWalletRequest {
+func (a *DigitalWalletsApiService) CreateDigitalWallet(ctx context.Context, environmentID string, userID string) ApiCreateDigitalWalletRequest {
 	return ApiCreateDigitalWalletRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -59,7 +59,7 @@ func (a *CredentialDigitalWalletsDigitalWalletsApiService) CreateDigitalWallet(c
 
 // Execute executes the request
 //  @return CredentialDigitalWallet
-func (a *CredentialDigitalWalletsDigitalWalletsApiService) CreateDigitalWalletExecute(r ApiCreateDigitalWalletRequest) (*CredentialDigitalWallet, *http.Response, error) {
+func (a *DigitalWalletsApiService) CreateDigitalWalletExecute(r ApiCreateDigitalWalletRequest) (*CredentialDigitalWallet, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -67,7 +67,7 @@ func (a *CredentialDigitalWalletsDigitalWalletsApiService) CreateDigitalWalletEx
 		localVarReturnValue  *CredentialDigitalWallet
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialDigitalWalletsDigitalWalletsApiService.CreateDigitalWallet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DigitalWalletsApiService.CreateDigitalWallet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -204,7 +204,7 @@ func (a *CredentialDigitalWalletsDigitalWalletsApiService) CreateDigitalWalletEx
 
 type ApiDeleteDigitalWalletRequest struct {
 	ctx context.Context
-	ApiService *CredentialDigitalWalletsDigitalWalletsApiService
+	ApiService *DigitalWalletsApiService
 	environmentID string
 	userID string
 	digitalWalletID string
@@ -223,7 +223,7 @@ DeleteDigitalWallet Delete Digital Wallet
  @param digitalWalletID
  @return ApiDeleteDigitalWalletRequest
 */
-func (a *CredentialDigitalWalletsDigitalWalletsApiService) DeleteDigitalWallet(ctx context.Context, environmentID string, userID string, digitalWalletID string) ApiDeleteDigitalWalletRequest {
+func (a *DigitalWalletsApiService) DeleteDigitalWallet(ctx context.Context, environmentID string, userID string, digitalWalletID string) ApiDeleteDigitalWalletRequest {
 	return ApiDeleteDigitalWalletRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -234,14 +234,14 @@ func (a *CredentialDigitalWalletsDigitalWalletsApiService) DeleteDigitalWallet(c
 }
 
 // Execute executes the request
-func (a *CredentialDigitalWalletsDigitalWalletsApiService) DeleteDigitalWalletExecute(r ApiDeleteDigitalWalletRequest) (*http.Response, error) {
+func (a *DigitalWalletsApiService) DeleteDigitalWalletExecute(r ApiDeleteDigitalWalletRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialDigitalWalletsDigitalWalletsApiService.DeleteDigitalWallet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DigitalWalletsApiService.DeleteDigitalWallet")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -368,7 +368,7 @@ func (a *CredentialDigitalWalletsDigitalWalletsApiService) DeleteDigitalWalletEx
 
 type ApiReadAllDigitalWalletsRequest struct {
 	ctx context.Context
-	ApiService *CredentialDigitalWalletsDigitalWalletsApiService
+	ApiService *DigitalWalletsApiService
 	environmentID string
 	userID string
 }
@@ -385,7 +385,7 @@ ReadAllDigitalWallets Read All Digital Wallets
  @param userID
  @return ApiReadAllDigitalWalletsRequest
 */
-func (a *CredentialDigitalWalletsDigitalWalletsApiService) ReadAllDigitalWallets(ctx context.Context, environmentID string, userID string) ApiReadAllDigitalWalletsRequest {
+func (a *DigitalWalletsApiService) ReadAllDigitalWallets(ctx context.Context, environmentID string, userID string) ApiReadAllDigitalWalletsRequest {
 	return ApiReadAllDigitalWalletsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -396,7 +396,7 @@ func (a *CredentialDigitalWalletsDigitalWalletsApiService) ReadAllDigitalWallets
 
 // Execute executes the request
 //  @return EntityArray
-func (a *CredentialDigitalWalletsDigitalWalletsApiService) ReadAllDigitalWalletsExecute(r ApiReadAllDigitalWalletsRequest) (*EntityArray, *http.Response, error) {
+func (a *DigitalWalletsApiService) ReadAllDigitalWalletsExecute(r ApiReadAllDigitalWalletsRequest) (*EntityArray, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -404,7 +404,7 @@ func (a *CredentialDigitalWalletsDigitalWalletsApiService) ReadAllDigitalWallets
 		localVarReturnValue  *EntityArray
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialDigitalWalletsDigitalWalletsApiService.ReadAllDigitalWallets")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DigitalWalletsApiService.ReadAllDigitalWallets")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -539,7 +539,7 @@ func (a *CredentialDigitalWalletsDigitalWalletsApiService) ReadAllDigitalWallets
 
 type ApiReadOneDigitalWalletRequest struct {
 	ctx context.Context
-	ApiService *CredentialDigitalWalletsDigitalWalletsApiService
+	ApiService *DigitalWalletsApiService
 	environmentID string
 	userID string
 	digitalWalletID string
@@ -558,7 +558,7 @@ ReadOneDigitalWallet Read One Digital Wallet
  @param digitalWalletID
  @return ApiReadOneDigitalWalletRequest
 */
-func (a *CredentialDigitalWalletsDigitalWalletsApiService) ReadOneDigitalWallet(ctx context.Context, environmentID string, userID string, digitalWalletID string) ApiReadOneDigitalWalletRequest {
+func (a *DigitalWalletsApiService) ReadOneDigitalWallet(ctx context.Context, environmentID string, userID string, digitalWalletID string) ApiReadOneDigitalWalletRequest {
 	return ApiReadOneDigitalWalletRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -570,7 +570,7 @@ func (a *CredentialDigitalWalletsDigitalWalletsApiService) ReadOneDigitalWallet(
 
 // Execute executes the request
 //  @return CredentialDigitalWallet
-func (a *CredentialDigitalWalletsDigitalWalletsApiService) ReadOneDigitalWalletExecute(r ApiReadOneDigitalWalletRequest) (*CredentialDigitalWallet, *http.Response, error) {
+func (a *DigitalWalletsApiService) ReadOneDigitalWalletExecute(r ApiReadOneDigitalWalletRequest) (*CredentialDigitalWallet, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -578,7 +578,7 @@ func (a *CredentialDigitalWalletsDigitalWalletsApiService) ReadOneDigitalWalletE
 		localVarReturnValue  *CredentialDigitalWallet
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialDigitalWalletsDigitalWalletsApiService.ReadOneDigitalWallet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DigitalWalletsApiService.ReadOneDigitalWallet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -712,29 +712,29 @@ func (a *CredentialDigitalWalletsDigitalWalletsApiService) ReadOneDigitalWalletE
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiReadOneDigitalWalletCredentialsRequest struct {
+type ApiReadOneDigitalWalletCredentialRequest struct {
 	ctx context.Context
-	ApiService *CredentialDigitalWalletsDigitalWalletsApiService
+	ApiService *DigitalWalletsApiService
 	environmentID string
 	userID string
 	digitalWalletID string
 }
 
-func (r ApiReadOneDigitalWalletCredentialsRequest) Execute() (*EntityArray, *http.Response, error) {
-	return r.ApiService.ReadOneDigitalWalletCredentialsExecute(r)
+func (r ApiReadOneDigitalWalletCredentialRequest) Execute() (*EntityArray, *http.Response, error) {
+	return r.ApiService.ReadOneDigitalWalletCredentialExecute(r)
 }
 
 /*
-ReadOneDigitalWalletCredentials Read One Digital Wallet Credentials
+ReadOneDigitalWalletCredential Read One Digital Wallet Credential
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param environmentID
  @param userID
  @param digitalWalletID
- @return ApiReadOneDigitalWalletCredentialsRequest
+ @return ApiReadOneDigitalWalletCredentialRequest
 */
-func (a *CredentialDigitalWalletsDigitalWalletsApiService) ReadOneDigitalWalletCredentials(ctx context.Context, environmentID string, userID string, digitalWalletID string) ApiReadOneDigitalWalletCredentialsRequest {
-	return ApiReadOneDigitalWalletCredentialsRequest{
+func (a *DigitalWalletsApiService) ReadOneDigitalWalletCredential(ctx context.Context, environmentID string, userID string, digitalWalletID string) ApiReadOneDigitalWalletCredentialRequest {
+	return ApiReadOneDigitalWalletCredentialRequest{
 		ApiService: a,
 		ctx: ctx,
 		environmentID: environmentID,
@@ -745,7 +745,7 @@ func (a *CredentialDigitalWalletsDigitalWalletsApiService) ReadOneDigitalWalletC
 
 // Execute executes the request
 //  @return EntityArray
-func (a *CredentialDigitalWalletsDigitalWalletsApiService) ReadOneDigitalWalletCredentialsExecute(r ApiReadOneDigitalWalletCredentialsRequest) (*EntityArray, *http.Response, error) {
+func (a *DigitalWalletsApiService) ReadOneDigitalWalletCredentialExecute(r ApiReadOneDigitalWalletCredentialRequest) (*EntityArray, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -753,7 +753,7 @@ func (a *CredentialDigitalWalletsDigitalWalletsApiService) ReadOneDigitalWalletC
 		localVarReturnValue  *EntityArray
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialDigitalWalletsDigitalWalletsApiService.ReadOneDigitalWalletCredentials")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DigitalWalletsApiService.ReadOneDigitalWalletCredential")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -889,7 +889,7 @@ func (a *CredentialDigitalWalletsDigitalWalletsApiService) ReadOneDigitalWalletC
 
 type ApiUpdateDigitalWalletRequest struct {
 	ctx context.Context
-	ApiService *CredentialDigitalWalletsDigitalWalletsApiService
+	ApiService *DigitalWalletsApiService
 	environmentID string
 	userID string
 	digitalWalletID string
@@ -914,7 +914,7 @@ UpdateDigitalWallet Update Digital Wallet
  @param digitalWalletID
  @return ApiUpdateDigitalWalletRequest
 */
-func (a *CredentialDigitalWalletsDigitalWalletsApiService) UpdateDigitalWallet(ctx context.Context, environmentID string, userID string, digitalWalletID string) ApiUpdateDigitalWalletRequest {
+func (a *DigitalWalletsApiService) UpdateDigitalWallet(ctx context.Context, environmentID string, userID string, digitalWalletID string) ApiUpdateDigitalWalletRequest {
 	return ApiUpdateDigitalWalletRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -926,7 +926,7 @@ func (a *CredentialDigitalWalletsDigitalWalletsApiService) UpdateDigitalWallet(c
 
 // Execute executes the request
 //  @return CredentialDigitalWallet
-func (a *CredentialDigitalWalletsDigitalWalletsApiService) UpdateDigitalWalletExecute(r ApiUpdateDigitalWalletRequest) (*CredentialDigitalWallet, *http.Response, error) {
+func (a *DigitalWalletsApiService) UpdateDigitalWalletExecute(r ApiUpdateDigitalWalletRequest) (*CredentialDigitalWallet, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -934,7 +934,7 @@ func (a *CredentialDigitalWalletsDigitalWalletsApiService) UpdateDigitalWalletEx
 		localVarReturnValue  *CredentialDigitalWallet
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialDigitalWalletsDigitalWalletsApiService.UpdateDigitalWallet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DigitalWalletsApiService.UpdateDigitalWallet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

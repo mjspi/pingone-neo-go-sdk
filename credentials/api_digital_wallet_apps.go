@@ -20,12 +20,12 @@ import (
 )
 
 
-// CredentialDigitalWalletsDigitalWalletAppsApiService CredentialDigitalWalletsDigitalWalletAppsApi service
-type CredentialDigitalWalletsDigitalWalletAppsApiService service
+// DigitalWalletAppsApiService DigitalWalletAppsApi service
+type DigitalWalletAppsApiService service
 
 type ApiCreateDigitalWalletAppRequest struct {
 	ctx context.Context
-	ApiService *CredentialDigitalWalletsDigitalWalletAppsApiService
+	ApiService *DigitalWalletAppsApiService
 	environmentID string
 	credentialDigitalWalletApplication *CredentialDigitalWalletApplication
 }
@@ -46,7 +46,7 @@ CreateDigitalWalletApp Create Digital Wallet App
  @param environmentID
  @return ApiCreateDigitalWalletAppRequest
 */
-func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) CreateDigitalWalletApp(ctx context.Context, environmentID string) ApiCreateDigitalWalletAppRequest {
+func (a *DigitalWalletAppsApiService) CreateDigitalWalletApp(ctx context.Context, environmentID string) ApiCreateDigitalWalletAppRequest {
 	return ApiCreateDigitalWalletAppRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -56,7 +56,7 @@ func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) CreateDigitalWalle
 
 // Execute executes the request
 //  @return CredentialDigitalWalletApplication
-func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) CreateDigitalWalletAppExecute(r ApiCreateDigitalWalletAppRequest) (*CredentialDigitalWalletApplication, *http.Response, error) {
+func (a *DigitalWalletAppsApiService) CreateDigitalWalletAppExecute(r ApiCreateDigitalWalletAppRequest) (*CredentialDigitalWalletApplication, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -64,7 +64,7 @@ func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) CreateDigitalWalle
 		localVarReturnValue  *CredentialDigitalWalletApplication
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialDigitalWalletsDigitalWalletAppsApiService.CreateDigitalWalletApp")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DigitalWalletAppsApiService.CreateDigitalWalletApp")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -200,7 +200,7 @@ func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) CreateDigitalWalle
 
 type ApiDeleteDigitalWalletAppRequest struct {
 	ctx context.Context
-	ApiService *CredentialDigitalWalletsDigitalWalletAppsApiService
+	ApiService *DigitalWalletAppsApiService
 	environmentID string
 	digitalWalletApplicationID string
 }
@@ -217,7 +217,7 @@ DeleteDigitalWalletApp Delete Digital Wallet App
  @param digitalWalletApplicationID
  @return ApiDeleteDigitalWalletAppRequest
 */
-func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) DeleteDigitalWalletApp(ctx context.Context, environmentID string, digitalWalletApplicationID string) ApiDeleteDigitalWalletAppRequest {
+func (a *DigitalWalletAppsApiService) DeleteDigitalWalletApp(ctx context.Context, environmentID string, digitalWalletApplicationID string) ApiDeleteDigitalWalletAppRequest {
 	return ApiDeleteDigitalWalletAppRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -227,14 +227,14 @@ func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) DeleteDigitalWalle
 }
 
 // Execute executes the request
-func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) DeleteDigitalWalletAppExecute(r ApiDeleteDigitalWalletAppRequest) (*http.Response, error) {
+func (a *DigitalWalletAppsApiService) DeleteDigitalWalletAppExecute(r ApiDeleteDigitalWalletAppRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialDigitalWalletsDigitalWalletAppsApiService.DeleteDigitalWalletApp")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DigitalWalletAppsApiService.DeleteDigitalWalletApp")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -360,7 +360,7 @@ func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) DeleteDigitalWalle
 
 type ApiReadAllDigitalWalletAppsRequest struct {
 	ctx context.Context
-	ApiService *CredentialDigitalWalletsDigitalWalletAppsApiService
+	ApiService *DigitalWalletAppsApiService
 	environmentID string
 }
 
@@ -375,7 +375,7 @@ ReadAllDigitalWalletApps Read All Digital Wallet Apps
  @param environmentID
  @return ApiReadAllDigitalWalletAppsRequest
 */
-func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) ReadAllDigitalWalletApps(ctx context.Context, environmentID string) ApiReadAllDigitalWalletAppsRequest {
+func (a *DigitalWalletAppsApiService) ReadAllDigitalWalletApps(ctx context.Context, environmentID string) ApiReadAllDigitalWalletAppsRequest {
 	return ApiReadAllDigitalWalletAppsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -385,7 +385,7 @@ func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) ReadAllDigitalWall
 
 // Execute executes the request
 //  @return EntityArray
-func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) ReadAllDigitalWalletAppsExecute(r ApiReadAllDigitalWalletAppsRequest) (*EntityArray, *http.Response, error) {
+func (a *DigitalWalletAppsApiService) ReadAllDigitalWalletAppsExecute(r ApiReadAllDigitalWalletAppsRequest) (*EntityArray, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -393,7 +393,7 @@ func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) ReadAllDigitalWall
 		localVarReturnValue  *EntityArray
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialDigitalWalletsDigitalWalletAppsApiService.ReadAllDigitalWalletApps")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DigitalWalletAppsApiService.ReadAllDigitalWalletApps")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -527,7 +527,7 @@ func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) ReadAllDigitalWall
 
 type ApiReadOneDigitalWalletAppRequest struct {
 	ctx context.Context
-	ApiService *CredentialDigitalWalletsDigitalWalletAppsApiService
+	ApiService *DigitalWalletAppsApiService
 	environmentID string
 	digitalWalletApplicationID string
 }
@@ -544,7 +544,7 @@ ReadOneDigitalWalletApp Read One Digital Wallet App
  @param digitalWalletApplicationID
  @return ApiReadOneDigitalWalletAppRequest
 */
-func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) ReadOneDigitalWalletApp(ctx context.Context, environmentID string, digitalWalletApplicationID string) ApiReadOneDigitalWalletAppRequest {
+func (a *DigitalWalletAppsApiService) ReadOneDigitalWalletApp(ctx context.Context, environmentID string, digitalWalletApplicationID string) ApiReadOneDigitalWalletAppRequest {
 	return ApiReadOneDigitalWalletAppRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -555,7 +555,7 @@ func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) ReadOneDigitalWall
 
 // Execute executes the request
 //  @return CredentialDigitalWalletApplication
-func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) ReadOneDigitalWalletAppExecute(r ApiReadOneDigitalWalletAppRequest) (*CredentialDigitalWalletApplication, *http.Response, error) {
+func (a *DigitalWalletAppsApiService) ReadOneDigitalWalletAppExecute(r ApiReadOneDigitalWalletAppRequest) (*CredentialDigitalWalletApplication, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -563,7 +563,7 @@ func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) ReadOneDigitalWall
 		localVarReturnValue  *CredentialDigitalWalletApplication
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialDigitalWalletsDigitalWalletAppsApiService.ReadOneDigitalWalletApp")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DigitalWalletAppsApiService.ReadOneDigitalWalletApp")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -698,7 +698,7 @@ func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) ReadOneDigitalWall
 
 type ApiUpdateDigitalWalletAppRequest struct {
 	ctx context.Context
-	ApiService *CredentialDigitalWalletsDigitalWalletAppsApiService
+	ApiService *DigitalWalletAppsApiService
 	environmentID string
 	digitalWalletApplicationID string
 	credentialDigitalWalletApplication *CredentialDigitalWalletApplication
@@ -721,7 +721,7 @@ UpdateDigitalWalletApp Update Digital Wallet App
  @param digitalWalletApplicationID
  @return ApiUpdateDigitalWalletAppRequest
 */
-func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) UpdateDigitalWalletApp(ctx context.Context, environmentID string, digitalWalletApplicationID string) ApiUpdateDigitalWalletAppRequest {
+func (a *DigitalWalletAppsApiService) UpdateDigitalWalletApp(ctx context.Context, environmentID string, digitalWalletApplicationID string) ApiUpdateDigitalWalletAppRequest {
 	return ApiUpdateDigitalWalletAppRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -732,7 +732,7 @@ func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) UpdateDigitalWalle
 
 // Execute executes the request
 //  @return CredentialDigitalWalletApplication
-func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) UpdateDigitalWalletAppExecute(r ApiUpdateDigitalWalletAppRequest) (*CredentialDigitalWalletApplication, *http.Response, error) {
+func (a *DigitalWalletAppsApiService) UpdateDigitalWalletAppExecute(r ApiUpdateDigitalWalletAppRequest) (*CredentialDigitalWalletApplication, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -740,7 +740,7 @@ func (a *CredentialDigitalWalletsDigitalWalletAppsApiService) UpdateDigitalWalle
 		localVarReturnValue  *CredentialDigitalWalletApplication
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialDigitalWalletsDigitalWalletAppsApiService.UpdateDigitalWalletApp")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DigitalWalletAppsApiService.UpdateDigitalWalletApp")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
