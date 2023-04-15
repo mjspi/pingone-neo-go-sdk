@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## CreateDigitalWalletApp
 
-> CredentialDigitalWalletApplication CreateDigitalWalletApp(ctx, environmentID).CredentialDigitalWalletApplication(credentialDigitalWalletApplication).Execute()
+> DigitalWalletApplication CreateDigitalWalletApp(ctx, environmentID).DigitalWalletApplication(digitalWalletApplication).Execute()
 
 Create Digital Wallet App
 
@@ -32,16 +32,16 @@ import (
 
 func main() {
     environmentID := "environmentID_example" // string | 
-    credentialDigitalWalletApplication := *openapiclient.NewCredentialDigitalWalletApplication("Id_example") // CredentialDigitalWalletApplication |  (optional)
+    digitalWalletApplication := *openapiclient.NewDigitalWalletApplication("AppOpenUrl_example", "Name_example") // DigitalWalletApplication |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DigitalWalletAppsApi.CreateDigitalWalletApp(context.Background(), environmentID).CredentialDigitalWalletApplication(credentialDigitalWalletApplication).Execute()
+    resp, r, err := apiClient.DigitalWalletAppsApi.CreateDigitalWalletApp(context.Background(), environmentID).DigitalWalletApplication(digitalWalletApplication).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DigitalWalletAppsApi.CreateDigitalWalletApp``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateDigitalWalletApp`: CredentialDigitalWalletApplication
+    // response from `CreateDigitalWalletApp`: DigitalWalletApplication
     fmt.Fprintf(os.Stdout, "Response from `DigitalWalletAppsApi.CreateDigitalWalletApp`: %v\n", resp)
 }
 ```
@@ -62,11 +62,11 @@ Other parameters are passed through a pointer to a apiCreateDigitalWalletAppRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **credentialDigitalWalletApplication** | [**CredentialDigitalWalletApplication**](CredentialDigitalWalletApplication.md) |  | 
+ **digitalWalletApplication** | [**DigitalWalletApplication**](DigitalWalletApplication.md) |  | 
 
 ### Return type
 
-[**CredentialDigitalWalletApplication**](CredentialDigitalWalletApplication.md)
+[**DigitalWalletApplication**](DigitalWalletApplication.md)
 
 ### Authorization
 
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 ## ReadOneDigitalWalletApp
 
-> CredentialDigitalWalletApplication ReadOneDigitalWalletApp(ctx, environmentID, digitalWalletApplicationID).Execute()
+> DigitalWalletApplication ReadOneDigitalWalletApp(ctx, environmentID, digitalWalletApplicationID).Execute()
 
 Read One Digital Wallet App
 
@@ -248,7 +248,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DigitalWalletAppsApi.ReadOneDigitalWalletApp``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ReadOneDigitalWalletApp`: CredentialDigitalWalletApplication
+    // response from `ReadOneDigitalWalletApp`: DigitalWalletApplication
     fmt.Fprintf(os.Stdout, "Response from `DigitalWalletAppsApi.ReadOneDigitalWalletApp`: %v\n", resp)
 }
 ```
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CredentialDigitalWalletApplication**](CredentialDigitalWalletApplication.md)
+[**DigitalWalletApplication**](DigitalWalletApplication.md)
 
 ### Authorization
 
@@ -292,7 +292,7 @@ Name | Type | Description  | Notes
 
 ## UpdateDigitalWalletApp
 
-> CredentialDigitalWalletApplication UpdateDigitalWalletApp(ctx, environmentID, digitalWalletApplicationID).CredentialDigitalWalletApplication(credentialDigitalWalletApplication).Execute()
+> DigitalWalletApplication UpdateDigitalWalletApp(ctx, environmentID, digitalWalletApplicationID).DigitalWalletApplication(digitalWalletApplication).Execute()
 
 Update Digital Wallet App
 
@@ -311,16 +311,16 @@ import (
 func main() {
     environmentID := "environmentID_example" // string | 
     digitalWalletApplicationID := "digitalWalletApplicationID_example" // string | 
-    credentialDigitalWalletApplication := *openapiclient.NewCredentialDigitalWalletApplication("Id_example") // CredentialDigitalWalletApplication |  (optional)
+    digitalWalletApplication := *openapiclient.NewDigitalWalletApplication("AppOpenUrl_example", "Name_example") // DigitalWalletApplication |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DigitalWalletAppsApi.UpdateDigitalWalletApp(context.Background(), environmentID, digitalWalletApplicationID).CredentialDigitalWalletApplication(credentialDigitalWalletApplication).Execute()
+    resp, r, err := apiClient.DigitalWalletAppsApi.UpdateDigitalWalletApp(context.Background(), environmentID, digitalWalletApplicationID).DigitalWalletApplication(digitalWalletApplication).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DigitalWalletAppsApi.UpdateDigitalWalletApp``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UpdateDigitalWalletApp`: CredentialDigitalWalletApplication
+    // response from `UpdateDigitalWalletApp`: DigitalWalletApplication
     fmt.Fprintf(os.Stdout, "Response from `DigitalWalletAppsApi.UpdateDigitalWalletApp`: %v\n", resp)
 }
 ```
@@ -343,11 +343,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **credentialDigitalWalletApplication** | [**CredentialDigitalWalletApplication**](CredentialDigitalWalletApplication.md) |  | 
+ **digitalWalletApplication** | [**DigitalWalletApplication**](DigitalWalletApplication.md) |  | 
 
 ### Return type
 
-[**CredentialDigitalWalletApplication**](CredentialDigitalWalletApplication.md)
+[**DigitalWalletApplication**](DigitalWalletApplication.md)
 
 ### Authorization
 

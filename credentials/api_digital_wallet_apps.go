@@ -27,15 +27,15 @@ type ApiCreateDigitalWalletAppRequest struct {
 	ctx context.Context
 	ApiService *DigitalWalletAppsApiService
 	environmentID string
-	credentialDigitalWalletApplication *CredentialDigitalWalletApplication
+	digitalWalletApplication *DigitalWalletApplication
 }
 
-func (r ApiCreateDigitalWalletAppRequest) CredentialDigitalWalletApplication(credentialDigitalWalletApplication CredentialDigitalWalletApplication) ApiCreateDigitalWalletAppRequest {
-	r.credentialDigitalWalletApplication = &credentialDigitalWalletApplication
+func (r ApiCreateDigitalWalletAppRequest) DigitalWalletApplication(digitalWalletApplication DigitalWalletApplication) ApiCreateDigitalWalletAppRequest {
+	r.digitalWalletApplication = &digitalWalletApplication
 	return r
 }
 
-func (r ApiCreateDigitalWalletAppRequest) Execute() (*CredentialDigitalWalletApplication, *http.Response, error) {
+func (r ApiCreateDigitalWalletAppRequest) Execute() (*DigitalWalletApplication, *http.Response, error) {
 	return r.ApiService.CreateDigitalWalletAppExecute(r)
 }
 
@@ -55,13 +55,13 @@ func (a *DigitalWalletAppsApiService) CreateDigitalWalletApp(ctx context.Context
 }
 
 // Execute executes the request
-//  @return CredentialDigitalWalletApplication
-func (a *DigitalWalletAppsApiService) CreateDigitalWalletAppExecute(r ApiCreateDigitalWalletAppRequest) (*CredentialDigitalWalletApplication, *http.Response, error) {
+//  @return DigitalWalletApplication
+func (a *DigitalWalletAppsApiService) CreateDigitalWalletAppExecute(r ApiCreateDigitalWalletAppRequest) (*DigitalWalletApplication, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CredentialDigitalWalletApplication
+		localVarReturnValue  *DigitalWalletApplication
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DigitalWalletAppsApiService.CreateDigitalWalletApp")
@@ -94,7 +94,7 @@ func (a *DigitalWalletAppsApiService) CreateDigitalWalletAppExecute(r ApiCreateD
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.credentialDigitalWalletApplication
+	localVarPostBody = r.digitalWalletApplication
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -532,7 +532,7 @@ type ApiReadOneDigitalWalletAppRequest struct {
 	digitalWalletApplicationID string
 }
 
-func (r ApiReadOneDigitalWalletAppRequest) Execute() (*CredentialDigitalWalletApplication, *http.Response, error) {
+func (r ApiReadOneDigitalWalletAppRequest) Execute() (*DigitalWalletApplication, *http.Response, error) {
 	return r.ApiService.ReadOneDigitalWalletAppExecute(r)
 }
 
@@ -554,13 +554,13 @@ func (a *DigitalWalletAppsApiService) ReadOneDigitalWalletApp(ctx context.Contex
 }
 
 // Execute executes the request
-//  @return CredentialDigitalWalletApplication
-func (a *DigitalWalletAppsApiService) ReadOneDigitalWalletAppExecute(r ApiReadOneDigitalWalletAppRequest) (*CredentialDigitalWalletApplication, *http.Response, error) {
+//  @return DigitalWalletApplication
+func (a *DigitalWalletAppsApiService) ReadOneDigitalWalletAppExecute(r ApiReadOneDigitalWalletAppRequest) (*DigitalWalletApplication, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CredentialDigitalWalletApplication
+		localVarReturnValue  *DigitalWalletApplication
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DigitalWalletAppsApiService.ReadOneDigitalWalletApp")
@@ -701,15 +701,15 @@ type ApiUpdateDigitalWalletAppRequest struct {
 	ApiService *DigitalWalletAppsApiService
 	environmentID string
 	digitalWalletApplicationID string
-	credentialDigitalWalletApplication *CredentialDigitalWalletApplication
+	digitalWalletApplication *DigitalWalletApplication
 }
 
-func (r ApiUpdateDigitalWalletAppRequest) CredentialDigitalWalletApplication(credentialDigitalWalletApplication CredentialDigitalWalletApplication) ApiUpdateDigitalWalletAppRequest {
-	r.credentialDigitalWalletApplication = &credentialDigitalWalletApplication
+func (r ApiUpdateDigitalWalletAppRequest) DigitalWalletApplication(digitalWalletApplication DigitalWalletApplication) ApiUpdateDigitalWalletAppRequest {
+	r.digitalWalletApplication = &digitalWalletApplication
 	return r
 }
 
-func (r ApiUpdateDigitalWalletAppRequest) Execute() (*CredentialDigitalWalletApplication, *http.Response, error) {
+func (r ApiUpdateDigitalWalletAppRequest) Execute() (*DigitalWalletApplication, *http.Response, error) {
 	return r.ApiService.UpdateDigitalWalletAppExecute(r)
 }
 
@@ -731,13 +731,13 @@ func (a *DigitalWalletAppsApiService) UpdateDigitalWalletApp(ctx context.Context
 }
 
 // Execute executes the request
-//  @return CredentialDigitalWalletApplication
-func (a *DigitalWalletAppsApiService) UpdateDigitalWalletAppExecute(r ApiUpdateDigitalWalletAppRequest) (*CredentialDigitalWalletApplication, *http.Response, error) {
+//  @return DigitalWalletApplication
+func (a *DigitalWalletAppsApiService) UpdateDigitalWalletAppExecute(r ApiUpdateDigitalWalletAppRequest) (*DigitalWalletApplication, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CredentialDigitalWalletApplication
+		localVarReturnValue  *DigitalWalletApplication
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DigitalWalletAppsApiService.UpdateDigitalWalletApp")
@@ -771,7 +771,7 @@ func (a *DigitalWalletAppsApiService) UpdateDigitalWalletAppExecute(r ApiUpdateD
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.credentialDigitalWalletApplication
+	localVarPostBody = r.digitalWalletApplication
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

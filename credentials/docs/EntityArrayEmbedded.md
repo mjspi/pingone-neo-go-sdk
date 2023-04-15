@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Items** | Pointer to [**[]EntityArrayEmbeddedItemsInner**](EntityArrayEmbeddedItemsInner.md) |  | [optional] 
 **IssuanceRules** | Pointer to [**[]CredentialIssuanceRule**](CredentialIssuanceRule.md) |  | [optional] 
 **StagedChanges** | Pointer to [**[]CredentialIssuanceRuleStagedChange**](CredentialIssuanceRuleStagedChange.md) |  | [optional] 
-**DigitalWalletApplications** | Pointer to [**[]CredentialDigitalWalletApplication**](CredentialDigitalWalletApplication.md) |  | [optional] 
+**DigitalWalletApplications** | Pointer to [**[]DigitalWalletApplication**](DigitalWalletApplication.md) |  | [optional] 
 **DigitalWallets** | Pointer to [**[]CredentialDigitalWallet**](CredentialDigitalWallet.md) |  | [optional] 
 **ProvisionedCredentials** | Pointer to [**[]ProvisionedCredential**](ProvisionedCredential.md) |  | [optional] 
 
@@ -107,20 +107,20 @@ HasStagedChanges returns a boolean if a field has been set.
 
 ### GetDigitalWalletApplications
 
-`func (o *EntityArrayEmbedded) GetDigitalWalletApplications() []CredentialDigitalWalletApplication`
+`func (o *EntityArrayEmbedded) GetDigitalWalletApplications() []DigitalWalletApplication`
 
 GetDigitalWalletApplications returns the DigitalWalletApplications field if non-nil, zero value otherwise.
 
 ### GetDigitalWalletApplicationsOk
 
-`func (o *EntityArrayEmbedded) GetDigitalWalletApplicationsOk() (*[]CredentialDigitalWalletApplication, bool)`
+`func (o *EntityArrayEmbedded) GetDigitalWalletApplicationsOk() (*[]DigitalWalletApplication, bool)`
 
 GetDigitalWalletApplicationsOk returns a tuple with the DigitalWalletApplications field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDigitalWalletApplications
 
-`func (o *EntityArrayEmbedded) SetDigitalWalletApplications(v []CredentialDigitalWalletApplication)`
+`func (o *EntityArrayEmbedded) SetDigitalWalletApplications(v []DigitalWalletApplication)`
 
 SetDigitalWalletApplications sets DigitalWalletApplications field to given value.
 

@@ -22,7 +22,7 @@ type EntityArrayEmbedded struct {
 	Items []EntityArrayEmbeddedItemsInner `json:"items,omitempty"`
 	IssuanceRules []CredentialIssuanceRule `json:"issuanceRules,omitempty"`
 	StagedChanges []CredentialIssuanceRuleStagedChange `json:"stagedChanges,omitempty"`
-	DigitalWalletApplications []CredentialDigitalWalletApplication `json:"digitalWalletApplications,omitempty"`
+	DigitalWalletApplications []DigitalWalletApplication `json:"digitalWalletApplications,omitempty"`
 	DigitalWallets []CredentialDigitalWallet `json:"digitalWallets,omitempty"`
 	ProvisionedCredentials []ProvisionedCredential `json:"provisionedCredentials,omitempty"`
 }
@@ -141,9 +141,9 @@ func (o *EntityArrayEmbedded) SetStagedChanges(v []CredentialIssuanceRuleStagedC
 }
 
 // GetDigitalWalletApplications returns the DigitalWalletApplications field value if set, zero value otherwise.
-func (o *EntityArrayEmbedded) GetDigitalWalletApplications() []CredentialDigitalWalletApplication {
+func (o *EntityArrayEmbedded) GetDigitalWalletApplications() []DigitalWalletApplication {
 	if o == nil || IsNil(o.DigitalWalletApplications) {
-		var ret []CredentialDigitalWalletApplication
+		var ret []DigitalWalletApplication
 		return ret
 	}
 	return o.DigitalWalletApplications
@@ -151,7 +151,7 @@ func (o *EntityArrayEmbedded) GetDigitalWalletApplications() []CredentialDigital
 
 // GetDigitalWalletApplicationsOk returns a tuple with the DigitalWalletApplications field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EntityArrayEmbedded) GetDigitalWalletApplicationsOk() ([]CredentialDigitalWalletApplication, bool) {
+func (o *EntityArrayEmbedded) GetDigitalWalletApplicationsOk() ([]DigitalWalletApplication, bool) {
 	if o == nil || IsNil(o.DigitalWalletApplications) {
 		return nil, false
 	}
@@ -167,8 +167,8 @@ func (o *EntityArrayEmbedded) HasDigitalWalletApplications() bool {
 	return false
 }
 
-// SetDigitalWalletApplications gets a reference to the given []CredentialDigitalWalletApplication and assigns it to the DigitalWalletApplications field.
-func (o *EntityArrayEmbedded) SetDigitalWalletApplications(v []CredentialDigitalWalletApplication) {
+// SetDigitalWalletApplications gets a reference to the given []DigitalWalletApplication and assigns it to the DigitalWalletApplications field.
+func (o *EntityArrayEmbedded) SetDigitalWalletApplications(v []DigitalWalletApplication) {
 	o.DigitalWalletApplications = v
 }
 
