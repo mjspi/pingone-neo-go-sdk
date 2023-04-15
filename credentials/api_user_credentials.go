@@ -20,36 +20,36 @@ import (
 )
 
 
-// PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi service
-type PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService service
+// UserCredentialsApiService UserCredentialsApi service
+type UserCredentialsApiService service
 
-type ApiCreateDigitalWalletRequest struct {
+type ApiCreateAUserCredentialRequest struct {
 	ctx context.Context
-	ApiService *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService
+	ApiService *UserCredentialsApiService
 	environmentID string
 	userID string
-	credentialDigitalWallet *CredentialDigitalWallet
+	userCredential *UserCredential
 }
 
-func (r ApiCreateDigitalWalletRequest) CredentialDigitalWallet(credentialDigitalWallet CredentialDigitalWallet) ApiCreateDigitalWalletRequest {
-	r.credentialDigitalWallet = &credentialDigitalWallet
+func (r ApiCreateAUserCredentialRequest) UserCredential(userCredential UserCredential) ApiCreateAUserCredentialRequest {
+	r.userCredential = &userCredential
 	return r
 }
 
-func (r ApiCreateDigitalWalletRequest) Execute() (*CredentialDigitalWallet, *http.Response, error) {
-	return r.ApiService.CreateDigitalWalletExecute(r)
+func (r ApiCreateAUserCredentialRequest) Execute() (*UserCredential, *http.Response, error) {
+	return r.ApiService.CreateAUserCredentialExecute(r)
 }
 
 /*
-CreateDigitalWallet Create Digital Wallet
+CreateAUserCredential Create a User Credential
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param environmentID
  @param userID
- @return ApiCreateDigitalWalletRequest
+ @return ApiCreateAUserCredentialRequest
 */
-func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) CreateDigitalWallet(ctx context.Context, environmentID string, userID string) ApiCreateDigitalWalletRequest {
-	return ApiCreateDigitalWalletRequest{
+func (a *UserCredentialsApiService) CreateAUserCredential(ctx context.Context, environmentID string, userID string) ApiCreateAUserCredentialRequest {
+	return ApiCreateAUserCredentialRequest{
 		ApiService: a,
 		ctx: ctx,
 		environmentID: environmentID,
@@ -58,21 +58,21 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) Cre
 }
 
 // Execute executes the request
-//  @return CredentialDigitalWallet
-func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) CreateDigitalWalletExecute(r ApiCreateDigitalWalletRequest) (*CredentialDigitalWallet, *http.Response, error) {
+//  @return UserCredential
+func (a *UserCredentialsApiService) CreateAUserCredentialExecute(r ApiCreateAUserCredentialRequest) (*UserCredential, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CredentialDigitalWallet
+		localVarReturnValue  *UserCredential
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService.CreateDigitalWallet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserCredentialsApiService.CreateAUserCredential")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{environmentID}/users/{userID}/digitalWallets"
+	localVarPath := localBasePath + "/environments/{environmentID}/users/{userID}/credentials"
 	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"userID"+"}", url.PathEscape(parameterValueToString(r.userID, "userID")), -1)
 
@@ -98,7 +98,7 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) Cre
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.credentialDigitalWallet
+	localVarPostBody = r.userCredential
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -202,191 +202,27 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) Cre
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteDigitalWalletRequest struct {
+type ApiReadAllUserCredentialsRequest struct {
 	ctx context.Context
-	ApiService *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService
-	environmentID string
-	userID string
-	digitalWalletID string
-}
-
-func (r ApiDeleteDigitalWalletRequest) Execute() (*http.Response, error) {
-	return r.ApiService.DeleteDigitalWalletExecute(r)
-}
-
-/*
-DeleteDigitalWallet Delete Digital Wallet
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param environmentID
- @param userID
- @param digitalWalletID
- @return ApiDeleteDigitalWalletRequest
-*/
-func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) DeleteDigitalWallet(ctx context.Context, environmentID string, userID string, digitalWalletID string) ApiDeleteDigitalWalletRequest {
-	return ApiDeleteDigitalWalletRequest{
-		ApiService: a,
-		ctx: ctx,
-		environmentID: environmentID,
-		userID: userID,
-		digitalWalletID: digitalWalletID,
-	}
-}
-
-// Execute executes the request
-func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) DeleteDigitalWalletExecute(r ApiDeleteDigitalWalletRequest) (*http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService.DeleteDigitalWallet")
-	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/environments/{environmentID}/users/{userID}/digitalWallets/{digitalWalletID}"
-	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"userID"+"}", url.PathEscape(parameterValueToString(r.userID, "userID")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"digitalWalletID"+"}", url.PathEscape(parameterValueToString(r.digitalWalletID, "digitalWalletID")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v P1Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v P1Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v P1Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v P1Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v P1Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v P1Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiReadAllDigitalWalletsRequest struct {
-	ctx context.Context
-	ApiService *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService
+	ApiService *UserCredentialsApiService
 	environmentID string
 	userID string
 }
 
-func (r ApiReadAllDigitalWalletsRequest) Execute() (*EntityArray, *http.Response, error) {
-	return r.ApiService.ReadAllDigitalWalletsExecute(r)
+func (r ApiReadAllUserCredentialsRequest) Execute() (*EntityArray, *http.Response, error) {
+	return r.ApiService.ReadAllUserCredentialsExecute(r)
 }
 
 /*
-ReadAllDigitalWallets Read All Digital Wallets
+ReadAllUserCredentials Read All User Credentials
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param environmentID
  @param userID
- @return ApiReadAllDigitalWalletsRequest
+ @return ApiReadAllUserCredentialsRequest
 */
-func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) ReadAllDigitalWallets(ctx context.Context, environmentID string, userID string) ApiReadAllDigitalWalletsRequest {
-	return ApiReadAllDigitalWalletsRequest{
+func (a *UserCredentialsApiService) ReadAllUserCredentials(ctx context.Context, environmentID string, userID string) ApiReadAllUserCredentialsRequest {
+	return ApiReadAllUserCredentialsRequest{
 		ApiService: a,
 		ctx: ctx,
 		environmentID: environmentID,
@@ -396,7 +232,7 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) Rea
 
 // Execute executes the request
 //  @return EntityArray
-func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) ReadAllDigitalWalletsExecute(r ApiReadAllDigitalWalletsRequest) (*EntityArray, *http.Response, error) {
+func (a *UserCredentialsApiService) ReadAllUserCredentialsExecute(r ApiReadAllUserCredentialsRequest) (*EntityArray, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -404,12 +240,12 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) Rea
 		localVarReturnValue  *EntityArray
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService.ReadAllDigitalWallets")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserCredentialsApiService.ReadAllUserCredentials")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{environmentID}/users/{userID}/digitalWallets"
+	localVarPath := localBasePath + "/environments/{environmentID}/users/{userID}/credentials"
 	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"userID"+"}", url.PathEscape(parameterValueToString(r.userID, "userID")), -1)
 
@@ -537,56 +373,56 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) Rea
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiReadOneDigitalWalletRequest struct {
+type ApiReadOneUserCredentialRequest struct {
 	ctx context.Context
-	ApiService *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService
+	ApiService *UserCredentialsApiService
 	environmentID string
 	userID string
-	digitalWalletID string
+	credentialID string
 }
 
-func (r ApiReadOneDigitalWalletRequest) Execute() (*CredentialDigitalWallet, *http.Response, error) {
-	return r.ApiService.ReadOneDigitalWalletExecute(r)
+func (r ApiReadOneUserCredentialRequest) Execute() (*UserCredential, *http.Response, error) {
+	return r.ApiService.ReadOneUserCredentialExecute(r)
 }
 
 /*
-ReadOneDigitalWallet Read One Digital Wallet
+ReadOneUserCredential Read One User Credential
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param environmentID
  @param userID
- @param digitalWalletID
- @return ApiReadOneDigitalWalletRequest
+ @param credentialID
+ @return ApiReadOneUserCredentialRequest
 */
-func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) ReadOneDigitalWallet(ctx context.Context, environmentID string, userID string, digitalWalletID string) ApiReadOneDigitalWalletRequest {
-	return ApiReadOneDigitalWalletRequest{
+func (a *UserCredentialsApiService) ReadOneUserCredential(ctx context.Context, environmentID string, userID string, credentialID string) ApiReadOneUserCredentialRequest {
+	return ApiReadOneUserCredentialRequest{
 		ApiService: a,
 		ctx: ctx,
 		environmentID: environmentID,
 		userID: userID,
-		digitalWalletID: digitalWalletID,
+		credentialID: credentialID,
 	}
 }
 
 // Execute executes the request
-//  @return CredentialDigitalWallet
-func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) ReadOneDigitalWalletExecute(r ApiReadOneDigitalWalletRequest) (*CredentialDigitalWallet, *http.Response, error) {
+//  @return UserCredential
+func (a *UserCredentialsApiService) ReadOneUserCredentialExecute(r ApiReadOneUserCredentialRequest) (*UserCredential, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CredentialDigitalWallet
+		localVarReturnValue  *UserCredential
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService.ReadOneDigitalWallet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserCredentialsApiService.ReadOneUserCredential")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{environmentID}/users/{userID}/digitalWallets/{digitalWalletID}"
+	localVarPath := localBasePath + "/environments/{environmentID}/users/{userID}/credentials/{credentialID}"
 	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"userID"+"}", url.PathEscape(parameterValueToString(r.userID, "userID")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"digitalWalletID"+"}", url.PathEscape(parameterValueToString(r.digitalWalletID, "digitalWalletID")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"credentialID"+"}", url.PathEscape(parameterValueToString(r.credentialID, "credentialID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -712,40 +548,40 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) Rea
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiReadOneDigitalWalletCredentialsRequest struct {
+type ApiReadOneUserCredentialWalletsRequest struct {
 	ctx context.Context
-	ApiService *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService
+	ApiService *UserCredentialsApiService
 	environmentID string
 	userID string
-	digitalWalletID string
+	credentialID string
 }
 
-func (r ApiReadOneDigitalWalletCredentialsRequest) Execute() (*EntityArray, *http.Response, error) {
-	return r.ApiService.ReadOneDigitalWalletCredentialsExecute(r)
+func (r ApiReadOneUserCredentialWalletsRequest) Execute() (*EntityArray, *http.Response, error) {
+	return r.ApiService.ReadOneUserCredentialWalletsExecute(r)
 }
 
 /*
-ReadOneDigitalWalletCredentials Read One Digital Wallet Credentials
+ReadOneUserCredentialWallets Read One User Credential Wallets
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param environmentID
  @param userID
- @param digitalWalletID
- @return ApiReadOneDigitalWalletCredentialsRequest
+ @param credentialID
+ @return ApiReadOneUserCredentialWalletsRequest
 */
-func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) ReadOneDigitalWalletCredentials(ctx context.Context, environmentID string, userID string, digitalWalletID string) ApiReadOneDigitalWalletCredentialsRequest {
-	return ApiReadOneDigitalWalletCredentialsRequest{
+func (a *UserCredentialsApiService) ReadOneUserCredentialWallets(ctx context.Context, environmentID string, userID string, credentialID string) ApiReadOneUserCredentialWalletsRequest {
+	return ApiReadOneUserCredentialWalletsRequest{
 		ApiService: a,
 		ctx: ctx,
 		environmentID: environmentID,
 		userID: userID,
-		digitalWalletID: digitalWalletID,
+		credentialID: credentialID,
 	}
 }
 
 // Execute executes the request
 //  @return EntityArray
-func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) ReadOneDigitalWalletCredentialsExecute(r ApiReadOneDigitalWalletCredentialsRequest) (*EntityArray, *http.Response, error) {
+func (a *UserCredentialsApiService) ReadOneUserCredentialWalletsExecute(r ApiReadOneUserCredentialWalletsRequest) (*EntityArray, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -753,15 +589,15 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) Rea
 		localVarReturnValue  *EntityArray
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService.ReadOneDigitalWalletCredentials")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserCredentialsApiService.ReadOneUserCredentialWallets")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{environmentID}/users/{userID}/digitalWallets/{digitalWalletID}/provisionedCredentials"
+	localVarPath := localBasePath + "/environments/{environmentID}/users/{userID}/credentials/{credentialID}/provisionedCredentials"
 	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"userID"+"}", url.PathEscape(parameterValueToString(r.userID, "userID")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"digitalWalletID"+"}", url.PathEscape(parameterValueToString(r.digitalWalletID, "digitalWalletID")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"credentialID"+"}", url.PathEscape(parameterValueToString(r.credentialID, "credentialID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -887,62 +723,62 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) Rea
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateDigitalWalletRequest struct {
+type ApiUpdateAUserCredentialRequest struct {
 	ctx context.Context
-	ApiService *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService
+	ApiService *UserCredentialsApiService
 	environmentID string
 	userID string
-	digitalWalletID string
-	credentialDigitalWallet *CredentialDigitalWallet
+	credentialID string
+	userCredential *UserCredential
 }
 
-func (r ApiUpdateDigitalWalletRequest) CredentialDigitalWallet(credentialDigitalWallet CredentialDigitalWallet) ApiUpdateDigitalWalletRequest {
-	r.credentialDigitalWallet = &credentialDigitalWallet
+func (r ApiUpdateAUserCredentialRequest) UserCredential(userCredential UserCredential) ApiUpdateAUserCredentialRequest {
+	r.userCredential = &userCredential
 	return r
 }
 
-func (r ApiUpdateDigitalWalletRequest) Execute() (*CredentialDigitalWallet, *http.Response, error) {
-	return r.ApiService.UpdateDigitalWalletExecute(r)
+func (r ApiUpdateAUserCredentialRequest) Execute() (*UserCredential, *http.Response, error) {
+	return r.ApiService.UpdateAUserCredentialExecute(r)
 }
 
 /*
-UpdateDigitalWallet Update Digital Wallet
+UpdateAUserCredential Update a User Credential
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param environmentID
  @param userID
- @param digitalWalletID
- @return ApiUpdateDigitalWalletRequest
+ @param credentialID
+ @return ApiUpdateAUserCredentialRequest
 */
-func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) UpdateDigitalWallet(ctx context.Context, environmentID string, userID string, digitalWalletID string) ApiUpdateDigitalWalletRequest {
-	return ApiUpdateDigitalWalletRequest{
+func (a *UserCredentialsApiService) UpdateAUserCredential(ctx context.Context, environmentID string, userID string, credentialID string) ApiUpdateAUserCredentialRequest {
+	return ApiUpdateAUserCredentialRequest{
 		ApiService: a,
 		ctx: ctx,
 		environmentID: environmentID,
 		userID: userID,
-		digitalWalletID: digitalWalletID,
+		credentialID: credentialID,
 	}
 }
 
 // Execute executes the request
-//  @return CredentialDigitalWallet
-func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) UpdateDigitalWalletExecute(r ApiUpdateDigitalWalletRequest) (*CredentialDigitalWallet, *http.Response, error) {
+//  @return UserCredential
+func (a *UserCredentialsApiService) UpdateAUserCredentialExecute(r ApiUpdateAUserCredentialRequest) (*UserCredential, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CredentialDigitalWallet
+		localVarReturnValue  *UserCredential
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService.UpdateDigitalWallet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserCredentialsApiService.UpdateAUserCredential")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{environmentID}/users/{userID}/digitalWallets/{digitalWalletID}"
+	localVarPath := localBasePath + "/environments/{environmentID}/users/{userID}/credentials/{credentialID}"
 	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"userID"+"}", url.PathEscape(parameterValueToString(r.userID, "userID")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"digitalWalletID"+"}", url.PathEscape(parameterValueToString(r.digitalWalletID, "digitalWalletID")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"credentialID"+"}", url.PathEscape(parameterValueToString(r.credentialID, "credentialID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -966,7 +802,7 @@ func (a *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService) Upd
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.credentialDigitalWallet
+	localVarPostBody = r.userCredential
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

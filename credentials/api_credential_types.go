@@ -20,34 +20,34 @@ import (
 )
 
 
-// PingOneCredentialsCredentialIssuersApiService PingOneCredentialsCredentialIssuersApi service
-type PingOneCredentialsCredentialIssuersApiService service
+// CredentialTypesApiService CredentialTypesApi service
+type CredentialTypesApiService service
 
-type ApiCreateCredentialIssuerProfileRequest struct {
+type ApiCreateCredentialTypeRequest struct {
 	ctx context.Context
-	ApiService *PingOneCredentialsCredentialIssuersApiService
+	ApiService *CredentialTypesApiService
 	environmentID string
-	credentialIssuerProfile *CredentialIssuerProfile
+	credentialType *CredentialType
 }
 
-func (r ApiCreateCredentialIssuerProfileRequest) CredentialIssuerProfile(credentialIssuerProfile CredentialIssuerProfile) ApiCreateCredentialIssuerProfileRequest {
-	r.credentialIssuerProfile = &credentialIssuerProfile
+func (r ApiCreateCredentialTypeRequest) CredentialType(credentialType CredentialType) ApiCreateCredentialTypeRequest {
+	r.credentialType = &credentialType
 	return r
 }
 
-func (r ApiCreateCredentialIssuerProfileRequest) Execute() (*CredentialIssuerProfile, *http.Response, error) {
-	return r.ApiService.CreateCredentialIssuerProfileExecute(r)
+func (r ApiCreateCredentialTypeRequest) Execute() (*CredentialType, *http.Response, error) {
+	return r.ApiService.CreateCredentialTypeExecute(r)
 }
 
 /*
-CreateCredentialIssuerProfile Create Credential Issuer Profile
+CreateCredentialType Create Credential Type
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param environmentID
- @return ApiCreateCredentialIssuerProfileRequest
+ @return ApiCreateCredentialTypeRequest
 */
-func (a *PingOneCredentialsCredentialIssuersApiService) CreateCredentialIssuerProfile(ctx context.Context, environmentID string) ApiCreateCredentialIssuerProfileRequest {
-	return ApiCreateCredentialIssuerProfileRequest{
+func (a *CredentialTypesApiService) CreateCredentialType(ctx context.Context, environmentID string) ApiCreateCredentialTypeRequest {
+	return ApiCreateCredentialTypeRequest{
 		ApiService: a,
 		ctx: ctx,
 		environmentID: environmentID,
@@ -55,21 +55,21 @@ func (a *PingOneCredentialsCredentialIssuersApiService) CreateCredentialIssuerPr
 }
 
 // Execute executes the request
-//  @return CredentialIssuerProfile
-func (a *PingOneCredentialsCredentialIssuersApiService) CreateCredentialIssuerProfileExecute(r ApiCreateCredentialIssuerProfileRequest) (*CredentialIssuerProfile, *http.Response, error) {
+//  @return CredentialType
+func (a *CredentialTypesApiService) CreateCredentialTypeExecute(r ApiCreateCredentialTypeRequest) (*CredentialType, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CredentialIssuerProfile
+		localVarReturnValue  *CredentialType
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PingOneCredentialsCredentialIssuersApiService.CreateCredentialIssuerProfile")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialTypesApiService.CreateCredentialType")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{environmentID}/credentialIssuerProfile"
+	localVarPath := localBasePath + "/environments/{environmentID}/credentialTypes"
 	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -94,7 +94,7 @@ func (a *PingOneCredentialsCredentialIssuersApiService) CreateCredentialIssuerPr
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.credentialIssuerProfile
+	localVarPostBody = r.credentialType
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -198,25 +198,185 @@ func (a *PingOneCredentialsCredentialIssuersApiService) CreateCredentialIssuerPr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiReadCredentialIssuerProfileRequest struct {
+type ApiDeleteACredentialTypeRequest struct {
 	ctx context.Context
-	ApiService *PingOneCredentialsCredentialIssuersApiService
+	ApiService *CredentialTypesApiService
 	environmentID string
+	credentialTypeID string
 }
 
-func (r ApiReadCredentialIssuerProfileRequest) Execute() (*CredentialIssuerProfile, *http.Response, error) {
-	return r.ApiService.ReadCredentialIssuerProfileExecute(r)
+func (r ApiDeleteACredentialTypeRequest) Execute() (*http.Response, error) {
+	return r.ApiService.DeleteACredentialTypeExecute(r)
 }
 
 /*
-ReadCredentialIssuerProfile Read Credential Issuer Profile
+DeleteACredentialType Delete a Credential Type
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param environmentID
- @return ApiReadCredentialIssuerProfileRequest
+ @param credentialTypeID
+ @return ApiDeleteACredentialTypeRequest
 */
-func (a *PingOneCredentialsCredentialIssuersApiService) ReadCredentialIssuerProfile(ctx context.Context, environmentID string) ApiReadCredentialIssuerProfileRequest {
-	return ApiReadCredentialIssuerProfileRequest{
+func (a *CredentialTypesApiService) DeleteACredentialType(ctx context.Context, environmentID string, credentialTypeID string) ApiDeleteACredentialTypeRequest {
+	return ApiDeleteACredentialTypeRequest{
+		ApiService: a,
+		ctx: ctx,
+		environmentID: environmentID,
+		credentialTypeID: credentialTypeID,
+	}
+}
+
+// Execute executes the request
+func (a *CredentialTypesApiService) DeleteACredentialTypeExecute(r ApiDeleteACredentialTypeRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialTypesApiService.DeleteACredentialType")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/environments/{environmentID}/credentialTypes/{credentialTypeID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"credentialTypeID"+"}", url.PathEscape(parameterValueToString(r.credentialTypeID, "credentialTypeID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v P1Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v P1Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v P1Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v P1Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v P1Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v P1Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiReadAllCredentialTypesRequest struct {
+	ctx context.Context
+	ApiService *CredentialTypesApiService
+	environmentID string
+}
+
+func (r ApiReadAllCredentialTypesRequest) Execute() (*EntityArray, *http.Response, error) {
+	return r.ApiService.ReadAllCredentialTypesExecute(r)
+}
+
+/*
+ReadAllCredentialTypes Read All Credential Types
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param environmentID
+ @return ApiReadAllCredentialTypesRequest
+*/
+func (a *CredentialTypesApiService) ReadAllCredentialTypes(ctx context.Context, environmentID string) ApiReadAllCredentialTypesRequest {
+	return ApiReadAllCredentialTypesRequest{
 		ApiService: a,
 		ctx: ctx,
 		environmentID: environmentID,
@@ -224,21 +384,21 @@ func (a *PingOneCredentialsCredentialIssuersApiService) ReadCredentialIssuerProf
 }
 
 // Execute executes the request
-//  @return CredentialIssuerProfile
-func (a *PingOneCredentialsCredentialIssuersApiService) ReadCredentialIssuerProfileExecute(r ApiReadCredentialIssuerProfileRequest) (*CredentialIssuerProfile, *http.Response, error) {
+//  @return EntityArray
+func (a *CredentialTypesApiService) ReadAllCredentialTypesExecute(r ApiReadAllCredentialTypesRequest) (*EntityArray, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CredentialIssuerProfile
+		localVarReturnValue  *EntityArray
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PingOneCredentialsCredentialIssuersApiService.ReadCredentialIssuerProfile")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialTypesApiService.ReadAllCredentialTypes")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{environmentID}/credentialIssuerProfile"
+	localVarPath := localBasePath + "/environments/{environmentID}/credentialTypes"
 	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -365,54 +525,229 @@ func (a *PingOneCredentialsCredentialIssuersApiService) ReadCredentialIssuerProf
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateCredentialIssuerProfileRequest struct {
+type ApiReadOneCredentialTypeRequest struct {
 	ctx context.Context
-	ApiService *PingOneCredentialsCredentialIssuersApiService
+	ApiService *CredentialTypesApiService
 	environmentID string
-	credentialIssuerProfile *CredentialIssuerProfile
+	credentialTypeID string
 }
 
-func (r ApiUpdateCredentialIssuerProfileRequest) CredentialIssuerProfile(credentialIssuerProfile CredentialIssuerProfile) ApiUpdateCredentialIssuerProfileRequest {
-	r.credentialIssuerProfile = &credentialIssuerProfile
-	return r
-}
-
-func (r ApiUpdateCredentialIssuerProfileRequest) Execute() (*CredentialIssuerProfile, *http.Response, error) {
-	return r.ApiService.UpdateCredentialIssuerProfileExecute(r)
+func (r ApiReadOneCredentialTypeRequest) Execute() (*CredentialType, *http.Response, error) {
+	return r.ApiService.ReadOneCredentialTypeExecute(r)
 }
 
 /*
-UpdateCredentialIssuerProfile Update Credential Issuer Profile
+ReadOneCredentialType Read One Credential Type
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param environmentID
- @return ApiUpdateCredentialIssuerProfileRequest
+ @param credentialTypeID
+ @return ApiReadOneCredentialTypeRequest
 */
-func (a *PingOneCredentialsCredentialIssuersApiService) UpdateCredentialIssuerProfile(ctx context.Context, environmentID string) ApiUpdateCredentialIssuerProfileRequest {
-	return ApiUpdateCredentialIssuerProfileRequest{
+func (a *CredentialTypesApiService) ReadOneCredentialType(ctx context.Context, environmentID string, credentialTypeID string) ApiReadOneCredentialTypeRequest {
+	return ApiReadOneCredentialTypeRequest{
 		ApiService: a,
 		ctx: ctx,
 		environmentID: environmentID,
+		credentialTypeID: credentialTypeID,
 	}
 }
 
 // Execute executes the request
-//  @return CredentialIssuerProfile
-func (a *PingOneCredentialsCredentialIssuersApiService) UpdateCredentialIssuerProfileExecute(r ApiUpdateCredentialIssuerProfileRequest) (*CredentialIssuerProfile, *http.Response, error) {
+//  @return CredentialType
+func (a *CredentialTypesApiService) ReadOneCredentialTypeExecute(r ApiReadOneCredentialTypeRequest) (*CredentialType, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CredentialIssuerProfile
+		localVarReturnValue  *CredentialType
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PingOneCredentialsCredentialIssuersApiService.UpdateCredentialIssuerProfile")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialTypesApiService.ReadOneCredentialType")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/environments/{environmentID}/credentialIssuerProfile"
+	localVarPath := localBasePath + "/environments/{environmentID}/credentialTypes/{credentialTypeID}"
 	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"credentialTypeID"+"}", url.PathEscape(parameterValueToString(r.credentialTypeID, "credentialTypeID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v P1Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v P1Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v P1Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v P1Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v P1Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v P1Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiUpdateACredentialTypeRequest struct {
+	ctx context.Context
+	ApiService *CredentialTypesApiService
+	environmentID string
+	credentialTypeID string
+	credentialType *CredentialType
+}
+
+func (r ApiUpdateACredentialTypeRequest) CredentialType(credentialType CredentialType) ApiUpdateACredentialTypeRequest {
+	r.credentialType = &credentialType
+	return r
+}
+
+func (r ApiUpdateACredentialTypeRequest) Execute() (*CredentialType, *http.Response, error) {
+	return r.ApiService.UpdateACredentialTypeExecute(r)
+}
+
+/*
+UpdateACredentialType Update a Credential Type
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param environmentID
+ @param credentialTypeID
+ @return ApiUpdateACredentialTypeRequest
+*/
+func (a *CredentialTypesApiService) UpdateACredentialType(ctx context.Context, environmentID string, credentialTypeID string) ApiUpdateACredentialTypeRequest {
+	return ApiUpdateACredentialTypeRequest{
+		ApiService: a,
+		ctx: ctx,
+		environmentID: environmentID,
+		credentialTypeID: credentialTypeID,
+	}
+}
+
+// Execute executes the request
+//  @return CredentialType
+func (a *CredentialTypesApiService) UpdateACredentialTypeExecute(r ApiUpdateACredentialTypeRequest) (*CredentialType, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CredentialType
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialTypesApiService.UpdateACredentialType")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/environments/{environmentID}/credentialTypes/{credentialTypeID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"environmentID"+"}", url.PathEscape(parameterValueToString(r.environmentID, "environmentID")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"credentialTypeID"+"}", url.PathEscape(parameterValueToString(r.credentialTypeID, "credentialTypeID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -436,7 +771,7 @@ func (a *PingOneCredentialsCredentialIssuersApiService) UpdateCredentialIssuerPr
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.credentialIssuerProfile
+	localVarPostBody = r.credentialType
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

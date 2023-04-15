@@ -49,17 +49,17 @@ type APIClient struct {
 
 	// API Services
 
-	PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi *PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService
+	CredentialDigitalWalletsDigitalWalletAppsApi *CredentialDigitalWalletsDigitalWalletAppsApiService
 
-	PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi *PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService
+	CredentialDigitalWalletsDigitalWalletsApi *CredentialDigitalWalletsDigitalWalletsApiService
 
-	PingOneCredentialsCredentialIssuanceRulesApi *PingOneCredentialsCredentialIssuanceRulesApiService
+	CredentialIssuanceRulesApi *CredentialIssuanceRulesApiService
 
-	PingOneCredentialsCredentialIssuersApi *PingOneCredentialsCredentialIssuersApiService
+	CredentialIssuersApi *CredentialIssuersApiService
 
-	PingOneCredentialsCredentialTypesApi *PingOneCredentialsCredentialTypesApiService
+	CredentialTypesApi *CredentialTypesApiService
 
-	PingOneCredentialsUserCredentialsApi *PingOneCredentialsUserCredentialsApiService
+	UserCredentialsApi *UserCredentialsApiService
 }
 
 type service struct {
@@ -78,12 +78,12 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApi = (*PingOneCredentialsCredentialDigitalWalletsDigitalWalletAppsApiService)(&c.common)
-	c.PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApi = (*PingOneCredentialsCredentialDigitalWalletsDigitalWalletsApiService)(&c.common)
-	c.PingOneCredentialsCredentialIssuanceRulesApi = (*PingOneCredentialsCredentialIssuanceRulesApiService)(&c.common)
-	c.PingOneCredentialsCredentialIssuersApi = (*PingOneCredentialsCredentialIssuersApiService)(&c.common)
-	c.PingOneCredentialsCredentialTypesApi = (*PingOneCredentialsCredentialTypesApiService)(&c.common)
-	c.PingOneCredentialsUserCredentialsApi = (*PingOneCredentialsUserCredentialsApiService)(&c.common)
+	c.CredentialDigitalWalletsDigitalWalletAppsApi = (*CredentialDigitalWalletsDigitalWalletAppsApiService)(&c.common)
+	c.CredentialDigitalWalletsDigitalWalletsApi = (*CredentialDigitalWalletsDigitalWalletsApiService)(&c.common)
+	c.CredentialIssuanceRulesApi = (*CredentialIssuanceRulesApiService)(&c.common)
+	c.CredentialIssuersApi = (*CredentialIssuersApiService)(&c.common)
+	c.CredentialTypesApi = (*CredentialTypesApiService)(&c.common)
+	c.UserCredentialsApi = (*UserCredentialsApiService)(&c.common)
 
 	return c
 }

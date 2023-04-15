@@ -3,8 +3,12 @@ module github.com/mjspi/pingone-neo-go-sdk
 go 1.20
 
 require (
+	github.com/golangci/golangci-lint v1.52.2
 	github.com/mjspi/pingone-neo-go-sdk/credentials v0.0.0-20230413185621-c4a703f98a65
+	github.com/patrickcping/pingone-go-sdk-v2/management v0.17.1
+	github.com/pavius/impi v0.0.3
 	github.com/securego/gosec/v2 v2.15.0
+	golang.org/x/exp v0.0.0-20230321023759-10a507213a29
 	golang.org/x/oauth2 v0.7.0
 )
 
@@ -182,10 +186,6 @@ require (
 
 require (
 	github.com/golang/protobuf v1.5.3 // indirect
-	github.com/golangci/golangci-lint v1.52.2
-	github.com/patrickcping/pingone-go-sdk-v2/management v0.17.1
-	github.com/pavius/impi v0.0.3
-	golang.org/x/exp v0.0.0-20230321023759-10a507213a29
 	golang.org/x/net v0.9.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/protobuf v1.30.0 // indirect

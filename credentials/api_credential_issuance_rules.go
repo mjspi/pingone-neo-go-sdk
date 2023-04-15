@@ -20,12 +20,12 @@ import (
 )
 
 
-// PingOneCredentialsCredentialIssuanceRulesApiService PingOneCredentialsCredentialIssuanceRulesApi service
-type PingOneCredentialsCredentialIssuanceRulesApiService service
+// CredentialIssuanceRulesApiService CredentialIssuanceRulesApi service
+type CredentialIssuanceRulesApiService service
 
 type ApiApplyCredentialIssuanceRuleStagedChangesRequest struct {
 	ctx context.Context
-	ApiService *PingOneCredentialsCredentialIssuanceRulesApiService
+	ApiService *CredentialIssuanceRulesApiService
 	environmentID string
 	credentialTypeID string
 	credentialIssuanceRuleID string
@@ -56,7 +56,7 @@ ApplyCredentialIssuanceRuleStagedChanges Apply Credential Issuance Rule Staged C
  @param credentialIssuanceRuleID
  @return ApiApplyCredentialIssuanceRuleStagedChangesRequest
 */
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ApplyCredentialIssuanceRuleStagedChanges(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiApplyCredentialIssuanceRuleStagedChangesRequest {
+func (a *CredentialIssuanceRulesApiService) ApplyCredentialIssuanceRuleStagedChanges(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiApplyCredentialIssuanceRuleStagedChangesRequest {
 	return ApiApplyCredentialIssuanceRuleStagedChangesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -68,7 +68,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ApplyCredentialIss
 
 // Execute executes the request
 //  @return CredentialIssuanceRuleStagedChange
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ApplyCredentialIssuanceRuleStagedChangesExecute(r ApiApplyCredentialIssuanceRuleStagedChangesRequest) (*CredentialIssuanceRuleStagedChange, *http.Response, error) {
+func (a *CredentialIssuanceRulesApiService) ApplyCredentialIssuanceRuleStagedChangesExecute(r ApiApplyCredentialIssuanceRuleStagedChangesRequest) (*CredentialIssuanceRuleStagedChange, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -76,7 +76,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ApplyCredentialIss
 		localVarReturnValue  *CredentialIssuanceRuleStagedChange
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PingOneCredentialsCredentialIssuanceRulesApiService.ApplyCredentialIssuanceRuleStagedChanges")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialIssuanceRulesApiService.ApplyCredentialIssuanceRuleStagedChanges")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -217,7 +217,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ApplyCredentialIss
 
 type ApiCreateCredentialIssuanceRuleRequest struct {
 	ctx context.Context
-	ApiService *PingOneCredentialsCredentialIssuanceRulesApiService
+	ApiService *CredentialIssuanceRulesApiService
 	environmentID string
 	credentialTypeID string
 	credentialIssuanceRule *CredentialIssuanceRule
@@ -240,7 +240,7 @@ CreateCredentialIssuanceRule Create Credential Issuance Rule
  @param credentialTypeID
  @return ApiCreateCredentialIssuanceRuleRequest
 */
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) CreateCredentialIssuanceRule(ctx context.Context, environmentID string, credentialTypeID string) ApiCreateCredentialIssuanceRuleRequest {
+func (a *CredentialIssuanceRulesApiService) CreateCredentialIssuanceRule(ctx context.Context, environmentID string, credentialTypeID string) ApiCreateCredentialIssuanceRuleRequest {
 	return ApiCreateCredentialIssuanceRuleRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -251,7 +251,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) CreateCredentialIs
 
 // Execute executes the request
 //  @return CredentialIssuanceRule
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) CreateCredentialIssuanceRuleExecute(r ApiCreateCredentialIssuanceRuleRequest) (*CredentialIssuanceRule, *http.Response, error) {
+func (a *CredentialIssuanceRulesApiService) CreateCredentialIssuanceRuleExecute(r ApiCreateCredentialIssuanceRuleRequest) (*CredentialIssuanceRule, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -259,7 +259,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) CreateCredentialIs
 		localVarReturnValue  *CredentialIssuanceRule
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PingOneCredentialsCredentialIssuanceRulesApiService.CreateCredentialIssuanceRule")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialIssuanceRulesApiService.CreateCredentialIssuanceRule")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -396,7 +396,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) CreateCredentialIs
 
 type ApiDeleteCredentialIssuanceRuleRequest struct {
 	ctx context.Context
-	ApiService *PingOneCredentialsCredentialIssuanceRulesApiService
+	ApiService *CredentialIssuanceRulesApiService
 	environmentID string
 	credentialTypeID string
 	credentialIssuanceRuleID string
@@ -415,7 +415,7 @@ DeleteCredentialIssuanceRule Delete Credential Issuance Rule
  @param credentialIssuanceRuleID
  @return ApiDeleteCredentialIssuanceRuleRequest
 */
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) DeleteCredentialIssuanceRule(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiDeleteCredentialIssuanceRuleRequest {
+func (a *CredentialIssuanceRulesApiService) DeleteCredentialIssuanceRule(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiDeleteCredentialIssuanceRuleRequest {
 	return ApiDeleteCredentialIssuanceRuleRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -426,14 +426,14 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) DeleteCredentialIs
 }
 
 // Execute executes the request
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) DeleteCredentialIssuanceRuleExecute(r ApiDeleteCredentialIssuanceRuleRequest) (*http.Response, error) {
+func (a *CredentialIssuanceRulesApiService) DeleteCredentialIssuanceRuleExecute(r ApiDeleteCredentialIssuanceRuleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PingOneCredentialsCredentialIssuanceRulesApiService.DeleteCredentialIssuanceRule")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialIssuanceRulesApiService.DeleteCredentialIssuanceRule")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -560,7 +560,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) DeleteCredentialIs
 
 type ApiReadAllCredentialIssuanceRulesRequest struct {
 	ctx context.Context
-	ApiService *PingOneCredentialsCredentialIssuanceRulesApiService
+	ApiService *CredentialIssuanceRulesApiService
 	environmentID string
 	credentialTypeID string
 }
@@ -577,7 +577,7 @@ ReadAllCredentialIssuanceRules Read All Credential Issuance Rules
  @param credentialTypeID
  @return ApiReadAllCredentialIssuanceRulesRequest
 */
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadAllCredentialIssuanceRules(ctx context.Context, environmentID string, credentialTypeID string) ApiReadAllCredentialIssuanceRulesRequest {
+func (a *CredentialIssuanceRulesApiService) ReadAllCredentialIssuanceRules(ctx context.Context, environmentID string, credentialTypeID string) ApiReadAllCredentialIssuanceRulesRequest {
 	return ApiReadAllCredentialIssuanceRulesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -588,7 +588,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadAllCredentialI
 
 // Execute executes the request
 //  @return EntityArray
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadAllCredentialIssuanceRulesExecute(r ApiReadAllCredentialIssuanceRulesRequest) (*EntityArray, *http.Response, error) {
+func (a *CredentialIssuanceRulesApiService) ReadAllCredentialIssuanceRulesExecute(r ApiReadAllCredentialIssuanceRulesRequest) (*EntityArray, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -596,7 +596,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadAllCredentialI
 		localVarReturnValue  *EntityArray
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PingOneCredentialsCredentialIssuanceRulesApiService.ReadAllCredentialIssuanceRules")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialIssuanceRulesApiService.ReadAllCredentialIssuanceRules")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -731,7 +731,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadAllCredentialI
 
 type ApiReadCredentialIssuanceRuleStagedChangesRequest struct {
 	ctx context.Context
-	ApiService *PingOneCredentialsCredentialIssuanceRulesApiService
+	ApiService *CredentialIssuanceRulesApiService
 	environmentID string
 	credentialTypeID string
 	credentialIssuanceRuleID string
@@ -750,7 +750,7 @@ ReadCredentialIssuanceRuleStagedChanges Read Credential Issuance Rule Staged Cha
  @param credentialIssuanceRuleID
  @return ApiReadCredentialIssuanceRuleStagedChangesRequest
 */
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssuanceRuleStagedChanges(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiReadCredentialIssuanceRuleStagedChangesRequest {
+func (a *CredentialIssuanceRulesApiService) ReadCredentialIssuanceRuleStagedChanges(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiReadCredentialIssuanceRuleStagedChangesRequest {
 	return ApiReadCredentialIssuanceRuleStagedChangesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -762,7 +762,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssu
 
 // Execute executes the request
 //  @return CredentialIssuanceRuleStagedChange
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssuanceRuleStagedChangesExecute(r ApiReadCredentialIssuanceRuleStagedChangesRequest) (*CredentialIssuanceRuleStagedChange, *http.Response, error) {
+func (a *CredentialIssuanceRulesApiService) ReadCredentialIssuanceRuleStagedChangesExecute(r ApiReadCredentialIssuanceRuleStagedChangesRequest) (*CredentialIssuanceRuleStagedChange, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -770,7 +770,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssu
 		localVarReturnValue  *CredentialIssuanceRuleStagedChange
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PingOneCredentialsCredentialIssuanceRulesApiService.ReadCredentialIssuanceRuleStagedChanges")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialIssuanceRulesApiService.ReadCredentialIssuanceRuleStagedChanges")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -906,7 +906,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssu
 
 type ApiReadCredentialIssuanceRuleUsageCountsRequest struct {
 	ctx context.Context
-	ApiService *PingOneCredentialsCredentialIssuanceRulesApiService
+	ApiService *CredentialIssuanceRulesApiService
 	environmentID string
 	credentialTypeID string
 	credentialIssuanceRuleID string
@@ -925,7 +925,7 @@ ReadCredentialIssuanceRuleUsageCounts Read Credential Issuance Rule Usage Counts
  @param credentialIssuanceRuleID
  @return ApiReadCredentialIssuanceRuleUsageCountsRequest
 */
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssuanceRuleUsageCounts(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiReadCredentialIssuanceRuleUsageCountsRequest {
+func (a *CredentialIssuanceRulesApiService) ReadCredentialIssuanceRuleUsageCounts(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiReadCredentialIssuanceRuleUsageCountsRequest {
 	return ApiReadCredentialIssuanceRuleUsageCountsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -937,7 +937,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssu
 
 // Execute executes the request
 //  @return CredentialIssuanceRuleUsageCounts
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssuanceRuleUsageCountsExecute(r ApiReadCredentialIssuanceRuleUsageCountsRequest) (*CredentialIssuanceRuleUsageCounts, *http.Response, error) {
+func (a *CredentialIssuanceRulesApiService) ReadCredentialIssuanceRuleUsageCountsExecute(r ApiReadCredentialIssuanceRuleUsageCountsRequest) (*CredentialIssuanceRuleUsageCounts, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -945,7 +945,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssu
 		localVarReturnValue  *CredentialIssuanceRuleUsageCounts
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PingOneCredentialsCredentialIssuanceRulesApiService.ReadCredentialIssuanceRuleUsageCounts")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialIssuanceRulesApiService.ReadCredentialIssuanceRuleUsageCounts")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1081,7 +1081,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssu
 
 type ApiReadCredentialIssuanceRuleUsageDetailsRequest struct {
 	ctx context.Context
-	ApiService *PingOneCredentialsCredentialIssuanceRulesApiService
+	ApiService *CredentialIssuanceRulesApiService
 	environmentID string
 	credentialTypeID string
 	credentialIssuanceRuleID string
@@ -1100,7 +1100,7 @@ ReadCredentialIssuanceRuleUsageDetails Read Credential Issuance Rule Usage Detai
  @param credentialIssuanceRuleID
  @return ApiReadCredentialIssuanceRuleUsageDetailsRequest
 */
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssuanceRuleUsageDetails(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiReadCredentialIssuanceRuleUsageDetailsRequest {
+func (a *CredentialIssuanceRulesApiService) ReadCredentialIssuanceRuleUsageDetails(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiReadCredentialIssuanceRuleUsageDetailsRequest {
 	return ApiReadCredentialIssuanceRuleUsageDetailsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1112,7 +1112,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssu
 
 // Execute executes the request
 //  @return CredentialIssuanceRuleUsageDetails
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssuanceRuleUsageDetailsExecute(r ApiReadCredentialIssuanceRuleUsageDetailsRequest) (*CredentialIssuanceRuleUsageDetails, *http.Response, error) {
+func (a *CredentialIssuanceRulesApiService) ReadCredentialIssuanceRuleUsageDetailsExecute(r ApiReadCredentialIssuanceRuleUsageDetailsRequest) (*CredentialIssuanceRuleUsageDetails, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1120,7 +1120,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssu
 		localVarReturnValue  *CredentialIssuanceRuleUsageDetails
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PingOneCredentialsCredentialIssuanceRulesApiService.ReadCredentialIssuanceRuleUsageDetails")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialIssuanceRulesApiService.ReadCredentialIssuanceRuleUsageDetails")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1256,7 +1256,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadCredentialIssu
 
 type ApiReadOneCredentialIssuanceRuleRequest struct {
 	ctx context.Context
-	ApiService *PingOneCredentialsCredentialIssuanceRulesApiService
+	ApiService *CredentialIssuanceRulesApiService
 	environmentID string
 	credentialTypeID string
 	credentialIssuanceRuleID string
@@ -1275,7 +1275,7 @@ ReadOneCredentialIssuanceRule Read One Credential Issuance Rule
  @param credentialIssuanceRuleID
  @return ApiReadOneCredentialIssuanceRuleRequest
 */
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadOneCredentialIssuanceRule(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiReadOneCredentialIssuanceRuleRequest {
+func (a *CredentialIssuanceRulesApiService) ReadOneCredentialIssuanceRule(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiReadOneCredentialIssuanceRuleRequest {
 	return ApiReadOneCredentialIssuanceRuleRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1287,7 +1287,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadOneCredentialI
 
 // Execute executes the request
 //  @return CredentialIssuanceRule
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadOneCredentialIssuanceRuleExecute(r ApiReadOneCredentialIssuanceRuleRequest) (*CredentialIssuanceRule, *http.Response, error) {
+func (a *CredentialIssuanceRulesApiService) ReadOneCredentialIssuanceRuleExecute(r ApiReadOneCredentialIssuanceRuleRequest) (*CredentialIssuanceRule, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1295,7 +1295,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadOneCredentialI
 		localVarReturnValue  *CredentialIssuanceRule
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PingOneCredentialsCredentialIssuanceRulesApiService.ReadOneCredentialIssuanceRule")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialIssuanceRulesApiService.ReadOneCredentialIssuanceRule")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1431,7 +1431,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) ReadOneCredentialI
 
 type ApiUpdateCredentialIssuanceRuleRequest struct {
 	ctx context.Context
-	ApiService *PingOneCredentialsCredentialIssuanceRulesApiService
+	ApiService *CredentialIssuanceRulesApiService
 	environmentID string
 	credentialTypeID string
 	credentialIssuanceRuleID string
@@ -1456,7 +1456,7 @@ UpdateCredentialIssuanceRule Update Credential Issuance Rule
  @param credentialIssuanceRuleID
  @return ApiUpdateCredentialIssuanceRuleRequest
 */
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) UpdateCredentialIssuanceRule(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiUpdateCredentialIssuanceRuleRequest {
+func (a *CredentialIssuanceRulesApiService) UpdateCredentialIssuanceRule(ctx context.Context, environmentID string, credentialTypeID string, credentialIssuanceRuleID string) ApiUpdateCredentialIssuanceRuleRequest {
 	return ApiUpdateCredentialIssuanceRuleRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1468,7 +1468,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) UpdateCredentialIs
 
 // Execute executes the request
 //  @return CredentialIssuanceRule
-func (a *PingOneCredentialsCredentialIssuanceRulesApiService) UpdateCredentialIssuanceRuleExecute(r ApiUpdateCredentialIssuanceRuleRequest) (*CredentialIssuanceRule, *http.Response, error) {
+func (a *CredentialIssuanceRulesApiService) UpdateCredentialIssuanceRuleExecute(r ApiUpdateCredentialIssuanceRuleRequest) (*CredentialIssuanceRule, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1476,7 +1476,7 @@ func (a *PingOneCredentialsCredentialIssuanceRulesApiService) UpdateCredentialIs
 		localVarReturnValue  *CredentialIssuanceRule
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PingOneCredentialsCredentialIssuanceRulesApiService.UpdateCredentialIssuanceRule")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CredentialIssuanceRulesApiService.UpdateCredentialIssuanceRule")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

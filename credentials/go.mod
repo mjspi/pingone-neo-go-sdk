@@ -1,3 +1,3 @@
-module github.com/mjspi/pingone-neo-go-sdk/credentials
+module github.com/GIT_USER_ID/--git-user-id/credentials
 
-go 1.20
+go 1.18
